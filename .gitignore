@@ -157,8 +157,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-checkpoints_production/
-data/
 
 # Spyder project settings
 .spyderproject
