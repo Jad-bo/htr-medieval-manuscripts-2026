@@ -79,13 +79,14 @@ class MedievalHTRDataset(torch.utils.data.Dataset):
 class SavePeftAdapterCallback(TrainerCallback):
     """Callback personnalisé pour sauvegarder uniquement l'adaptateur LoRA (léger, ~Mo)."""
     def on_epoch_end(self, args, state, control, model=None, **kwargs):
-        """Sauvegarde l'adaptateur LoRA à la fin de chaque epoch dans un dossier dédié."""
+        """Sauvegarde l'adaptateur LoRA à la fin de chaque epoch au format PEFT."""
         if model is not None and hasattr(model, "decoder"):
-            adapter_dir = os.path.join(args.output_dir, f"adapter_epoch_{int(state.epoch)}.pt")
-            # Sauvegarde uniquement les poids LoRA (très léger)
-            if hasattr(model.decoder, 'peft_config'):
-                torch.save(model.decoder.state_dict(), adapter_dir)
-                print(f"  -> Adaptateur LoRA sauvegardé : {adapter_dir}")
+            adapter_dir = os.path.join(args.output_dir, f"adapter_epoch_{int(state.epoch)}")
+            os.makedirs(adapter_dir, exist_ok=True)
+            # Sauvegarde au format PEFT (compatible PeftModel.from_pretrained)
+            if hasattr(model.decoder, 'save_pretrained'):
+                model.decoder.save_pretrained(adapter_dir)
+                print(f"  -> Adaptateur LoRA sauvegardé : {adapter_dir}/")
         return control
 
 
@@ -227,7 +228,7 @@ def run_grid_search(
     if metric_for_best not in ["cer", "wer"]:
         raise ValueError("metric_for_best doit être 'cer' ou 'wer'")
 
-    model_name = "microsoft/trocr-base-handwritten"
+    model_name = "microsoft/trocr-large-stage1"
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f" Grid Search initialisée sur l'appareil : {device.upper()}")
     print(f" Métrique de sélection du meilleur modèle : {metric_for_best.upper()}")
@@ -369,9 +370,9 @@ def run_grid_search(
         final_dest = os.path.join(base_output_dir, "best_model")
         os.makedirs(final_dest, exist_ok=True)
 
-        # Sauvegarde uniquement l'adaptateur LoRA (fichiers légers : ~Mo)
-        # Pas le modèle complet (plusieurs Go)
-        if hasattr(best_model_ref, 'decoder') and hasattr(best_model_ref.decoder, 'peft_config'):
+        # Sauvegarde uniquement l'adaptateur LoRA au format PEFT
+        # Compatible avec PeftModel.from_pretrained()
+        if hasattr(best_model_ref, 'decoder') and hasattr(best_model_ref.decoder, 'save_pretrained'):
             best_model_ref.decoder.save_pretrained(final_dest)
             print(f" Adaptateur LoRA déployé dans : {final_dest}")
             print(f"   Taille estimée : ~{sum(p.numel() for p in best_model_ref.decoder.parameters() if p.requires_grad) * 4 / 1024**2:.1f} Mo")
@@ -385,7 +386,7 @@ if __name__ == "__main__":
         image_dir="./data/catmus/images",
         train_labels="./data/catmus/train.txt",
         val_labels="./data/catmus/val.txt",
-        epochs=8,
+        epochs=10,
         metric_for_best="cer",  # Change en "wer" si tu préfères optimiser le WER
-        total_lines=200  # Mettre un entier (ex: 200) pour limiter le dataset
+        total_lines=500  # Mettre un entier (ex: 500) pour limiter le dataset
     )

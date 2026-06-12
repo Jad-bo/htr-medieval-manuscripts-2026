@@ -1,40 +1,100 @@
-val_0000.png	conmesura ⁊ ꝯ atenplancia. mas fuertes seran: en destruir los ene-
-val_0001.png	desta partiçiõ.⁊ ꝓmetierõ ⁊ obligarõ assi.⁊ atodos sos bienes mobles eh̃erdades. de estar ⁊ ꝯplir ⁊ q̃tar ⁊ auer por firme esta partiçiõ ⁊ todas estas cosas sobredichas. ⁊ de nõ uenir cõtra ello por ssi nĩ por otro en nĩguna maña por deffaz̃ lo nĩ por mẽguar
-val_0002.png	ui una carta del Rey don Sanch̃ miõ padre q̃ dios perdone ffecha enesta guissa. Sepã  qͣ̃ntos esta
-val_0003.png	quelos ascondem: et delos q̃los fazem fuir.
-val_0004.png	elos forziadores.⁊ delas cosas
-val_0005.png	royz ⁊ de Pedro ferrandez. ⁊ de su mug̃ doña Maria royz. ⁊ de fferrand gut̃rrez ⁊ de su mũg doña Marina royz. ⁊ de Roy garçia los sobredichos. de todas qͣntas demãdas auiẽ o poden auer cõtra ellos. por Razõ de todos los bienes mobles ⁊ h̃edades q̃
-val_0006.png	nõ ssea osado de gl̃a alargen. nĩ de gl̃a contrallar por nĩguna manera. Ca q̃l qͥer q̃lo fizesse pechar mia
-val_0007.png	estranios por tener el so pueblo enpaz. Onde assi como dela mesura
-val_0008.png	bio qͣũdo esta casa arrendo o la ualia en q̃ ffue ap̃çiada el alffaia. Et qͣñto del pã q̃ ffrey pͦ guiralt rreçibiͦo p̃stado qͣndo la casa arrendo. ⁊ el pã q̃ mĩguo q̃ nõ dio dela
-val_0009.png	Delos que tienẽ alguna cosa.L.annos.o.xẍx. Delos tiermenos.⁊
+val_0000.png	nõ. ⁊ delas mãdas delos muertos.como se deuẽ escreuir.
+val_0001.png	mansedumiure.en iudgando iuizio derecho ⁊ q̃ seam appareyados
+val_0002.png	res cõ los dich̃s pͦ delas cob̃as a Sanch̃ ꝑez ⁊ ꝓmetierõ delos nõ mouer pl̃yto nĩ los ffaz̃ demãda en esta rrazõ Et desto amaz: las ꝑtes mandarõ ffaz̃
+val_0003.png	domĩgo ꝑez de atiença la fiz̃ escͥuir.
+val_0004.png	qual lo quiere ¶ Ca muchos fueron
+val_0005.png	pͦ guiralt ⁊ dela fiaduria ⁊ debdura q̃ sobr̃l ffizerõ q̃ daqͥ adelant̃ nõ ssean tenidos en esta rrazõ nĩ com̃o debdõrs nĩ com̃o fiadors Et ffizierõ pl̃yto estos ffrey
+val_0006.png	encle nolo queriã leyxar al regno: mas asos fiyos. maspor q̃ se asmam el
+val_0007.png	ioachin E soterrarõlo en ihrłm cõsus pient̃s
+val_0008.png	quien ñ guarda misericordia. Doncas faziendo derecho el rey: deue a
+val_0009.png	tes. si ꝑ uẽtura ñ fizierẽ manda daq̃las cosas: deuenllas auer sos fiyos. osos
 val_0010.png	samiẽtos.
-val_0011.png	et delos fitos.
-val_0012.png	elos ordenamiẽtos delas uodas.
-val_0013.png	Enel secũdo libro titol delos p̾itos.
-val_0014.png	do. quier lego. ñ sea descomungado por sc̃a eglisia: mas enademꝯ demas.
-val_0015.png	tela p̃sentia del rey don sisnando. enel tercero anno que el reg
-val_0016.png	elos grados. Delos ereda
-val_0017.png	por ssi. todos tres en uno. ⁊ por Razõ ⁊ por nob̃ie de fferrand gut̃rrez ⁊ de su mug̃ doña Marina royz q̃ nõ estan p̃sentes del̃ate. se partẽ por pagados del Comendador ⁊ delos ffreyres del ospital del Rey sobredichos./ de todas qͣntas demãdas auiẽ
-val_0018.png	las animalias.⁊ delas otras cosas. Delos puercos q̃ pascem.⁊ delas ani
-val_0019.png	cemiento delos enemigos.ca dela mesura delos principes naze el or-
-val_0020.png	do del rey.epor elso ensennamiẽto fiziessemos todos comunal mientre un
-val_0021.png	cõplimos
-val_0022.png	Enel septimo libro titol delos furtos edelos
-val_0023.png	cuya uoluntad e por cuyo mandado nos fazemꝰ estos estable⟦ci⟧mientos.e
-val_0024.png	adelãnt assi com̃o sila nõ ouiesse arrendada Et estos pͦ delas cob̃as ⁊ Sanch̃ ꝑez q̃ ffagã y fasta çinco dias o fasta q̃ pͦ uiçẽt mandase traeer çinco yntãs de buẽyes cõ
-val_0025.png	de ual de Toues doyuañs so h̃mano. Roy ganz de Uelna. Marti antolinez. ꝑo ferrandz de Ouirna. Et yo Ioh̃n ꝑez escuͥano publico de Cast̃lla q̃ escuͥi esta carta.
-val_0026.png	ala inffañt silo assi nõ cuplierẽ ⁊ la pena pagada o nõ pagada q̃ sten por esta abenẽçia sob̃rdicha ⁊ ql̃a cũplan. Otͦssi los dich̃s ffray domĩgo alffoñ ⁊ ffrey domĩgo
-val_0027.png	de ꝑti miẽtos delos casados: et delos desposados.
-val_0028.png	sos pariẽtes. et delos q̃ lexam ela fe ⁊ delos q̃ iazẽ cõlos omres. Delos
-val_0029.png	res cõ los dich̃s pͦ delas cob̃as a Sanch̃ ꝑez ⁊ ꝓmetierõ delos nõ mouer pl̃yto nĩ los ffaz̃ demãda en esta rrazõ Et desto amaz: las ꝑtes mandarõ ffaz̃
-val_0030.png	dio.et en q̃ uos metio. regnando ꝯhumilidad decorazõ.⁊ ꝯbuenos fec
-val_0031.png	lo. ⁊ silo fiziessen q̃ pechassen ala otra ꝑte qͥuietos m̃r. delos blãcos nouos alffoñ.a.uii. sueldos ⁊ medio cada m̃io.por pena.⁊ en cabo q̃ uala la partiçiõ assi com̃o sobredicho es. Et otrossi doña Maria royz. ⁊ Iohn gut̃rrez so ffiio.⁊ pedro ferrandez. ⁊
-val_0032.png	matan el parto dela mugier. Del denuesto. ⁊ delas plagas delos om̃es
-val_0033.png	mientos. Delos orfanos.⁊ delos q̃ᷝͦᷤ defendẽ: dela buena que
-val_0034.png	cos ⁊ delos mercadores.
-val_0035.png	fferrãt ꝑs dran de Seuill a qͥ yo la oue dada por su uida. Et mando ⁊ de ffiendo ffirme mieñt q̃ nĩguno
-val_0036.png	esta carta. Et esos iussantes doña Borenguella ffiia del Rey don fferrãndo. ⁊ doña Costãça ffiia del Rey don Alffonsso. Et yo doña Maria gut̃rrez abbadessa del Monest̃io de Sc̃a Maria la Real de Burgos. otorgames esta partiçiõ sobredi
-val_0037.png	Del amonestamiento delos obispos contrarios prin
-val_0038.png	Enel sesto libro ti
-val_0039.png	daqͥ a delañt libre ⁊ qͥta por iuro de hẽdat ꝑa ssiempre con todos sus t̃minos ⁊ con todos sus  h̃redamien
+val_0011.png	iuchos deffechas delas nueuas leys delos iudios.
+val_0012.png	q̃ agora.fago en uałłit mãde concertar las dichas leyes ⁊ escͥuir las
+val_0013.png	las cosas: por q̃ es res. elo q̃ gana ganalo mas pora si q̃ pora otre. onde nõ-
+val_0014.png	brete la palabra que dixo aquel ssanto
+val_0015.png	son mienbros de xp̃o. ⁊ el q̃ es sucabeza dellos. Doncas establecemꝯ q̃ da qͥ
+val_0016.png	para mient̃s desde la mayor cosa q̃ ay en
+val_0017.png	quese tornam.
+val_0018.png	tre nos todos diemos gr̃as al nr̃o saluador dios q̃ puede fazer todas las co-
+val_0019.png	cho entẽdudos.d̾ biẽ regnar. ꝯtemor d̾ dios ⁊ enfazer bonas obras ⁊ cõ-
+val_0020.png	tadores.nin deuen tomar nenguna cosa ꝑ forcia: de sos sometidos: nĩ de
+val_0021.png	carta uierẽ. Com̃o yo don Sanch̃ por la gr̃a de dios Rey de Castiella de Toledo de Leon de Galliçia
+val_0022.png	sc̃a eglisia. e que emendasen aquelas cosas quelos omres auien malu
+val_0023.png	los ẽxaltasse en ante. Certas todel elpueblo mientͤ q̃ cata de fazer el mar
+val_0024.png	do del rey.epor elso ensennamiẽto fiziessemos todos comunal mientre un
+val_0025.png	q̃ uienẽ dela ondra. deuen apertenecer. ala ondra.elas cosas q̃los reỹs
+val_0026.png	de sos padres.⁊ q̃ diessem fementia. estudio. de gardar los derechos de
+val_0027.png	Zacharial ¶ E aybel/. E a estos fiios
+val_0028.png	titol delas auenentias.
+val_0029.png	Delos casamiẽtos q̃ ñ deuẽ seer. Dela forcia delas
+val_0030.png	ssy sse nõ ssopiere guardar dellas ¶La
+val_0031.png	sos pariẽtes. et delos q̃ lexam ela fe ⁊ delos q̃ iazẽ cõlos omres. Delos
+val_0032.png	es todo del pueblo ñ se gou̾naua pollos gou̾nadores como deuia: mas
+val_0033.png	27
+val_0034.png	cosas ⁊ ganalas de sos enemigos mientͤ q̃ tiene los sos apaz. eque-
+val_0035.png	ui una carta del Rey don Sanch̃ miõ padre q̃ dios perdone ffecha enesta guissa. Sepã  qͣ̃ntos esta
+val_0036.png	uayas alla lo fallaras ¶ E com̃o quier
+val_0037.png	rarõ com̃o a Rey nĩlo soterrarõ eñl sepulcro
+val_0038.png	dios en tu coraçõ ¶ tres cosas fazẽ errar
+val_0039.png	io de acab que dixiemos en ante Reỹ en isrra
+val_0040.png	om̃s menores deuẽ cuidar d̾ toller la carga ela coita d̾ sobre los pue-
+val_0041.png	los malos de enpeezer. ⁊ todo om̃e coitado aya entẽdemiẽto q̃ aya reme-
+val_0042.png	leyto es todo om̃e q̃ iura mẽtira: enel nõbre d̾ so sennor dios. enesta ley.
+val_0043.png	na acallia E fizo punder todos sos q̃.
+val_0044.png	conseyo de pros.nim de uillanos del puebro. elos pͥncipes deuẽ seer delafe
+val_0045.png	nõ ssea osado de gl̃a alargen. nĩ de gl̃a contrallar por nĩguna manera. Ca q̃l qͥer q̃lo fizesse pechar mia
+val_0046.png	ricia q̃ es seruedũmre delos ydolos.etollerla delos corazones delos om̃s. q̃
+val_0047.png	o poden auer cõtra ellos por Razõ de todos los bienes mobles ⁊ h̃edades q̃ fuerõ de dõ fferrand roys cortesia. assi q̃ ellos nĩ otre por ellos nõ les an nĩguna cosa q̃ demãdar por nĩguna Razõ q̃ pueda seer. nĩ por carta nĩ por pͥuillegio ganado nĩ por ganar. ⁊ qͥ
+val_0048.png	fuerõ en un tienpo/. ⁊
+val_0049.png	atender sola miẽtͤ el so ꝓuecho: mas el derecho de so pueblo.⁊ d̃ sua t̾ra. Mas
+val_0050.png	re deste mismo ospital. dela casa de uillahelmero. por uiiii. años. en q̃ ffuerõ fiador̃s estos pͦ delas cob̃as. ⁊ Sanch̃ ꝑez. assi com̃o dize la carta publica del arrendamiẽto
+val_0051.png	muy gl̃oso rey despanna ⁊ de francia.todos los obispos nos aiuntamos
+val_0052.png	guos diziem tal prouerbio. rey seras se derecho fezieres.⁊ se ñ fezieres
+val_0053.png	ꝑes lo mando ffaz̃ por mandado del Rey. yo ꝑo ponz la fiz escͥruĩ / alffonsso ꝑes / ssant̃ mͦs. agora
+val_0054.png	Enel quinto libͦ
+val_0055.png	elos ordenamiẽtos delas uodas.
+val_0056.png	contͣ dios nĩ contra el tu ꝓximo q̃ te
+val_0057.png	eguo ioram eniudea ⁊ en ihrłm ⁊ iosapha
+val_0058.png	deroso nĩ en ssu querer nĩ en ssu mano
+val_0059.png	e temprar el inuizio. Delas leys de todos los hereges ⁊ de todos los
+val_0060.png	ala inffañt silo assi nõ cuplierẽ ⁊ la pena pagada o nõ pagada q̃ sten por esta abenẽçia sob̃rdicha ⁊ ql̃a cũplan. Otͦssi los dich̃s ffray domĩgo alffoñ ⁊ ffrey domĩgo
+val_0061.png	elos que acusam los malfechores.
+val_0062.png	⁊ ssesudos ⁊ entendudos Et aotros lisiadoᷤᷤ
+val_0063.png	cesaria.q̃ segundo sua uolũtad del rey. ⁊ dela nr̃a: fiziessemos las cosas q̃
+val_0064.png	⁊ uillas ⁊ logares delos mios rregnos ⁊ del mio señorio. Salut ⁊ grã
+val_0065.png	ty fasta la menor ⁊ fallaras q̃ todo es
+val_0066.png	Delas donatõnes generales. Belas donatõnes q̃ son fechas a
+val_0067.png	los corderos sson tuyos ⁊ nõ suyos ¶Et
+val_0068.png	dexo g̈nde auer¶Edexo aIeram el Regno q̃
+val_0069.png	mendador ⁊ los ffreyres sobredichos. Et doña Maria royz por ssi. Et Pedro ferrandez g̃no de dieg royz por ssi ⁊ por su mug̃ doña Maria royz ⁊ por fferr̃ gutĩrez de haro. ⁊ por doña Marina royz su mug̃ fiia de dieg royz ⁊ Roy garçia por ssi
+val_0070.png	uoles.⁊ delas uĩnas.⁊ delos ortos.⁊ delos panes. Delos dãnos q̃ fazem
+val_0071.png	h̾ederos.⁊ enesta manera sera guardada. la ley.por siemp̾. entodos sos fe
+val_0072.png	royz ⁊ de Pedro ferrandez. ⁊ de su mug̃ doña Maria royz. ⁊ de fferrand gut̃rrez ⁊ de su mũg doña Marina royz. ⁊ de Roy garçia los sobredichos. de todas qͣntas demãdas auiẽ o poden auer cõtra ellos. por Razõ de todos los bienes mobles ⁊ h̃edades q̃
+val_0073.png	anõs ⁊ murio ⁊ los om̃s dela trrã nõlo llo
+val_0074.png	adelantre los res deuem seer esleyudos. Oenla cibdad de roma. o en aquel
+val_0075.png	por reys.nin pudieran seer nuy richos delas suas cosas. si el pueblo nõ
+val_0076.png	al om̃e ssabidor por entendudo que ssea
+val_0077.png	Delos deparmiẽtos.
+val_0078.png	on cuidado del amor de xp̃o. ⁊ congrant diligentia de donsisnando.
+val_0079.png	bio qͣũdo esta casa arrendo o la ualia en q̃ ffue ap̃çiada el alffaia. Et qͣñto del pã q̃ ffrey pͦ guiralt rreçibiͦo p̃stado qͣndo la casa arrendo. ⁊ el pã q̃ mĩguo q̃ nõ dio dela
+val_0080.png	dexares dellos los que quisieres nõ fa
+val_0081.png	enmuchas eglisias despania. enmuchas maneras. et como nõ deuẽ: comͦ
+val_0082.png	fieles: q̃ por estas palauras. fusse tolida da qͥ adelantre toda mala copdiciͣ.
+val_0083.png	daqͥ a delañt libre ⁊ qͥta por iuro de hẽdat ꝑa ssiempre con todos sus t̃minos ⁊ con todos sus  h̃redamien
+val_0084.png	quando morio ¶ Mio fiio com̃o quier qũ
+val_0085.png	nauam pora si las cosas desos subiectos. et ñ les mẽbraua q̃ dios les diera
+val_0086.png	çia gut̃rrez arçediano de Treuiño. E el gut̃rrez so Ermano. Don Ioh̃n moriz / don Andres ꝯpañes en la Egl̃ia de Sc̃a Maria. Dõ Muño capellã del coro de Sc̃a Maria ⟦⟧ pez de Bodano Martĩ roys ⟦⟧ de Roy dieg
+val_0087.png	Delas cosas encomẽdadas . ⁊ delas enp̃stadas: Delos penos ⁊ delas deo
+val_0088.png	que forziam. Delas q̃mas.⁊ delos quemadores. Del dãno delas ar
+val_0089.png	este amasias ⁊ Regno su fiio ozias
+val_0090.png	fiias ⁊ nõ gelos quiso dios dar ⁊ aotͦs
+val_0091.png	es leydos los pͥncipes equelas cosas q̃ elos ganam deuẽ fincar
+val_0092.png	mas acrecienta enesta ley feziemꝯ assi por los reys q̃ son. como polos
+val_0093.png	⁊ Nueue años.
+val_0094.png	malias erradas. Delas abeias ⁊ del damno q̃ fazem.
+val_0095.png	4
+val_0096.png	irasçimini no
+val_0097.png	⁊ de doña Maria gut̃rrez abbadessa del Monest̃io de Sc̃a Maria la Real de Burgos pusiemos en esta carta el seello de mi el Comẽdador ⁊ el seello del ospital en testimõio. Et yo doña Maria royz. ⁊ yo Ioh̃n gut̃rrez so ffiio /
+val_0098.png	no.enna.era.de.d.c.et.Lxxx.i.anno.Rey.sisuando.
+val_0099.png	cipes como deuem seer nansos et atemprados contͣ

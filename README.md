@@ -401,12 +401,15 @@ pytest tests/
 
 | Learning Rate | LoRA rank (r) | CER | WER |
 |:---|:---|:---|:---|
-| 5e-5 | 8 | [à remplir] | [à remplir] |
-| 1e-4 | 8 | [à remplir] | [à remplir] |
-| 5e-5 | 16 | [à remplir] | [à remplir] |
-| 1e-4 | 16 | [à remplir] | [à remplir] |
+| 5e-5 | 8 | 102.52% | 138.06% |
+| 5e-5 | 16 | 103.38% | 114.78% |
+| 1e-4 | 8 | 132.60% | 144.13% |
+| **1e-4** | **16** | **82.58%** ✅ | **100.40%** ✅ |
 
-**Meilleur modèle** : [LR=?, r=?] — CER = ?% | WER = ?%
+**Meilleur modèle** : LR=1e-4, r=16 — CER = **82.58%** | WER = **100.40%**
+- Taille de l'adaptateur LoRA : **5.8 Mo**
+- Loss d'entraînement : 11.26 → 4.77 (sur 8 epochs)
+- Temps d'entraînement : ~5h20 par run (CPU)
 
 > **À compléter après exécution de** `python src/htr_training.py`
 

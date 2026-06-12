@@ -11,7 +11,8 @@ def run_htr_inference(
     label_path: str = "./data/catmus/train.txt",
     checkpoint_path: str = "./checkpoints_production/best_model",
     output_path: str = None,
-    model_base_name: str = "microsoft/trocr-base-handwritten"
+    model_base_name: str = "microsoft/trocr-large-stage1",
+    transcribe_all: bool = False  # Si True, transcrit TOUTES les lignes (même annotées)
 ) -> None:
     """
     Transcription automatique des lignes avec chargement explicite des adaptateurs LoRA.
@@ -22,6 +23,8 @@ def run_htr_inference(
         checkpoint_path: Chemin vers le modèle fine-tuné (adaptateurs LoRA)
         output_path: Fichier de sortie (défaut: écrase label_path)
         model_base_name: Modèle de base TrOCR
+        transcribe_all: Si True, transcrit toutes les lignes même déjà annotées
+                        (utile pour comparer avec les transcriptions de référence)
     """
     if not os.path.exists(label_path):
         print(f"Erreur : Fichier de labels introuvable : {label_path}")
@@ -38,11 +41,32 @@ def run_htr_inference(
 
     # 2. Greffe propre des adaptateurs LoRA
     adapter_config_path = os.path.join(checkpoint_path, "adapter_config.json")
-    if os.path.exists(adapter_config_path):
+    adapter_weights_path = os.path.join(checkpoint_path, "adapter_model.safetensors")
+
+    if os.path.exists(adapter_config_path) and os.path.exists(adapter_weights_path):
         print(f"Injection des adaptateurs LoRA depuis : {checkpoint_path}...")
         try:
-            model = PeftModel.from_pretrained(model, checkpoint_path)
-            model.eval()  # CRUCIAL : force le modèle en mode évaluation
+            # Recréer la structure LoRA sur le decoder (comme pendant l'entraînement)
+            from peft import LoraConfig, get_peft_model
+
+            # Configuration LoRA (doit correspondre à l'entraînement)
+            peft_config = LoraConfig(
+                r=16,  # TODO: adapter selon le meilleur modèle
+                lora_alpha=32,
+                target_modules=["q_proj", "v_proj"],
+                lora_dropout=0.05,
+                bias="none",
+                task_type=None
+            )
+
+            # Injecter LoRA dans le decoder
+            model.decoder = get_peft_model(model.decoder, peft_config)
+
+            # Charger les poids de l'adaptateur
+            import safetensors.torch
+            state_dict = safetensors.torch.load_file(adapter_weights_path)
+            model.decoder.load_state_dict(state_dict, strict=False)
+            model.eval()
             print("Succès : Adaptateurs LoRA injectés et verrouillés (mode eval).")
         except Exception as e:
             print(f"Erreur lors de l'injection LoRA : {e}")
@@ -64,7 +88,8 @@ def run_htr_inference(
     changes_made = 0
     errors = 0
 
-    print(f"\nLancement de l'inférence sur [{device.upper()}]...")
+    mode_str = "(toutes les lignes)" if transcribe_all else "(uniquement [TODO_TRANSCRIPTION])"
+    print(f"\nLancement de l'inférence sur [{device.upper()}] {mode_str}...")
     print(f"Images recherchées dans : {image_dir}\n")
 
     for line in lines:
@@ -81,7 +106,7 @@ def run_htr_inference(
         filename = parts[0]
         current_transcription = parts[1] if len(parts) > 1 else "[TODO_TRANSCRIPTION]"
 
-        if current_transcription == "[TODO_TRANSCRIPTION]":
+        if current_transcription == "[TODO_TRANSCRIPTION]" or transcribe_all:
             img_path = os.path.join(image_dir, filename)
 
             if os.path.exists(img_path):
@@ -131,9 +156,19 @@ def run_htr_inference(
 
 
 if __name__ == "__main__":
-    # Exemple d'utilisation avec les chemins CATMuS par défaut
+    # Mode 1 : transcrit uniquement les lignes marquées [TODO_TRANSCRIPTION]
     run_htr_inference(
         image_dir="./data/catmus/images",
         label_path="./data/catmus/train.txt",
-        checkpoint_path="./checkpoints_production/best_model"
+        checkpoint_path="./checkpoints_production/best_model",
+        transcribe_all=False
     )
+
+    # Mode 2 : transcrit TOUTES les lignes (pour évaluation/comparaison)
+    # run_htr_inference(
+    #     image_dir="./data/catmus/images",
+    #     label_path="./data/catmus/val.txt",
+    #     checkpoint_path="./checkpoints_production/best_model",
+    #     output_path="./data/catmus/val_predicted.txt",
+    #     transcribe_all=True
+    # )

@@ -3,7 +3,7 @@ import random
 from datasets import load_dataset
 from PIL import Image
 
-def prepare_catmus_data(output_dir="./data/catmus", total_lines=200, train_ratio=0.8):
+def prepare_catmus_data(output_dir="./data/catmus", total_lines=500, train_ratio=0.8):
     """
     Extrait des données de CATMuS/medieval et les sépare en train.txt et val.txt.
     """
