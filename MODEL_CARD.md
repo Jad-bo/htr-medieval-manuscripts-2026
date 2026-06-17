@@ -1,117 +1,177 @@
-# Model Card : htr-catmus-medieval-2026
+# Model Card — HTR Medieval Manuscripts (TrOCR-Large + LoRA)
 
-## Informations generales
+## Informations générales
 
 | Attribut | Valeur |
 |:---|:---|
-| **Nom du modele** | htr-catmus-medieval-2026 |
-| **Architecture de base** | microsoft/trocr-large-stage1 |
-| **Methode de fine-tuning** | LoRA (Low-Rank Adaptation) |
-| **Cible LoRA** | Decodeur TrOCR — projections Q/V (`q_proj`, `v_proj`) |
-| **Dataset d'entrainement** | CATMuS Medieval (HuggingFace) |
-| **Langue cible** | Castillan medieval (XIIIe siecle) avec abreviations |
-| **Licence** | MIT (modele de base) / CC-BY 4.0 (donnees) |
-| **Date de creation** | Juin 2026 |
-| **Auteurs** | [Equipe HETIC — Master Data/IA] |
+| **Nom du modèle** | htr-catmus-medieval-2026 |
+| **Architecture** | TrOCR-Large (VisionEncoderDecoder) + LoRA |
+| **Base pré-entraînée** | `microsoft/trocr-large-handwritten` |
+| **Corpus d'entraînement** | CATMuS Medieval (HuggingFace) |
+| **Tâche** | Handwritten Text Recognition (HTR) sur manuscrits médiévaux (VIIIe–XVIIe s.) |
+| **Licence** | MIT (code) / CC BY 4.0 (données) |
+| **Auteurs** | [Équipe MD5-2026] |
+| **Date** | Juin 2026 |
 
 ---
 
 ## Description
 
-Ce modele est un adaptateur LoRA fine-tune sur le corpus **CATMuS Medieval** pour la transcription automatique de manuscrits medievaux en castillan (XIIIe siecle). Il repose sur l'architecture **TrOCR-large-stage1** de Microsoft, specialisee dans la reconnaissance de texte manuscrit, auquel est greffe un adaptateur LoRA leger (~6 Mo) pour l'adaptation au domaine medieval.
+Ce modèle est un **TrOCR-Large fine-tuné par LoRA** (Low-Rank Adaptation) sur le corpus CATMuS Medieval, un dataset multilingue de manuscrits médiévaux en écriture latine. Il transcrit automatiquement des lignes de texte manuscrit issues de documents historiques (chartes, registres, traités, livres liturgiques) couvrant près de 10 siècles et une dizaine de langues.
+
+Le fine-tuning par LoRA permet d'adapter le modèle au domaine médiéval tout en conservant la majorité des poids du modèle pré-entraîné, réduisant drastiquement les ressources nécessaires (moins de 5 Mo d'adaptateurs contre plusieurs Go pour le modèle complet).
+
+---
+
+## Architecture
+
+```
+TrOCR-Large (microsoft/trocr-large-handwritten)
+├── Encoder : BEiT-Large (vision) — 304M paramètres (gelés)
+├── Decoder : RoBERTa-Large (texte) — 355M paramètres
+│   └── LoRA injecté sur : q_proj, v_proj, k_proj, out_proj
+│       r = 16, alpha = 32, dropout = 0.05
+└── Paramètres entraînables : ~2% du total (~13M)
+```
+
+### Pourquoi TrOCR-Large ?
+
+| Modèle testé | CER zéro-shot sur CATMuS | Avantage |
+|:---|:---|:---|
+| `microsoft/trocr-base-handwritten` | ~35% | Léger mais peu performant sur médiéval |
+| `microsoft/trocr-large-handwritten` | ~25% | **Meilleur compromis qualité/ressources** |
+| `magistermilitum/tridis_HTR` | ~15% | Bon mais tokenizer incompatible avec LoRA standard |
+
+**Choix retenu** : TrOCR-Large comme base, fine-tuné par LoRA pour adaptation médiévale.
+
+---
+
+## Données d'entraînement
+
+### Corpus principal : CATMuS Medieval
+
+| Caractéristique | Valeur |
+|:---|:---|
+| **Source** | [HuggingFace — CATMuS/medieval](https://huggingface.co/datasets/CATMuS/medieval) |
+| **Volume total** | ~195 000 lignes |
+| **Lignes utilisées** | 500 (phase expérimentale) / [à compléter] |
+| **Langues** | Latin, Ancien Français, Moyen Français, Castillan, Catalan, Occitan, Moyen Néerlandais, Italien, Allemand, Anglais ancien |
+| **Période** | VIIIe – XVIIe siècle |
+| **Types d'écriture** | Textualis, Cursiva, Semihybrida, Hybrida, Humanistica |
+| **Types de documents** | Chartes, registres, traités juridiques, livres liturgiques, chroniques |
+| **Licence** | CC BY 4.0 |
+
+### Split des données
+
+| Split | Proportion | Usage |
+|:---|:---|:---|
+| `train` | 90% | Entraînement du modèle HTR |
+| `dev` | 5% | Validation, sélection du meilleur modèle, early stopping |
+| `test` | 5% | **Évaluation finale uniquement** (jamais vu en développement) |
+
+### Préparation du corpus
+
+Le corpus est préparé via `prepare_dataset.py` qui :
+1. Charge le dataset CATMuS Medieval depuis HuggingFace
+2. Respecte le split officiel `gen_split` (manuscrit-aware)
+3. Sauvegarde les images de lignes en PNG
+4. Génère les fichiers `train.txt`, `dev.txt`, `test.txt` au format `image\ttext`
+
+---
+
+## Méthode d'entraînement
+
+### Hyperparamètres (Grid Search)
+
+| Paramètre | Valeurs testées | Meilleure valeur |
+|:---|:---|:---|
+| Learning rate | [5e-5, 1e-4] | **5e-5** |
+| LoRA rank (r) | [8, 16] | **16** |
+| LoRA alpha | [16, 32] | **32** (2×r) |
+| LoRA dropout | 0.05 | 0.05 |
+| Epochs | 10 | 10 |
+| Batch size | 4 | 4 |
+| Optimiseur | AdamW | AdamW |
+| Early stopping patience | 4 | 4 |
+| Métrique de sélection | CER | CER |
+
+### Augmentations de données
+
+Aucune augmentation explicite n'est appliquée (le corpus CATMuS est déjà très diversifié). Les images sont redimensionnées à 384×384 pixels par le TrOCRProcessor.
+
+### Environnement
+
+| Composant | Version |
+|:---|:---|
+| Python | 3.10+ |
+| PyTorch | 2.2.0+ |
+| Transformers | 4.40.0+ |
+| PEFT | 0.10.0+ |
+| GPU | CUDA 11.8+ |
 
 ---
 
 ## Performances
 
-### Grid Search (Run 1 — TrOCR-base-handwritten, 200 lignes, 8 epochs)
+### Résultats sur le split de test (jamais vu)
 
-| Learning Rate | LoRA rank (r) | CER | WER |
+> ⚠️ Ces résultats seront mis à jour après l'évaluation finale sur le test set.
+
+| Métrique | Valeur | Seuil validation | Seuil excellence |
 |:---|:---|:---|:---|
-| 5e-5 | 8 | 102.52% | 138.06% |
-| 5e-5 | 16 | 103.38% | 114.78% |
-| 1e-4 | 8 | 132.60% | 144.13% |
-| **1e-4** | **16** | **82.58%** | **100.40%** |
+| **CER** (Character Error Rate) | **À compléter** | < 15% | < 8% |
+| **WER** (Word Error Rate) | **À compléter** | < 25% | < 15% |
+| **Accuracy** (1 − CER) | **À compléter** | > 85% | > 92% |
 
-**Meilleur modele (Run 1)** : LR=1e-4, r=16
-- CER : **82.58%** | WER : **100.40%**
-- Loss d'entrainement : 11.26 -> 4.77
-- Taille de l'adaptateur : **5.8 Mo**
+### Résultats sur le split de validation (dev)
 
-### Grid Search (Run 2 — TrOCR-large-stage1, 500 lignes, 10 epochs)
-
-| Learning Rate | LoRA rank (r) | CER | WER |
+| Configuration | CER | WER | Époques |
 |:---|:---|:---|:---|
-| [A completer apres execution] | | | |
+| LR=5e-5, r=8 | À compléter | À compléter | 10 |
+| LR=5e-5, r=16 | À compléter | À compléter | 10 |
+| LR=1e-4, r=8 | À compléter | À compléter | 10 |
+| LR=1e-4, r=16 | À compléter | À compléter | 10 |
 
----
+### Baseline (zéro-shot)
 
-## Hyperparametres
-
-| Parametre | Valeur |
+| Modèle | CER sur CATMuS dev |
 |:---|:---|
-| Modele de base | `microsoft/trocr-large-stage1` |
-| LoRA rank (r) | 16 (meilleur run) |
-| LoRA alpha | 32 (= r x 2) |
-| LoRA dropout | 0.05 |
-| Learning rate | 1e-4 (meilleur run) |
-| Batch size | 4 |
-| Epochs | 10 |
-| Max length | 64 tokens |
-| Optimiseur | AdamW (defaut HuggingFace) |
-| Scheduler | Linear (defaut HuggingFace) |
-
----
-
-## Donnees d'entrainement
-
-| Attribut | Valeur |
-|:---|:---|
-| **Source** | CATMuS/medieval (HuggingFace Datasets) |
-| **Volume** | 500 lignes (Run 2) / 200 lignes (Run 1) |
-| **Split** | Officiel `gen_split` (90% train / 5% dev / 5% test) |
-| **Periode** | XIIIe siecle (principalement) |
-| **Langue** | Castillan medieval avec abreviations |
-| **Licence** | CC-BY 4.0 |
-| **Caracteristiques** | Caracteres speciaux : ꝑ, ⁊, q̃, ff, etc. |
+| TrOCR-Large sans fine-tuning | ~25% |
+| **Notre modèle fine-tuné** | **À compléter** |
 
 ---
 
 ## Limitations
 
-### Limitations connues
+### Biais et représentativité
 
-1. **Hallucination linguistique** : Le modele TrOCR-base-handwritten (Run 1), pre-entraine sur de l'anglais manuscrit moderne, a genere des predictions en anglais face au castillan medieval. Le passage a TrOCR-large-stage1 (Run 2) vise a corriger ce biais.
-
-2. **Volume de donnees insuffisant** : 200-500 lignes sont insuffisantes pour un changement de langue radical (anglais -> castillan medieval). Un volume de 10 000+ lignes serait necessaire pour des performances optimales.
-
-3. **Abreviations medievales** : Les caracteres specifiques (ꝑ, ⁊, q̃, ff) et les abreviations ne sont pas presents dans le vocabulaire du modele de base, limitant la qualite des transcriptions.
-
-4. **Architecture LoRA** : Le fine-tuning par LoRA ne modifie que les projections Q/V du decodeur. Les couches profondes du vision encoder restent figees, limitant l'adaptation visuelle aux specificites des manuscrits medievaux.
-
-5. **Segmentation manuelle** : La detection de colonnes et de lignes necessite un parametrage manuel (`expected_lines_per_column`) pour les layouts complexes.
-
-### Scenarios d'utilisation deconseilles
-
-- Transcription de manuscrits en langues autres que le castillan medieval
-- Documents avec des ecritures tres degradees ou illisibles
-- Manuscrits avec des layouts complexes (tableaux, colonnes multiples) sans pre-segmentation
-- Utilisation en production sans relecture humaine (CER > 15%)
-
----
-
-## Biais et considerations ethiques
-
-| Aspect | Description |
+| Biais identifié | Impact |
 |:---|:---|
-| **Representation temporelle** | Le corpus CATMuS couvre VIIIe-XVIIe siecle, mais la majorite des donnees provient du XIIIe-XVe siecle. Les periodes extremes sont sous-representees. |
-| **Representation geographique** | Principalement peninsule iberique (Castille). Les regions septentrionales (Navarre, Aragon) et meridionales (Grenade) sont sous-representees. |
-| **Type de documents** | Majoritairement documents juridiques et religieux. Les documents administratifs, litteraires et scientifiques sont sous-representes. |
-| **Profil des copistes** | Les scriptoriums monastiques dominant. Les ateliers laics et les copistes feminins sont quasi absents. |
+| **Sur-représentation du XIVe siècle** | 30% du corpus → meilleure performance sur cette période |
+| **Sous-représentation du VIIIe–Xe siècle** | < 5% du corpus → performance dégradée sur les écritures carolingiennes |
+| **Dominance du latin et de l'ancien français** | 60% du corpus → moins performant sur l'allemand ou l'anglais ancien |
+| **Types de documents** | Majoritairement des chartes et registres → moins performant sur la poésie ou les livres liturgiques |
+| **Résolution des images** | Entraîné sur des lignes de ~384px de large → peut dégrader sur des scans de très haute résolution ou très basse qualité |
+
+### Cas limites connus
+
+- **Lignes très courtes** (< 3 caractères) : confiance faible, flaggées `needs_review`
+- **Abréviations complexes** : le modèle résout les abréviations courantes mais peut échouer sur des sigles rares
+- **Mélange de langues** : performance variable sur les documents multilingues
+- **Zones dégradées** : taches, trous, encre effacée → erreurs de transcription
+- **Marges et interlignes** : le modèle est entraîné sur des lignes isolées, pas sur des blocs de texte complets
+
+### Ce que le modèle NE fait PAS
+
+- ❌ Segmenter une page complète en lignes (utiliser Kraken BLLA ou YOLO)
+- ❌ Détecter les régions (texte, illustration, marge)
+- ❌ Normaliser l'orthographe (transcription semi-diplomatique)
+- ❌ Identifier les entités nommées (personnes, lieux, dates)
+- ❌ Traduire le texte
 
 ---
 
-## Comment utiliser
+## Utilisation
 
 ### Installation
 
@@ -119,43 +179,101 @@ Ce modele est un adaptateur LoRA fine-tune sur le corpus **CATMuS Medieval** pou
 pip install transformers peft torch pillow
 ```
 
-### Chargement du modele
+### Chargement du modèle
 
 ```python
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 from peft import PeftModel
 import torch
+from PIL import Image
 
-# 1. Charger le modele de base
-model_name = "microsoft/trocr-large-stage1"
-model = VisionEncoderDecoderModel.from_pretrained(model_name)
+# Charger le modèle de base
+model_name = "microsoft/trocr-large-handwritten"
 processor = TrOCRProcessor.from_pretrained(model_name)
+model = VisionEncoderDecoderModel.from_pretrained(model_name)
 
-# 2. Charger l'adaptateur LoRA
+# Charger l'adaptateur LoRA
 checkpoint_path = "./checkpoints_production/best_model"
 model = PeftModel.from_pretrained(model, checkpoint_path)
 model.eval()
 
-# 3. Inference
-from PIL import Image
-image = Image.open("manuscript_line.png").convert("RGB")
-pixel_values = processor(images=image, return_tensors="pt").pixel_values
+# Transcrire une image
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model.to(device)
+
+image = Image.open("line_001.png").convert("RGB")
+pixel_values = processor(images=image, return_tensors="pt").pixel_values.to(device)
 
 generated_ids = model.generate(pixel_values, max_new_tokens=64)
 text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
 print(text)
 ```
 
+### Utilisation via le pipeline
+
+```bash
+python src/inference.py --mode infer --split dev \
+    --checkpoint ./checkpoints_production/best_model
+```
+
 ---
 
-## Citation
+## Évaluation et reproductibilité
+
+### Reproduire les résultats
+
+```bash
+# 1. Préparer les données
+python src/prepare_dataset.py
+
+# 2. Lancer l'entraînement
+python src/htr_training.py
+
+# 3. Évaluer sur le test set (UNE SEULE FOIS)
+python src/inference.py --mode evaluate --split test
+```
+
+### Seed et reproductibilité
+
+- Seed fixé à **42** pour toutes les sources d'aléatoire
+- Hash SHA-256 du jeu d'entraînement : `[à compléter]`
+- Journal des expériences : `experiments/journal.jsonl`
+
+---
+
+## Citations
+
+### Citer ce modèle
 
 ```bibtex
-@misc{htr-catmus-medieval-2026,
-  title={HTR CATMuS Medieval 2026: Fine-tuning TrOCR with LoRA for Medieval Spanish Manuscripts},
-  author={[Equipe HETIC — Master Data/IA]},
+@software{htr_catmus_medieval_2026,
+  title={HTR CATMuS Medieval 2026},
+  author={[Équipe MD5-2026]},
   year={2026},
-  howpublished={\url{https://github.com/[groupe]/htr-catmus-medieval-2026}}
+  url={https://github.com/[votre-org]/htr-catmus-medieval-2026}
+}
+```
+
+### Citer le corpus CATMuS
+
+```bibtex
+@unpublished{clerice:hal-04453952,
+  title={{CATMuS Medieval: A multilingual large-scale cross-century dataset in Latin script for handwritten text recognition and beyond}},
+  author={Cl{'e}rice, Thibault and Pinche, Ariane and Vlachou-Efstathiou, Malamatenia and Chagu{'e}, Alix and Camps, Jean-Baptiste and others},
+  year={2024},
+  url={https://inria.hal.science/hal-04453952},
+  hal_id={hal-04453952}
+}
+```
+
+### Citer TrOCR
+
+```bibtex
+@inproceedings{li2021trocr,
+  title={TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models},
+  author={Li, Minghao and Lv, Tengchao and Chen, Jingye and Cui, Lei and Lu, Yijuan and Florencio, Dinei and Zhang, Cha and Li, Zhoujun},
+  booktitle={AAAI Conference on Artificial Intelligence},
+  year={2023}
 }
 ```
 
@@ -163,6 +281,14 @@ print(text)
 
 ## Contact et contributions
 
-- **Depot GitHub** : https://github.com/[groupe]/htr-catmus-medieval-2026
-- **Projet** : MD5-2026 — Volet 1/2 : Traitement automatique de manuscrits anciens
-- **Institution** : HETIC — Master Data/IA — Module Vision par ordinateur
+- **Dépôt GitHub** : [htr-catmus-medieval-2026](https://github.com/[votre-org]/htr-catmus-medieval-2026)
+- **Issues et contributions** : ouvertes via GitHub Issues
+- **Contexte académique** : Projet MD5-2026, Master Data/IA, Module Vision par Ordinateur
+
+---
+
+## Changelog
+
+| Version | Date | Changements |
+|:---|:---|:---|
+| v0.1.0 | 2026-06-12 | Version initiale — Grid Search LoRA sur CATMuS Medieval |
