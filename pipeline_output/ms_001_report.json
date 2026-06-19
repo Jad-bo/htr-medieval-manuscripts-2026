@@ -1,0 +1,131 @@
+{
+  "document_id": "ms_001",
+  "num_lines": 30,
+  "avg_confidence": 0.6916666666666667,
+  "needs_review_rate": 0.4666666666666667,
+  "has_ground_truth": true,
+  "cer_global": 0.2740667350995722,
+  "wer_global": 0.5799134199134198,
+  "nlp_available": true,
+  "nlp_results": {
+    "language": "old_french",
+    "num_entities": 53,
+    "num_relations": 46,
+    "themes": [
+      "administratif",
+      "juridique"
+    ],
+    "confidence": 0.745,
+    "entities": [
+      {
+        "text": "Rous Bolcy Bien",
+        "type": "PER",
+        "confidence": 0.75
+      },
+      {
+        "text": "Rous Bolcy",
+        "type": "PER",
+        "confidence": 0.8
+      },
+      {
+        "text": "Seoir",
+        "type": "LOC",
+        "confidence": 0.75
+      },
+      {
+        "text": "Seoir",
+        "type": "PER",
+        "confidence": 0.8
+      },
+      {
+        "text": "ce petit",
+        "type": "LOC",
+        "confidence": 0.75
+      },
+      {
+        "text": "Gofcage",
+        "type": "PER",
+        "confidence": 0.8
+      },
+      {
+        "text": "fceust",
+        "type": "ORG",
+        "confidence": 0.65
+      },
+      {
+        "text": "Seu",
+        "type": "LOC",
+        "confidence": 0.75
+      },
+      {
+        "text": "Seu",
+        "type": "PER",
+        "confidence": 0.8
+      },
+      {
+        "text": "non temps",
+        "type": "LOC",
+        "confidence": 0.75
+      }
+    ],
+    "relations": [
+      {
+        "subject": "document",
+        "predicate": "lieu_de",
+        "object": "ce petit"
+      },
+      {
+        "subject": "document",
+        "predicate": "lieu_de",
+        "object": "non temps"
+      },
+      {
+        "subject": "document",
+        "predicate": "lieu_de",
+        "object": "ferf"
+      },
+      {
+        "subject": "document",
+        "predicate": "lieu_de",
+        "object": "la place"
+      },
+      {
+        "subject": "document",
+        "predicate": "lieu_de",
+        "object": "ie ne"
+      },
+      {
+        "subject": "document",
+        "predicate": "lieu_de",
+        "object": "nostre maison"
+      },
+      {
+        "subject": "document",
+        "predicate": "lieu_de",
+        "object": "la langue"
+      },
+      {
+        "subject": "document",
+        "predicate": "lieu_de",
+        "object": "gevent de la"
+      },
+      {
+        "subject": "Rous Bolcy Bien",
+        "predicate": "associé_à_lieu",
+        "object": "Seoir"
+      },
+      {
+        "subject": "Rous Bolcy Bien",
+        "predicate": "associé_à_lieu",
+        "object": "ce petit"
+      }
+    ]
+  },
+  "files": {
+    "htr_json": "./pipeline_output\\ms_001_transcription.json",
+    "comparison_txt": "./pipeline_output\\ms_001_comparison.txt",
+    "comparison_json": "./pipeline_output\\ms_001_comparison.json",
+    "nlp_json": "./pipeline_output\\ms_001_nlp.json",
+    "final_json": "./pipeline_output\\ms_001_final.json"
+  }
+}

@@ -1,0 +1,429 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="markmap mm-yeg3gu-2" style="width: 100%; height: 100%;"><style>.markmap{--markmap-max-width: 9999px;--markmap-a-color: #0097e6;--markmap-a-hover-color: #00a8ff;--markmap-code-bg: #f0f0f0;--markmap-code-color: #555;--markmap-highlight-bg: #ffeaa7;--markmap-table-border: 1px solid currentColor;--markmap-font: 300 16px/20px sans-serif;--markmap-circle-open-bg: #fff;--markmap-text-color: #333;--markmap-highlight-node-bg: #ff02;font:var(--markmap-font);color:var(--markmap-text-color)}.markmap-link{fill:none}.markmap-node&gt;circle{cursor:pointer}.markmap-foreign{display:inline-block}.markmap-foreign p{margin:0}.markmap-foreign a{color:var(--markmap-a-color)}.markmap-foreign a:hover{color:var(--markmap-a-hover-color)}.markmap-foreign code{padding:.25em;font-size:calc(1em - 2px);color:var(--markmap-code-color);background-color:var(--markmap-code-bg);border-radius:2px}.markmap-foreign pre{margin:0}.markmap-foreign pre&gt;code{display:block}.markmap-foreign del{text-decoration:line-through}.markmap-foreign em{font-style:italic}.markmap-foreign strong{font-weight:700}.markmap-foreign mark{background:var(--markmap-highlight-bg)}.markmap-foreign table,.markmap-foreign th,.markmap-foreign td{border-collapse:collapse;border:var(--markmap-table-border)}.markmap-foreign img{display:inline-block}.markmap-foreign svg{fill:currentColor}.markmap-foreign&gt;div{width:var(--markmap-max-width);text-align:left}.markmap-foreign&gt;div&gt;div{display:inline-block}.markmap-highlight rect{fill:var(--markmap-highlight-node-bg)}.markmap-dark .markmap{--markmap-code-bg: #1a1b26;--markmap-code-color: #ddd;--markmap-circle-open-bg: #444;--markmap-text-color: #eee}</style><g transform="translate(20.00000152587893,400.00271280880094) scale(0.3025477937832)"><path class="markmap-link" data-depth="5" data-path="1.2.3.5.6" d="M1135,-1045.004C1175,-1045.004,1175,-922.051,1215,-922.051" stroke-width="1.09375" stroke="rgb(140, 86, 75)"/><path class="markmap-link" data-depth="5" data-path="1.2.3.7.8" d="M1278,-837.41C1318,-837.41,1318,-783.957,1358,-783.957" stroke-width="1.09375" stroke="rgb(127, 127, 127)"/><path class="markmap-link" data-depth="4" data-path="1.2.3.4" d="M892,-954.207C932,-954.207,932,-1071.191,972,-1071.191" stroke-width="1.1875" stroke="rgb(214, 39, 40)"/><path class="markmap-link" data-depth="4" data-path="1.2.3.5" d="M892,-954.207C932,-954.207,932,-1045.004,972,-1045.004" stroke-width="1.1875" stroke="rgb(148, 103, 189)"/><path class="markmap-link" data-depth="4" data-path="1.2.3.7" d="M892,-954.207C932,-954.207,932,-837.41,972,-837.41" stroke-width="1.1875" stroke="rgb(227, 119, 194)"/><path class="markmap-link" data-depth="5" data-path="1.2.9.10.11" d="M1123,-713.676C1163,-713.676,1163,-752.863,1203,-752.863" stroke-width="1.09375" stroke="rgb(31, 119, 180)"/><path class="markmap-link" data-depth="5" data-path="1.2.9.10.12" d="M1123,-713.676C1163,-713.676,1163,-726.77,1203,-726.77" stroke-width="1.09375" stroke="rgb(255, 127, 14)"/><path class="markmap-link" data-depth="5" data-path="1.2.9.10.13" d="M1123,-713.676C1163,-713.676,1163,-700.676,1203,-700.676" stroke-width="1.09375" stroke="rgb(44, 160, 44)"/><path class="markmap-link" data-depth="5" data-path="1.2.9.10.14" d="M1123,-713.676C1163,-713.676,1163,-674.582,1203,-674.582" stroke-width="1.09375" stroke="rgb(214, 39, 40)"/><path class="markmap-link" data-depth="5" data-path="1.2.9.15.16" d="M1247,-542.941C1287,-542.941,1287,-442.488,1327,-442.488" stroke-width="1.09375" stroke="rgb(140, 86, 75)"/><path class="markmap-link" data-depth="5" data-path="1.2.9.17.18" d="M1246,-343.848C1286,-343.848,1286,-276.395,1326,-276.395" stroke-width="1.09375" stroke="rgb(127, 127, 127)"/><path class="markmap-link" data-depth="5" data-path="1.2.9.19.20" d="M1161,-202.254C1201,-202.254,1201,-159.301,1241,-159.301" stroke-width="1.09375" stroke="rgb(23, 190, 207)"/><path class="markmap-link" data-depth="5" data-path="1.2.9.21.22" d="M1260,-32.16C1300,-32.16,1300,63.793,1340,63.793" stroke-width="1.09375" stroke="rgb(255, 127, 14)"/><path class="markmap-link" data-depth="4" data-path="1.2.9.10" d="M947,-372.824C987,-372.824,987,-713.676,1027,-713.676" stroke-width="1.1875" stroke="rgb(23, 190, 207)"/><path class="markmap-link" data-depth="4" data-path="1.2.9.15" d="M947,-372.824C987,-372.824,987,-542.941,1027,-542.941" stroke-width="1.1875" stroke="rgb(148, 103, 189)"/><path class="markmap-link" data-depth="4" data-path="1.2.9.17" d="M947,-372.824C987,-372.824,987,-343.848,1027,-343.848" stroke-width="1.1875" stroke="rgb(227, 119, 194)"/><path class="markmap-link" data-depth="4" data-path="1.2.9.19" d="M947,-372.824C987,-372.824,987,-202.254,1027,-202.254" stroke-width="1.1875" stroke="rgb(188, 189, 34)"/><path class="markmap-link" data-depth="4" data-path="1.2.9.21" d="M947,-372.824C987,-372.824,987,-32.16,1027,-32.16" stroke-width="1.1875" stroke="rgb(31, 119, 180)"/><path class="markmap-link" data-depth="5" data-path="1.2.23.25.26" d="M1384,162.434C1424,162.434,1424,229.887,1464,229.887" stroke-width="1.09375" stroke="rgb(140, 86, 75)"/><path class="markmap-link" data-depth="4" data-path="1.2.23.24" d="M984,149.434C1024,149.434,1024,136.246,1064,136.246" stroke-width="1.1875" stroke="rgb(214, 39, 40)"/><path class="markmap-link" data-depth="4" data-path="1.2.23.25" d="M984,149.434C1024,149.434,1024,162.434,1064,162.434" stroke-width="1.1875" stroke="rgb(148, 103, 189)"/><path class="markmap-link" data-depth="3" data-path="1.2.3" d="M616,-402.199C656,-402.199,656,-954.207,696,-954.207" stroke-width="1.375" stroke="rgb(44, 160, 44)"/><path class="markmap-link" data-depth="3" data-path="1.2.9" d="M616,-402.199C656,-402.199,656,-372.824,696,-372.824" stroke-width="1.375" stroke="rgb(188, 189, 34)"/><path class="markmap-link" data-depth="3" data-path="1.2.23" d="M616,-402.199C656,-402.199,656,149.434,696,149.434" stroke-width="1.375" stroke="rgb(44, 160, 44)"/><path class="markmap-link" data-depth="5" data-path="1.27.28.29.30" d="M1084,336.027C1124,336.027,1124,410.98,1164,410.98" stroke-width="1.09375" stroke="rgb(23, 190, 207)"/><path class="markmap-link" data-depth="5" data-path="1.27.28.31.32" d="M1234,485.121C1274,485.121,1274,528.074,1314,528.074" stroke-width="1.09375" stroke="rgb(255, 127, 14)"/><path class="markmap-link" data-depth="4" data-path="1.27.28.29" d="M741,423.762C781,423.762,781,336.027,821,336.027" stroke-width="1.1875" stroke="rgb(188, 189, 34)"/><path class="markmap-link" data-depth="4" data-path="1.27.28.31" d="M741,423.762C781,423.762,781,485.121,821,485.121" stroke-width="1.1875" stroke="rgb(31, 119, 180)"/><path class="markmap-link" data-depth="4" data-path="1.27.28.33" d="M741,423.762C781,423.762,781,511.309,821,511.309" stroke-width="1.1875" stroke="rgb(44, 160, 44)"/><path class="markmap-link" data-depth="3" data-path="1.27.28" d="M461,423.949C501,423.949,501,423.762,541,423.762" stroke-width="1.375" stroke="rgb(127, 127, 127)"/><path class="markmap-link" data-depth="2" data-path="1.2" d="M251,11.25C291,11.25,291,-402.199,331,-402.199" stroke-width="1.75" stroke="rgb(255, 127, 14)"/><path class="markmap-link" data-depth="2" data-path="1.27" d="M251,11.25C291,11.25,291,423.949,331,423.949" stroke-width="1.75" stroke="rgb(227, 119, 194)"/><g class="markmap-highlight"/><g data-depth="4" data-path="1.2.3.4" class="markmap-node" transform="translate(972, -1091.78515625)"><line stroke="#d62728" stroke-width="1.1875" x1="-1" x2="98" y1="20.59375" y2="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="80" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Description</div></div></foreignObject></g><g data-depth="5" data-path="1.2.3.5.6" class="markmap-node" transform="translate(1215, -1188.59765625)"><line stroke="#8c564b" stroke-width="1.09375" x1="-1" x2="421" y1="266.546875" y2="266.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="403" height="266"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="34,47">
+<thead data-lines="34,35">
+<tr data-lines="34,35">
+<th style="text-align:left">Colonne</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody data-lines="36,47">
+<tr data-lines="36,37">
+<td style="text-align:left"><code>text</code></td>
+<td style="text-align:left">Transcription textuelle de la ligne</td>
+</tr>
+<tr data-lines="37,38">
+<td style="text-align:left"><code>im</code></td>
+<td style="text-align:left">Image de la ligne (PIL Image)</td>
+</tr>
+<tr data-lines="38,39">
+<td style="text-align:left"><code>language</code></td>
+<td style="text-align:left">Langue du texte</td>
+</tr>
+<tr data-lines="39,40">
+<td style="text-align:left"><code>century</code></td>
+<td style="text-align:left">Siècle de production</td>
+</tr>
+<tr data-lines="40,41">
+<td style="text-align:left"><code>region</code></td>
+<td style="text-align:left">Région géographique</td>
+</tr>
+<tr data-lines="41,42">
+<td style="text-align:left"><code>script_type</code></td>
+<td style="text-align:left">Type d'écriture (Textualis, Cursiva, etc.)</td>
+</tr>
+<tr data-lines="42,43">
+<td style="text-align:left"><code>shelfmark</code></td>
+<td style="text-align:left">Cote du manuscrit</td>
+</tr>
+<tr data-lines="43,44">
+<td style="text-align:left"><code>genre</code></td>
+<td style="text-align:left">Genre du document</td>
+</tr>
+<tr data-lines="44,45">
+<td style="text-align:left"><code>project</code></td>
+<td style="text-align:left">Projet d'origine</td>
+</tr>
+<tr data-lines="45,46">
+<td style="text-align:left"><code>line_type</code></td>
+<td style="text-align:left">Type de ligne (DefaultLine, HeadingLine, etc.)</td>
+</tr>
+<tr data-lines="46,47">
+<td style="text-align:left"><code>gen_split</code></td>
+<td style="text-align:left">Split officiel (train/dev/test)</td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.2.3.5" class="markmap-node" transform="translate(972, -1065.59765625)"><line stroke="#9467bd" stroke-width="1.1875" x1="-1" x2="165" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#9467bd" fill="var(--markmap-circle-open-bg)" cx="163" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="147" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Colonnes du dataset</div></div></foreignObject></g><g data-depth="5" data-path="1.2.3.7.8" class="markmap-node" transform="translate(1358, -911.50390625)"><line stroke="#7f7f7f" stroke-width="1.09375" x1="-1" x2="544" y1="127.546875" y2="127.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="526" height="127"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="50,57">
+<thead data-lines="50,51">
+<tr data-lines="50,51">
+<th style="text-align:left">Configuration</th>
+<th style="text-align:left">CER</th>
+<th style="text-align:left">WER</th>
+<th style="text-align:left">Notes</th>
+</tr>
+</thead>
+<tbody data-lines="52,57">
+<tr data-lines="52,53">
+<td style="text-align:left">TrOCR-Large zéro-shot</td>
+<td style="text-align:left">~25%</td>
+<td style="text-align:left">~50%</td>
+<td style="text-align:left">Baseline généraliste</td>
+</tr>
+<tr data-lines="53,54">
+<td style="text-align:left"><strong>TRIDIS pré-entraîné (dev)</strong></td>
+<td style="text-align:left"><strong>~24.9%</strong></td>
+<td style="text-align:left"><strong>~48%</strong></td>
+<td style="text-align:left">Sans fine-tuning</td>
+</tr>
+<tr data-lines="54,55">
+<td style="text-align:left"><strong>Pipeline end-to-end ms_001</strong></td>
+<td style="text-align:left"><strong>27.41%</strong></td>
+<td style="text-align:left"><strong>57.99%</strong></td>
+<td style="text-align:left">Résultat réel page_test_001</td>
+</tr>
+<tr data-lines="55,56">
+<td style="text-align:left">Seuil de validation</td>
+<td style="text-align:left">&lt; 15%</td>
+<td style="text-align:left">&lt; 25%</td>
+<td style="text-align:left">🎯 Objectif non atteint</td>
+</tr>
+<tr data-lines="56,57">
+<td style="text-align:left">Seuil d'excellence</td>
+<td style="text-align:left">&lt; 8%</td>
+<td style="text-align:left">&lt; 15%</td>
+<td style="text-align:left">🏆 Objectif non atteint</td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.2.3.7" class="markmap-node" transform="translate(972, -858.00390625)"><line stroke="#e377c2" stroke-width="1.1875" x1="-1" x2="308" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#e377c2" fill="var(--markmap-circle-open-bg)" cx="306" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="290" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Résultats d'évaluation réels sur CATMuS</div></div></foreignObject></g><g data-depth="3" data-path="1.2.3" class="markmap-node" transform="translate(696, -974.89453125)"><line stroke="#2ca02c" stroke-width="1.375" x1="-1" x2="198" y1="20.6875" y2="20.6875"/><circle stroke-width="1.5" r="6" stroke="#2ca02c" fill="var(--markmap-circle-open-bg)" cx="196" cy="20.6875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="180" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">CATMuS Medieval (HTR)</div></div></foreignObject></g><g data-depth="5" data-path="1.2.9.10.11" class="markmap-node" transform="translate(1203, -773.41015625)"><line stroke="#1f77b4" stroke-width="1.09375" x1="-1" x2="572" y1="20.546875" y2="20.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="554" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Des <strong>zones</strong> (MainZone, MarginTextZone, DropCapitalZone, GraphicZone, etc.)</div></div></foreignObject></g><g data-depth="5" data-path="1.2.9.10.12" class="markmap-node" transform="translate(1203, -747.31640625)"><line stroke="#ff7f0e" stroke-width="1.09375" x1="-1" x2="561" y1="20.546875" y2="20.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="543" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Des <strong>lignes</strong> (DefaultLine, HeadingLine, DropCapitalLine, InterlinearLine, etc.)</div></div></foreignObject></g><g data-depth="5" data-path="1.2.9.10.13" class="markmap-node" transform="translate(1203, -721.22265625)"><line stroke="#2ca02c" stroke-width="1.09375" x1="-1" x2="344" y1="20.546875" y2="20.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="326" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Des <strong>polygones</strong> de contour pour chaque objet</div></div></foreignObject></g><g data-depth="5" data-path="1.2.9.10.14" class="markmap-node" transform="translate(1203, -695.12890625)"><line stroke="#d62728" stroke-width="1.09375" x1="-1" x2="415" y1="20.546875" y2="20.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="397" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Des relations parent-enfant (blocs contenant des lignes)</div></div></foreignObject></g><g data-depth="4" data-path="1.2.9.10" class="markmap-node" transform="translate(1027, -734.26953125)"><line stroke="#17becf" stroke-width="1.1875" x1="-1" x2="98" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#17becf" fill="var(--markmap-circle-open-bg)" cx="96" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="80" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Description</div></div></foreignObject></g><g data-depth="5" data-path="1.2.9.15.16" class="markmap-node" transform="translate(1327, -664.03515625)"><line stroke="#8c564b" stroke-width="1.09375" x1="-1" x2="416" y1="221.546875" y2="221.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="398" height="221"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="83,94">
+<thead data-lines="83,84">
+<tr data-lines="83,84">
+<th style="text-align:left">Zone</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Nombre</th>
+</tr>
+</thead>
+<tbody data-lines="85,94">
+<tr data-lines="85,86">
+<td style="text-align:left"><code>MainZone</code></td>
+<td style="text-align:left">Zone de texte principal</td>
+<td style="text-align:left">~2 976</td>
+</tr>
+<tr data-lines="86,87">
+<td style="text-align:left"><code>MarginTextZone</code></td>
+<td style="text-align:left">Texte en marge</td>
+<td style="text-align:left">~1 261</td>
+</tr>
+<tr data-lines="87,88">
+<td style="text-align:left"><code>DropCapitalZone</code></td>
+<td style="text-align:left">Lettrines</td>
+<td style="text-align:left">~1 801</td>
+</tr>
+<tr data-lines="88,89">
+<td style="text-align:left"><code>NumberingZone</code></td>
+<td style="text-align:left">Numérotation de pages</td>
+<td style="text-align:left">~829</td>
+</tr>
+<tr data-lines="89,90">
+<td style="text-align:left"><code>RunningTitleZone</code></td>
+<td style="text-align:left">Titres courants</td>
+<td style="text-align:left">~449</td>
+</tr>
+<tr data-lines="90,91">
+<td style="text-align:left"><code>GraphicZone</code></td>
+<td style="text-align:left">Illustrations</td>
+<td style="text-align:left">~322</td>
+</tr>
+<tr data-lines="91,92">
+<td style="text-align:left"><code>MusicZone</code></td>
+<td style="text-align:left">Notation musicale</td>
+<td style="text-align:left">~179</td>
+</tr>
+<tr data-lines="92,93">
+<td style="text-align:left"><code>DamageZone</code></td>
+<td style="text-align:left">Zones endommagées</td>
+<td style="text-align:left">~13</td>
+</tr>
+<tr data-lines="93,94">
+<td style="text-align:left"><code>DigitizationArtefactZone</code></td>
+<td style="text-align:left">Artefacts de numérisation</td>
+<td style="text-align:left">~28</td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.2.9.15" class="markmap-node" transform="translate(1027, -563.53515625)"><line stroke="#9467bd" stroke-width="1.1875" x1="-1" x2="222" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#9467bd" fill="var(--markmap-circle-open-bg)" cx="220" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="204" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Types de zones (SegmOnto)</div></div></foreignObject></g><g data-depth="5" data-path="1.2.9.17.18" class="markmap-node" transform="translate(1326, -431.94140625)"><line stroke="#7f7f7f" stroke-width="1.09375" x1="-1" x2="399" y1="155.546875" y2="155.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="381" height="155"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="97,105">
+<thead data-lines="97,98">
+<tr data-lines="97,98">
+<th style="text-align:left">Ligne</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Nombre</th>
+</tr>
+</thead>
+<tbody data-lines="99,105">
+<tr data-lines="99,100">
+<td style="text-align:left"><code>DefaultLine</code></td>
+<td style="text-align:left">Ligne de texte standard</td>
+<td style="text-align:left">~107 932</td>
+</tr>
+<tr data-lines="100,101">
+<td style="text-align:left"><code>InterlinearLine</code></td>
+<td style="text-align:left">Interligne (glose, correction)</td>
+<td style="text-align:left">~5 069</td>
+</tr>
+<tr data-lines="101,102">
+<td style="text-align:left"><code>HeadingLine</code></td>
+<td style="text-align:left">Titre ou rubrique</td>
+<td style="text-align:left">~2 247</td>
+</tr>
+<tr data-lines="102,103">
+<td style="text-align:left"><code>DropCapitalLine</code></td>
+<td style="text-align:left">Lettrine</td>
+<td style="text-align:left">~1 380</td>
+</tr>
+<tr data-lines="103,104">
+<td style="text-align:left"><code>MusicLine</code></td>
+<td style="text-align:left">Ligne musicale</td>
+<td style="text-align:left">~167</td>
+</tr>
+<tr data-lines="104,105">
+<td style="text-align:left"><code>TironianSignLine</code></td>
+<td style="text-align:left">Signe de Tiron</td>
+<td style="text-align:left">~282</td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.2.9.17" class="markmap-node" transform="translate(1027, -364.44140625)"><line stroke="#e377c2" stroke-width="1.1875" x1="-1" x2="221" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#e377c2" fill="var(--markmap-circle-open-bg)" cx="219" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="203" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Types de lignes (SegmOnto)</div></div></foreignObject></g><g data-depth="5" data-path="1.2.9.19.20" class="markmap-node" transform="translate(1241, -265.84765625)"><line stroke="#17becf" stroke-width="1.09375" x1="-1" x2="189" y1="106.546875" y2="106.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="171" height="106"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="108,114">
+<thead data-lines="108,109">
+<tr data-lines="108,109">
+<th style="text-align:left">Split</th>
+<th style="text-align:left">Images</th>
+<th style="text-align:left">Manuscrits</th>
+</tr>
+</thead>
+<tbody data-lines="110,114">
+<tr data-lines="110,111">
+<td style="text-align:left">train</td>
+<td style="text-align:left">1 336</td>
+<td style="text-align:left">159</td>
+</tr>
+<tr data-lines="111,112">
+<td style="text-align:left">dev</td>
+<td style="text-align:left">191</td>
+<td style="text-align:left">20</td>
+</tr>
+<tr data-lines="112,113">
+<td style="text-align:left">test</td>
+<td style="text-align:left">178</td>
+<td style="text-align:left">28</td>
+</tr>
+<tr data-lines="113,114">
+<td style="text-align:left"><strong>Total</strong></td>
+<td style="text-align:left"><strong>1 705</strong></td>
+<td style="text-align:left"><strong>207</strong></td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.2.9.19" class="markmap-node" transform="translate(1027, -222.84765625)"><line stroke="#bcbd22" stroke-width="1.1875" x1="-1" x2="136" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#bcbd22" fill="var(--markmap-circle-open-bg)" cx="134" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="118" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Splits du dataset</div></div></foreignObject></g><g data-depth="5" data-path="1.2.9.21.22" class="markmap-node" transform="translate(1340, -148.75390625)"><line stroke="#ff7f0e" stroke-width="1.09375" x1="-1" x2="185" y1="212.546875" y2="212.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="167" height="212"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="117,128">
+<thead data-lines="117,118">
+<tr data-lines="117,118">
+<th style="text-align:left">Siècle</th>
+<th style="text-align:left">train</th>
+<th style="text-align:left">dev</th>
+<th style="text-align:left">test</th>
+<th style="text-align:left">Total</th>
+</tr>
+</thead>
+<tbody data-lines="119,128">
+<tr data-lines="119,120">
+<td style="text-align:left">VIIIe</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr data-lines="120,121">
+<td style="text-align:left">IXe</td>
+<td style="text-align:left">111</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">112</td>
+</tr>
+<tr data-lines="121,122">
+<td style="text-align:left">Xe</td>
+<td style="text-align:left">11</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">38</td>
+<td style="text-align:left">49</td>
+</tr>
+<tr data-lines="122,123">
+<td style="text-align:left">XIe</td>
+<td style="text-align:left">27</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">27</td>
+</tr>
+<tr data-lines="123,124">
+<td style="text-align:left">XIIe</td>
+<td style="text-align:left">19</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">46</td>
+</tr>
+<tr data-lines="124,125">
+<td style="text-align:left">XIIIe</td>
+<td style="text-align:left">230</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">20</td>
+<td style="text-align:left">259</td>
+</tr>
+<tr data-lines="125,126">
+<td style="text-align:left">XIVe</td>
+<td style="text-align:left">241</td>
+<td style="text-align:left">111</td>
+<td style="text-align:left">39</td>
+<td style="text-align:left">391</td>
+</tr>
+<tr data-lines="126,127">
+<td style="text-align:left">XVe</td>
+<td style="text-align:left">563</td>
+<td style="text-align:left">36</td>
+<td style="text-align:left">19</td>
+<td style="text-align:left">618</td>
+</tr>
+<tr data-lines="127,128">
+<td style="text-align:left">XVIe</td>
+<td style="text-align:left">132</td>
+<td style="text-align:left">17</td>
+<td style="text-align:left">52</td>
+<td style="text-align:left">201</td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.2.9.21" class="markmap-node" transform="translate(1027, -52.75390625)"><line stroke="#1f77b4" stroke-width="1.1875" x1="-1" x2="235" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#1f77b4" fill="var(--markmap-circle-open-bg)" cx="233" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="217" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Répartition par siècle (images)</div></div></foreignObject></g><g data-depth="3" data-path="1.2.9" class="markmap-node" transform="translate(696, -393.51171875)"><line stroke="#bcbd22" stroke-width="1.375" x1="-1" x2="253" y1="20.6875" y2="20.6875"/><circle stroke-width="1.5" r="6" stroke="#bcbd22" fill="var(--markmap-circle-open-bg)" cx="251" cy="20.6875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="235" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">CATMuS Medieval Segmentation</div></div></foreignObject></g><g data-depth="4" data-path="1.2.23.24" class="markmap-node" transform="translate(1064, 115.65234375)"><line stroke="#d62728" stroke-width="1.1875" x1="-1" x2="98" y1="20.59375" y2="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="80" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Description</div></div></foreignObject></g><g data-depth="5" data-path="1.2.23.25.26" class="markmap-node" transform="translate(1464, 74.33984375)"><line stroke="#8c564b" stroke-width="1.09375" x1="-1" x2="1050" y1="155.546875" y2="155.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="1032" height="155"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="160,168">
+<thead data-lines="160,161">
+<tr data-lines="160,161">
+<th style="text-align:left">Ligne</th>
+<th style="text-align:left">Ground Truth</th>
+<th style="text-align:left">Prédiction TRIDIS</th>
+<th style="text-align:left">CER</th>
+<th style="text-align:left">Type d'erreur</th>
+</tr>
+</thead>
+<tbody data-lines="162,168">
+<tr data-lines="162,163">
+<td style="text-align:left">line_0004</td>
+<td style="text-align:left"><code>parlons, &amp; tous les autres chiens sont muets/ Car...</code></td>
+<td style="text-align:left"><code>et par tous les autres chiens font inuetz...</code></td>
+<td style="text-align:left"><strong>38.78%</strong></td>
+<td style="text-align:left">Confusion phonétique</td>
+</tr>
+<tr data-lines="163,164">
+<td style="text-align:left">line_0009</td>
+<td style="text-align:left"><code>Melancheres, Theridamas, &amp; Desfitrophus sailli-...</code></td>
+<td style="text-align:left"><code>pielancheres , Theridainus , &amp; Drefitrophus failli...</code></td>
+<td style="text-align:left"><strong>23.40%</strong></td>
+<td style="text-align:left">Hallucination noms propres</td>
+</tr>
+<tr data-lines="164,165">
+<td style="text-align:left">line_0014</td>
+<td style="text-align:left"><code>dois scauoir (comme iay depuis Veu en ie ne scay...</code></td>
+<td style="text-align:left"><code>comme lay depuis Deu en ie ne feap...</code></td>
+<td style="text-align:left"><strong>39.58%</strong></td>
+<td style="text-align:left">Omission + substitution</td>
+</tr>
+<tr data-lines="165,166">
+<td style="text-align:left">line_0019</td>
+<td style="text-align:left"><code>Ung chascun de nous faisoit ses efforz de le mordre,...</code></td>
+<td style="text-align:left"><code>Sag chascun de nous faisoit ses effortz de le mozdres...</code></td>
+<td style="text-align:left"><strong>9.62%</strong></td>
+<td style="text-align:left">Graphie proche</td>
+</tr>
+<tr data-lines="166,167">
+<td style="text-align:left">line_0024</td>
+<td style="text-align:left"><code>car aussi Diane le Vouloit. Mais pour ce que ie...</code></td>
+<td style="text-align:left"><code>Jehane le Roulou ....</code></td>
+<td style="text-align:left"><strong>72.34%</strong></td>
+<td style="text-align:left">Hallucination complète</td>
+</tr>
+<tr data-lines="167,168">
+<td style="text-align:left">line_0029</td>
+<td style="text-align:left"><code>D...</code></td>
+<td style="text-align:left"><code>D ....</code></td>
+<td style="text-align:left"><strong>200.00%</strong></td>
+<td style="text-align:left">Ligne courte</td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.2.23.25" class="markmap-node" transform="translate(1064, 141.83984375)"><line stroke="#9467bd" stroke-width="1.1875" x1="-1" x2="322" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#9467bd" fill="var(--markmap-circle-open-bg)" cx="320" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="304" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Exemples d'erreurs observées sur ms_001</div></div></foreignObject></g><g data-depth="3" data-path="1.2.23" class="markmap-node" transform="translate(696, 128.74609375)"><line stroke="#2ca02c" stroke-width="1.375" x1="-1" x2="290" y1="20.6875" y2="20.6875"/><circle stroke-width="1.5" r="6" stroke="#2ca02c" fill="var(--markmap-circle-open-bg)" cx="288" cy="20.6875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="272" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Page de test ms_001 (page_test_001)</div></div></foreignObject></g><g data-depth="2" data-path="1.2" class="markmap-node" transform="translate(331, -423.07421875)"><line stroke="#ff7f0e" stroke-width="1.75" x1="-1" x2="287" y1="20.875" y2="20.875"/><circle stroke-width="1.5" r="6" stroke="#ff7f0e" fill="var(--markmap-circle-open-bg)" cx="285" cy="20.875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="269" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Corpus d'entraînement et d'évaluation</div></div></foreignObject></g><g data-depth="5" data-path="1.27.28.29.30" class="markmap-node" transform="translate(1164, 240.43359375)"><line stroke="#17becf" stroke-width="1.09375" x1="-1" x2="613" y1="170.546875" y2="170.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="595" height="170"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="192,201">
+<thead data-lines="192,193">
+<tr data-lines="192,193">
+<th style="text-align:left">Corpus</th>
+<th style="text-align:left">Source</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody data-lines="194,201">
+<tr data-lines="194,195">
+<td style="text-align:left">Alcar-HOME</td>
+<td style="text-align:left"><a href="https://zenodo.org/record/5600884">Zenodo</a></td>
+<td style="text-align:left">Documents médiévaux espagnols</td>
+</tr>
+<tr data-lines="195,196">
+<td style="text-align:left">e-NDP</td>
+<td style="text-align:left"><a href="https://zenodo.org/record/7575693">Zenodo</a></td>
+<td style="text-align:left">Registres parlementaires anglais</td>
+</tr>
+<tr data-lines="196,197">
+<td style="text-align:left">Himanis</td>
+<td style="text-align:left"><a href="https://zenodo.org/record/5535306">Zenodo</a></td>
+<td style="text-align:left">Registres du Trésor des Chartes</td>
+</tr>
+<tr data-lines="197,198">
+<td style="text-align:left">Königsfelden</td>
+<td style="text-align:left"><a href="https://zenodo.org/record/5179361">Zenodo</a></td>
+<td style="text-align:left">Chartes du couvent de Königsfelden</td>
+</tr>
+<tr data-lines="198,199">
+<td style="text-align:left">CODEA</td>
+<td style="text-align:left">—</td>
+<td style="text-align:left">Corpus de documents médiévaux</td>
+</tr>
+<tr data-lines="199,200">
+<td style="text-align:left">Monumenta Luxemburgensia</td>
+<td style="text-align:left">—</td>
+<td style="text-align:left">Documents du Luxembourg médiéval</td>
+</tr>
+<tr data-lines="200,201">
+<td style="text-align:left"><strong>Dataset synthétique</strong></td>
+<td style="text-align:left">GAN HiGANplus</td>
+<td style="text-align:left">300k lignes synthétiques</td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.27.28.29" class="markmap-node" transform="translate(821, 315.43359375)"><line stroke="#bcbd22" stroke-width="1.1875" x1="-1" x2="265" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#bcbd22" fill="var(--markmap-circle-open-bg)" cx="263" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="247" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Corpora d'entraînement de TRIDIS</div></div></foreignObject></g><g data-depth="5" data-path="1.27.28.31.32" class="markmap-node" transform="translate(1314, 421.52734375)"><line stroke="#ff7f0e" stroke-width="1.09375" x1="-1" x2="787" y1="106.546875" y2="106.546875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="769" height="106"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><table data-lines="206,212">
+<thead data-lines="206,207">
+<tr data-lines="206,207">
+<th style="text-align:left">Configuration</th>
+<th style="text-align:left">CER moyen</th>
+<th style="text-align:left">Distribution</th>
+<th style="text-align:left">Notes</th>
+</tr>
+</thead>
+<tbody data-lines="208,212">
+<tr data-lines="208,209">
+<td style="text-align:left">Sans prétraitement</td>
+<td style="text-align:left"><strong>241.2%</strong></td>
+<td style="text-align:left">Pic à 0-1, outliers jusqu'à 17.5</td>
+<td style="text-align:left">Images trop larges (ratio 37:1)</td>
+</tr>
+<tr data-lines="209,210">
+<td style="text-align:left">Avec crop + resize basique</td>
+<td style="text-align:left"><strong>27.7%</strong></td>
+<td style="text-align:left">Pic à 0-0.05, queue jusqu'à 0.9</td>
+<td style="text-align:left">Amélioration majeure</td>
+</tr>
+<tr data-lines="210,211">
+<td style="text-align:left">Avec crop + resize optimisé</td>
+<td style="text-align:left"><strong>24.9%</strong></td>
+<td style="text-align:left">Pic à 0.15-0.20, queue jusqu'à 0.75</td>
+<td style="text-align:left">Meilleur résultat dev</td>
+</tr>
+<tr data-lines="211,212">
+<td style="text-align:left"><strong>Pipeline end-to-end ms_001</strong></td>
+<td style="text-align:left"><strong>27.41%</strong></td>
+<td style="text-align:left">Voir distribution ci-dessus</td>
+<td style="text-align:left">Résultat réel page_test_001</td>
+</tr>
+</tbody>
+</table></div></div></foreignObject></g><g data-depth="4" data-path="1.27.28.31" class="markmap-node" transform="translate(821, 464.52734375)"><line stroke="#1f77b4" stroke-width="1.1875" x1="-1" x2="415" y1="20.59375" y2="20.59375"/><circle stroke-width="1.5" r="6" stroke="#1f77b4" fill="var(--markmap-circle-open-bg)" cx="413" cy="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="397" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Évolution des performances (ablation sur notre pipeline)</div></div></foreignObject></g><g data-depth="4" data-path="1.27.28.33" class="markmap-node" transform="translate(821, 490.71484375)"><line stroke="#2ca02c" stroke-width="1.1875" x1="-1" x2="345" y1="20.59375" y2="20.59375"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="327" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Distribution CER détaillée (ms_001, 30 lignes)</div></div></foreignObject></g><g data-depth="3" data-path="1.27.28" class="markmap-node" transform="translate(541, 403.07421875)"><line stroke="#7f7f7f" stroke-width="1.375" x1="-1" x2="202" y1="20.6875" y2="20.6875"/><circle stroke-width="1.5" r="6" stroke="#7f7f7f" fill="var(--markmap-circle-open-bg)" cx="200" cy="20.6875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="184" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">TRIDIS (modèle principal)</div></div></foreignObject></g><g data-depth="2" data-path="1.27" class="markmap-node" transform="translate(331, 403.07421875)"><line stroke="#e377c2" stroke-width="1.75" x1="-1" x2="132" y1="20.875" y2="20.875"/><circle stroke-width="1.5" r="6" stroke="#e377c2" fill="var(--markmap-circle-open-bg)" cx="130" cy="20.875"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="114" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Modèles utilisés</div></div></foreignObject></g><g data-depth="1" data-path="1" class="markmap-node" transform="translate(0, -10)"><line stroke="#1f77b4" stroke-width="2.5" x1="-1" x2="253" y1="21.25" y2="21.25"/><circle stroke-width="1.5" r="6" stroke="#1f77b4" fill="var(--markmap-circle-open-bg)" cx="251" cy="21.25"/><foreignObject class="markmap-foreign" x="8" y="0" style="opacity: 1;" width="235" height="20"><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Sources de Données et Licences</div></div></foreignObject></g></g></svg>

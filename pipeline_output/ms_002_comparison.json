@@ -1,0 +1,208 @@
+{
+  "document_id": "ms_002",
+  "has_ground_truth": true,
+  "metrics": {
+    "cer_global": 0.46864745898526544,
+    "wer_global": 0.9602301207564365,
+    "avg_confidence": 0.5261904761904762,
+    "needs_review_rate": 0.7142857142857143,
+    "cer_distribution": {
+      "excellent (<5%)": 0,
+      "bon (5-15%)": 1,
+      "moyen (15-30%)": 7,
+      "mauvais (30-50%)": 4,
+      "catastrophique (>50%)": 7
+    }
+  },
+  "lines": [
+    {
+      "line_id": "ms_002_line_0020",
+      "ground_truth": "",
+      "prediction": "a mane terra Sancti",
+      "cer": 0.0,
+      "wer": 0.0,
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_002_line_0000",
+      "ground_truth": "corporib; q; acceptum. verum etiam inpius",
+      "prediction": "cadaveribus corporibusque jacentium verum etiam in ipsius",
+      "cer": 0.5853658536585366,
+      "wer": 0.8333333333333334,
+      "confidence": 0.35,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0001",
+      "ground_truth": "d̃ corpore pdicari acq; laudari. quita fecerint.",
+      "prediction": "domini corpore praedicati atque laudati sed quitta fecerunt .",
+      "cer": 0.4166666666666667,
+      "wer": 1.1428571428571428,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0002",
+      "ground_truth": "Impleat hæc homines erga suos officia postem muneri;",
+      "prediction": "impleant hace homines erga suos officia posteris .",
+      "cer": 0.25,
+      "wer": 0.5,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0003",
+      "ground_truth": "& si inhumani leniita meront. Verum illa que ad",
+      "prediction": "et sui humani lenimenta meroris . Verum illa que ad",
+      "cer": 0.2553191489361702,
+      "wer": 0.6666666666666666,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0004",
+      "ground_truth": "inuata spiritus defunctorū oblationes & erogationes.",
+      "prediction": "vivant spiritus defunctorum oblationes erogationes",
+      "cer": 0.16981132075471697,
+      "wer": 0.6666666666666666,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_002_line_0005",
+      "ground_truth": "mutuō p̃sobseruarentur & abundarentur impendant.",
+      "prediction": "multo pro eis observantius etabundantius impendant .",
+      "cer": 0.42857142857142855,
+      "wer": 1.4,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0006",
+      "ground_truth": "qui suos carne non spũ mortuos. ñ solum carnaliter",
+      "prediction": "qui suos carne non spiritu mostuos persolum carnaliter",
+      "cer": 0.19607843137254902,
+      "wer": 0.4444444444444444,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_002_line_0007",
+      "ground_truth": "fed̃ etiā spiritualiter amant.",
+      "prediction": "sed etia spiritaliter amant .",
+      "cer": 0.16129032258064516,
+      "wer": 1.25,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_002_line_0008",
+      "ground_truth": "R̃ Ne perdideris me domine cum iniquitatib; meis. neq; infinem iratus",
+      "prediction": "R . Neperdideris me domine eum iniquitatibus meisque in finem iratus II",
+      "cer": 0.21739130434782608,
+      "wer": 0.8181818181818182,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0009",
+      "ground_truth": "reser̃ uel mala mea. Ṽ Miserere mei deus miserere mei",
+      "prediction": "preser , uel mala mea . Nulliserere metans misere mei . II",
+      "cer": 0.37037037037037035,
+      "wer": 1.0,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0010",
+      "ground_truth": "quoniam in te confidit anima mea. Neq; infinem. LECT:",
+      "prediction": ", quoniam beate confidit anima mea . Neque",
+      "cer": 0.39622641509433965,
+      "wer": 0.7777777777777778,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0011",
+      "ground_truth": "Sequitur. Deinde nos quiuiuimus qui relinquimur",
+      "prediction": "equitur . Deinde nosquivimus qui relinquimur",
+      "cer": 0.1276595744680851,
+      "wer": 0.6666666666666666,
+      "confidence": 0.85,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_002_line_0012",
+      "ground_truth": "simul rapiēmur cū illis in nubib; obuiā xp̄o in aera.",
+      "prediction": "simul rapiemur cum illis innubibus obviam Christo inacra",
+      "cer": 0.2857142857142857,
+      "wer": 0.8,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0014",
+      "ground_truth": "credentib; vt nec ipsius experirentur corporis",
+      "prediction": "et sic semper cum domino erimus poterat enim hoc donare",
+      "cer": 0.8913043478260869,
+      "wer": 1.6666666666666667,
+      "confidence": 0.2,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0015",
+      "ground_truth": "mortem. Sed si hoc fecisset. cum quedam felicitas",
+      "prediction": "credentibus ut nec istius experirentur corporis",
+      "cer": 0.7959183673469388,
+      "wer": 1.0,
+      "confidence": 0.2,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0016",
+      "ground_truth": "aderr̃etur. minueretur su fidei fortitudo. Sic",
+      "prediction": "mortem . Sed si hoc fecisset earni quedam felicitas",
+      "cer": 0.8695652173913043,
+      "wer": 1.5,
+      "confidence": 0.2,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0017",
+      "ground_truth": "eni homines morte istā timerent. ṽ nobilud felices",
+      "prediction": "adderatur minueretur autem fidei fortitudo sic",
+      "cer": 0.7692307692307693,
+      "wer": 1.0,
+      "confidence": 0.2,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0018",
+      "ground_truth": "dicerent eē xp̄ianos nisi qd mort omnino ñ possent.",
+      "prediction": "episcopi homines mortem istam timent . Ut nonob aliud felices",
+      "cer": 0.9423076923076923,
+      "wer": 1.1111111111111112,
+      "confidence": 0.2,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_002_line_0019",
+      "ground_truth": "",
+      "prediction": "dicerent esse xpistianos nisi quod mori omnino non possent .",
+      "cer": 0.0,
+      "wer": 0.0,
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_002_line_0013",
+      "ground_truth": "& sic semp cū dno erimus. Poterit eni hoc donare",
+      "prediction": ". . S . Uberti . S",
+      "cer": 0.7755102040816326,
+      "wer": 1.0,
+      "confidence": 0.2,
+      "needs_review": true
+    }
+  ]
+}

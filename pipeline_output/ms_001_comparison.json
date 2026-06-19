@@ -1,0 +1,289 @@
+{
+  "document_id": "ms_001",
+  "has_ground_truth": true,
+  "metrics": {
+    "cer_global": 0.2740667350995722,
+    "wer_global": 0.5799134199134198,
+    "avg_confidence": 0.6916666666666667,
+    "needs_review_rate": 0.4666666666666667,
+    "cer_distribution": {
+      "excellent (<5%)": 1,
+      "bon (5-15%)": 9,
+      "moyen (15-30%)": 12,
+      "mauvais (30-50%)": 6,
+      "catastrophique (>50%)": 2
+    }
+  },
+  "lines": [
+    {
+      "line_id": "ms_001_line_0000",
+      "ground_truth": "Nous Boicy bien, Ils ne nous scauroient Voir en",
+      "prediction": "Rous Bolcy Bien , ilz ne nous scauroient Seoir en",
+      "cer": 0.1702127659574468,
+      "wer": 0.6666666666666666,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0001",
+      "ground_truth": "ce petit Boscage. Et puis leur gibbier ne faictesse",
+      "prediction": "ce petit Gofcage . Et puis leur gissier ne fadzetie",
+      "cer": 0.19607843137254902,
+      "wer": 0.4444444444444444,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0002",
+      "ground_truth": "pas pardeca. Le pendant ie te demanderoye Volun-",
+      "prediction": "pas pardeca . De pendant ie te demanderoye voluns",
+      "cer": 0.08333333333333333,
+      "wer": 0.5,
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0003",
+      "ground_truth": "tiers si tu scays point la cause pourquoy toy & moy",
+      "prediction": "fiers fu feays point la cause pourquoy",
+      "cer": 0.3333333333333333,
+      "wer": 0.6363636363636364,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0004",
+      "ground_truth": "parlons, & tous les autres chiens sont muets/ Car",
+      "prediction": "et par tous les autres chiens font inuetz",
+      "cer": 0.3877551020408163,
+      "wer": 0.5555555555555556,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0005",
+      "ground_truth": "ie nen trouuay iamais qui me sceust rien dire fors",
+      "prediction": "a le nen apiais qui nie fceust rien dire fors",
+      "cer": 0.3,
+      "wer": 0.6,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0006",
+      "ground_truth": "que toy, et si en ay Beaucoup Veu en mon temps.",
+      "prediction": "et fien ap Beaucoup Seu en non temps",
+      "cer": 0.3191489361702128,
+      "wer": 0.7272727272727273,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0007",
+      "ground_truth": "[¶]Pamphagus. Nen scais tu rien? Ie te la Voys",
+      "prediction": "Damphaguis . Renfcais tu riens De te la boys",
+      "cer": 0.2608695652173913,
+      "wer": 0.6666666666666666,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0008",
+      "ground_truth": "dire. Te souuient il bien quand nos compagnons",
+      "prediction": "dire . Te souuient il bien quand noz compagnons",
+      "cer": 0.043478260869565216,
+      "wer": 0.375,
+      "confidence": 0.95,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0009",
+      "ground_truth": "Melancheres, Theridamas, & Desfitrophus sailli-",
+      "prediction": "pielancheres , Theridainus , & Drefitrophus failli",
+      "cer": 0.23404255319148937,
+      "wer": 1.2,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0010",
+      "ground_truth": "rent sur Acteon leur Bon maistre, & le nostre, lequel",
+      "prediction": "rent sus Acteon leur bon maistre, et le nostre, lequel",
+      "cer": 0.07547169811320754,
+      "wer": 0.3,
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0011",
+      "ground_truth": "Diane auoit nouuellement transfourme en serf, et",
+      "prediction": "Diane auoir nouuellement transferme en ferf , et",
+      "cer": 0.10416666666666667,
+      "wer": 0.5714285714285714,
+      "confidence": 0.85,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0012",
+      "ground_truth": "que nous autres accourrusmes, et luy baillasmes",
+      "prediction": "que nous autres accourrufines et luz Guillafnies ,",
+      "cer": 0.2553191489361702,
+      "wer": 0.5714285714285714,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0013",
+      "ground_truth": "tant de coupe de dentz, quil mourut en la place? Tu",
+      "prediction": "Et de coups de dentz quil mourut en la place",
+      "cer": 0.17647058823529413,
+      "wer": 0.45454545454545453,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0014",
+      "ground_truth": "dois scauoir (comme iay depuis Veu en ie ne scay",
+      "prediction": "comme lay depuis Deu en ie ne feap",
+      "cer": 0.3958333333333333,
+      "wer": 0.6,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0015",
+      "ground_truth": "quel liure qui est en nostre maison). [¶]Hylactor.",
+      "prediction": "quel tuure qui est en nostre maison ; et",
+      "cer": 0.3,
+      "wer": 0.5,
+      "confidence": 0.5,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0016",
+      "ground_truth": "Comment! tu scais donc bien lire. ou as tu apprins",
+      "prediction": "atu fais donc bien lire-ou as tu apprins",
+      "cer": 0.26,
+      "wer": 0.5,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0017",
+      "ground_truth": "cela? [¶]Pamphagus. Ie le te diray apres: mais escous",
+      "prediction": "cela-Pamphag . Je le te diray apresmais escous",
+      "cer": 0.18867924528301888,
+      "wer": 0.5555555555555556,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0018",
+      "ground_truth": "te cecy premierement. Tu doys entendre que quand",
+      "prediction": "te cecy premierement . Tu doys entendre que quandiu",
+      "cer": 0.0625,
+      "wer": 0.375,
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0019",
+      "ground_truth": "Ung chascun de nous faisoit ses efforz de le mordre,",
+      "prediction": "Sag chascun de nous faisoit ses effortz de le mozdres",
+      "cer": 0.09615384615384616,
+      "wer": 0.3,
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0020",
+      "ground_truth": "daduenture ie le mordis en la langue, laquelle il",
+      "prediction": "uenture ie le mozdiz en la langue , laquelle il",
+      "cer": 0.12244897959183673,
+      "wer": 0.4444444444444444,
+      "confidence": 0.85,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0021",
+      "ground_truth": "tiroit hors la Bouche, si bien que ien emportay Une",
+      "prediction": "tiroit hors la Bouche , fi bien que ien emportay une",
+      "cer": 0.058823529411764705,
+      "wer": 0.4,
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0022",
+      "ground_truth": "Bonne piece que iauallay. Dy dict le compte, que",
+      "prediction": ". Bonne piere que iauallaz ; Dz dict le compte",
+      "cer": 0.25,
+      "wer": 0.7777777777777778,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0023",
+      "ground_truth": "cela fut cause de me faire parler, il nya rien si Vray:",
+      "prediction": "cela fut cause de me faire parler , il nya rien fi Drays",
+      "cer": 0.07272727272727272,
+      "wer": 0.3333333333333333,
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0024",
+      "ground_truth": "car aussi Diane le Vouloit. Mais pour ce que ie",
+      "prediction": "Jehane le Roulou .",
+      "cer": 0.723404255319149,
+      "wer": 0.9,
+      "confidence": 0.35,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0025",
+      "ground_truth": "nay point encores parle deuant les Hommes, on",
+      "prediction": "ay point encoses parte devant les bonniers",
+      "cer": 0.28888888888888886,
+      "wer": 0.75,
+      "confidence": 0.65,
+      "needs_review": true
+    },
+    {
+      "line_id": "ms_001_line_0026",
+      "ground_truth": "cupde que ce ne soit quune fable: touteffoys si est on",
+      "prediction": "de que ce ne foit qune fabletouteffoys fi est ou",
+      "cer": 0.16666666666666666,
+      "wer": 0.6363636363636364,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0027",
+      "ground_truth": "tousiours apres pour trouuer les chiens qui man-",
+      "prediction": "d' Roustours apres pour trouver les chiens qui in",
+      "cer": 0.1875,
+      "wer": 0.5,
+      "confidence": 0.75,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0028",
+      "ground_truth": "gerent de la langue Dacteon serf. Car le liure",
+      "prediction": "gevent de la langue Dasteon ferf . Car le liuee",
+      "cer": 0.10869565217391304,
+      "wer": 0.5555555555555556,
+      "confidence": 0.85,
+      "needs_review": false
+    },
+    {
+      "line_id": "ms_001_line_0029",
+      "ground_truth": "D",
+      "prediction": "D .",
+      "cer": 2.0,
+      "wer": 1.0,
+      "confidence": 0.1,
+      "needs_review": true
+    }
+  ]
+}

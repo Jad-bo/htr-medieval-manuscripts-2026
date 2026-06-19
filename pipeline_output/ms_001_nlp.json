@@ -1,0 +1,770 @@
+{
+  "document_id": "ms_001",
+  "transcription": "Rous Bolcy Bien , ilz ne nous scauroient Seoir en ce petit Gofcage . Et puis leur gissier ne fadzetie pas pardeca . De pendant ie te demanderoye voluns fiers fu feays point la cause pourquoy et par tous les autres chiens font inuetz a le nen apiais qui nie fceust rien dire fors et fien ap Beaucoup Seu en non temps Damphaguis . Renfcais tu riens De te la boys dire . Te souuient il bien quand noz compagnons pielancheres , Theridainus , & Drefitrophus failli rent sus Acteon leur bon maistre, et le nostre, lequel Diane auoir nouuellement transferme en ferf , et que nous autres accourrufines et luz Guillafnies , Et de coups de dentz quil mourut en la place comme lay depuis Deu en ie ne feap quel tuure qui est en nostre maison ; et atu fais donc bien lire-ou as tu apprins cela-Pamphag . Je le te diray apresmais escous te cecy premierement . Tu doys entendre que quandiu Sag chascun de nous faisoit ses effortz de le mozdres uenture ie le mozdiz en la langue , laquelle il tiroit hors la Bouche , fi bien que ien emportay une . Bonne piere que iauallaz ; Dz dict le compte cela fut cause de me faire parler , il nya rien fi Drays Jehane le Roulou . ay point encoses parte devant les bonniers de que ce ne foit qune fabletouteffoys fi est ou d' Roustours apres pour trouver les chiens qui in gevent de la langue Dasteon ferf . Car le liuee D .",
+  "normalized_text": "Rous Bolcy Bien , ilz ne nous scauroient Seoir en ce petit Gofcage . Et puis leur gissier ne fadzetie pas pardeca . De pendant ie te demanderoye voluns fiers fu feays point la cause pourquoy et par tous les autres chiens font inuetz a le nen apiais qui nie fceust rien dire fors et fien ap Beaucoup Seu en non temps Damphaguis . Renfcais tu riens De te la boys dire . Te souuient il bien quand noz compagnons pielancheres , Theridainus , & Drefitrophus failli rent sus Acteon leur bon maistre, et le nostre, lequel Diane auoir nouuellement transferme en ferf , et que nous autres accourrufines et luz Guillafnies , Et de coups de dentz quil mourut en la place comme lay depuis Deu en ie ne feap quel tuure qui est en nostre maison ; et atu fais donc bien lire-ou as tu apprins cela-Pamphag . Je le te diray apresmais escous te cecy premierement . Tu doys entendre que quandiu Sag chascun de nous faisoit ses effortz de le mozdres uenture ie le mozdiz en la langue , laquelle il tiroit hors la Bouche , fi bien que ien emportay une . Bonne piere que iauallaz ; Dz dict le compte cela fut cause de me faire parler , il nya rien fi Drays Jehane le Roulou . ay point encoses parte devant les bonniers de que ce ne foit qune fabletouteffoys fi est ou d' Roustours apres pour trouver les chiens qui in gevent de la langue Dasteon ferf . Car le liuee D .",
+  "language": "old_french",
+  "confidence": 0.745,
+  "entities": [
+    {
+      "text": "Rous Bolcy Bien",
+      "type": "PER",
+      "start": 0,
+      "end": 15,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Rous Bolcy",
+      "type": "PER",
+      "start": 0,
+      "end": 10,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Seoir",
+      "type": "LOC",
+      "start": 41,
+      "end": 46,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Seoir",
+      "type": "PER",
+      "start": 41,
+      "end": 46,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "ce petit",
+      "type": "LOC",
+      "start": 50,
+      "end": 58,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "Gofcage",
+      "type": "PER",
+      "start": 59,
+      "end": 66,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "fceust",
+      "type": "ORG",
+      "start": 257,
+      "end": 263,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Seu",
+      "type": "LOC",
+      "start": 299,
+      "end": 302,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Seu",
+      "type": "PER",
+      "start": 299,
+      "end": 302,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "non temps",
+      "type": "LOC",
+      "start": 306,
+      "end": 315,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "Damphaguis",
+      "type": "MISC",
+      "start": 316,
+      "end": 326,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Damphaguis",
+      "type": "PER",
+      "start": 316,
+      "end": 326,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Renfcais",
+      "type": "PER",
+      "start": 329,
+      "end": 337,
+      "source": "rule",
+      "confidence": 0.65
+    },
+    {
+      "text": "De te la boys dire",
+      "type": "MISC",
+      "start": 347,
+      "end": 365,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Theridainus",
+      "type": "PER",
+      "start": 424,
+      "end": 435,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Theridainus",
+      "type": "ORG",
+      "start": 424,
+      "end": 435,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "& Drefitrophus",
+      "type": "LOC",
+      "start": 438,
+      "end": 452,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Drefitrophus",
+      "type": "PER",
+      "start": 440,
+      "end": 452,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Acteon",
+      "type": "PER",
+      "start": 469,
+      "end": 475,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Diane",
+      "type": "PER",
+      "start": 515,
+      "end": 520,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "ferf",
+      "type": "LOC",
+      "start": 554,
+      "end": 558,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "Guillafnies",
+      "type": "ORG",
+      "start": 601,
+      "end": 612,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Guillafnies",
+      "type": "PER",
+      "start": 601,
+      "end": 612,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Et de coups de dentz quil",
+      "type": "MISC",
+      "start": 615,
+      "end": 640,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "la place",
+      "type": "LOC",
+      "start": 651,
+      "end": 659,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "Deu",
+      "type": "LOC",
+      "start": 677,
+      "end": 680,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "ie ne",
+      "type": "LOC",
+      "start": 684,
+      "end": 689,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "tuure",
+      "type": "PER",
+      "start": 700,
+      "end": 705,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "nostre maison",
+      "type": "LOC",
+      "start": 717,
+      "end": 730,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "atu",
+      "type": "ORG",
+      "start": 736,
+      "end": 739,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Pamphag",
+      "type": "MISC",
+      "start": 782,
+      "end": 789,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "quandiu Sag",
+      "type": "PER",
+      "start": 868,
+      "end": 879,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Sag",
+      "type": "PER",
+      "start": 876,
+      "end": 879,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "effortz",
+      "type": "PER",
+      "start": 908,
+      "end": 915,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "mozdres uenture ie",
+      "type": "ORG",
+      "start": 922,
+      "end": 940,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "la langue",
+      "type": "LOC",
+      "start": 954,
+      "end": 963,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "Bouche",
+      "type": "LOC",
+      "start": 993,
+      "end": 999,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Bouche",
+      "type": "MISC",
+      "start": 993,
+      "end": 999,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "ien emportay",
+      "type": "PER",
+      "start": 1014,
+      "end": 1026,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Bonne",
+      "type": "PER",
+      "start": 1033,
+      "end": 1038,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Dz dict",
+      "type": "PER",
+      "start": 1060,
+      "end": 1067,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Dz",
+      "type": "PER",
+      "start": 1060,
+      "end": 1062,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Drays",
+      "type": "PER",
+      "start": 1129,
+      "end": 1134,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Drays Jehane le Roulou",
+      "type": "PER",
+      "start": 1129,
+      "end": 1151,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Jehane le Roulou",
+      "type": "PER",
+      "start": 1135,
+      "end": 1151,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "ay",
+      "type": "LOC",
+      "start": 1154,
+      "end": 1156,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Roustours apres",
+      "type": "MISC",
+      "start": 1249,
+      "end": 1264,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Roustours",
+      "type": "PER",
+      "start": 1249,
+      "end": 1258,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "gevent de la",
+      "type": "LOC",
+      "start": 1296,
+      "end": 1308,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "Dasteon",
+      "type": "PER",
+      "start": 1316,
+      "end": 1323,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Dasteon ferf",
+      "type": "MISC",
+      "start": 1316,
+      "end": 1328,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "liuee D",
+      "type": "LOC",
+      "start": 1338,
+      "end": 1345,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "liuee D",
+      "type": "MISC",
+      "start": 1338,
+      "end": 1345,
+      "source": "stanza",
+      "confidence": 0.8
+    }
+  ],
+  "relations": [
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "ce petit",
+      "sentence": "ilz ne nous scauroient Seoir en ce petit Gofcage . Et puis leur gissie",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "non temps",
+      "sentence": "fors et fien ap Beaucoup Seu en non temps Damphaguis . Renfcais tu rien",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "ferf",
+      "sentence": "auoir nouuellement transferme en ferf , et que nous autres accourru",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "la place",
+      "sentence": "de coups de dentz quil mourut en la place comme lay depuis Deu en ie ne",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "ie ne",
+      "sentence": "la place comme lay depuis Deu en ie ne feap quel tuure qui est en no",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "nostre maison",
+      "sentence": "ie ne feap quel tuure qui est en nostre maison ; et atu fais donc bien lire-",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "la langue",
+      "sentence": "mozdres uenture ie le mozdiz en la langue , laquelle il tiroit hors la",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "gevent de la",
+      "sentence": "s pour trouver les chiens qui in gevent de la langue Dasteon ferf . Car le",
+      "confidence": 0.7
+    },
+    {
+      "subject": "Rous Bolcy Bien",
+      "predicate": "associé_à_lieu",
+      "object": "Seoir",
+      "sentence": "Rous Bolcy Bien , ilz ne nous scauroient Seoir en ce petit Gofcage",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Rous Bolcy Bien",
+      "predicate": "associé_à_lieu",
+      "object": "ce petit",
+      "sentence": "Rous Bolcy Bien , ilz ne nous scauroient Seoir en ce petit Gofcage . Et puis l",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Rous Bolcy",
+      "predicate": "associé_à_lieu",
+      "object": "Seoir",
+      "sentence": "Rous Bolcy Bien , ilz ne nous scauroient Seoir en ce petit Gofcage",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Rous Bolcy",
+      "predicate": "associé_à_lieu",
+      "object": "ce petit",
+      "sentence": "Rous Bolcy Bien , ilz ne nous scauroient Seoir en ce petit Gofcage . Et puis l",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Seoir",
+      "predicate": "associé_à_lieu",
+      "object": "ce petit",
+      "sentence": "ne nous scauroient Seoir en ce petit Gofcage . Et puis l",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Gofcage",
+      "predicate": "associé_à_lieu",
+      "object": "Seoir",
+      "sentence": "ne nous scauroient Seoir en ce petit Gofcage . Et puis leur giss",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Gofcage",
+      "predicate": "associé_à_lieu",
+      "object": "ce petit",
+      "sentence": "scauroient Seoir en ce petit Gofcage . Et puis leur giss",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Seu",
+      "predicate": "associé_à_lieu",
+      "object": "non temps",
+      "sentence": "et fien ap Beaucoup Seu en non temps Damphaguis . Renfca",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Damphaguis",
+      "predicate": "associé_à_lieu",
+      "object": "Seu",
+      "sentence": "et fien ap Beaucoup Seu en non temps Damphaguis . Renfcais tu riens",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Damphaguis",
+      "predicate": "associé_à_lieu",
+      "object": "non temps",
+      "sentence": "ap Beaucoup Seu en non temps Damphaguis . Renfcais tu riens",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Renfcais",
+      "predicate": "associé_à_lieu",
+      "object": "Seu",
+      "sentence": "et fien ap Beaucoup Seu en non temps Damphaguis . Renfcais tu riens De te la b",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Renfcais",
+      "predicate": "associé_à_lieu",
+      "object": "non temps",
+      "sentence": "ap Beaucoup Seu en non temps Damphaguis . Renfcais tu riens De te la b",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Theridainus",
+      "predicate": "associé_à_lieu",
+      "object": "& Drefitrophus",
+      "sentence": "nons pielancheres , Theridainus , & Drefitrophus failli rent sus Act",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Drefitrophus",
+      "predicate": "associé_à_lieu",
+      "object": "& Drefitrophus",
+      "sentence": "res , Theridainus , & Drefitrophus failli rent sus Act",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Acteon",
+      "predicate": "associé_à_lieu",
+      "object": "& Drefitrophus",
+      "sentence": "res , Theridainus , & Drefitrophus failli rent sus Acteon leur bon maistre, e",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Diane",
+      "predicate": "associé_à_lieu",
+      "object": "& Drefitrophus",
+      "sentence": "res , Theridainus , & Drefitrophus failli rent sus Acteon leur bon maistre, et le nostre, lequel Diane auoir nouuellement",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Diane",
+      "predicate": "associé_à_lieu",
+      "object": "ferf",
+      "sentence": "t le nostre, lequel Diane auoir nouuellement transferme en ferf , et que nous autre",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Guillafnies",
+      "predicate": "associé_à_lieu",
+      "object": "ferf",
+      "sentence": "ement transferme en ferf , et que nous autres accourrufines et luz Guillafnies , Et de coups de de",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Guillafnies",
+      "predicate": "associé_à_lieu",
+      "object": "la place",
+      "sentence": "ccourrufines et luz Guillafnies , Et de coups de dentz quil mourut en la place comme lay depuis De",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Guillafnies",
+      "predicate": "associé_à_lieu",
+      "object": "Deu",
+      "sentence": "ccourrufines et luz Guillafnies , Et de coups de dentz quil mourut en la place comme lay depuis Deu en ie ne feap quel",
+      "confidence": 0.5
+    },
+    {
+      "subject": "tuure",
+      "predicate": "associé_à_lieu",
+      "object": "la place",
+      "sentence": "entz quil mourut en la place comme lay depuis Deu en ie ne feap quel tuure qui est en nostre m",
+      "confidence": 0.5
+    },
+    {
+      "subject": "tuure",
+      "predicate": "associé_à_lieu",
+      "object": "Deu",
+      "sentence": "ce comme lay depuis Deu en ie ne feap quel tuure qui est en nostre m",
+      "confidence": 0.5
+    },
+    {
+      "subject": "tuure",
+      "predicate": "associé_à_lieu",
+      "object": "ie ne",
+      "sentence": "e lay depuis Deu en ie ne feap quel tuure qui est en nostre m",
+      "confidence": 0.5
+    },
+    {
+      "subject": "tuure",
+      "predicate": "associé_à_lieu",
+      "object": "nostre maison",
+      "sentence": "en ie ne feap quel tuure qui est en nostre maison ; et atu fais donc",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Sag",
+      "predicate": "associé_à_lieu",
+      "object": "la langue",
+      "sentence": "ntendre que quandiu Sag chascun de nous faisoit ses effortz de le mozdres uenture ie le mozdiz en la langue , laquelle il tiroi",
+      "confidence": 0.5
+    },
+    {
+      "subject": "effortz",
+      "predicate": "associé_à_lieu",
+      "object": "la langue",
+      "sentence": "de nous faisoit ses effortz de le mozdres uenture ie le mozdiz en la langue , laquelle il tiroi",
+      "confidence": 0.5
+    },
+    {
+      "subject": "ien emportay",
+      "predicate": "associé_à_lieu",
+      "object": "la langue",
+      "sentence": "ure ie le mozdiz en la langue , laquelle il tiroit hors la Bouche , fi bien que ien emportay une . Bonne piere q",
+      "confidence": 0.5
+    },
+    {
+      "subject": "ien emportay",
+      "predicate": "associé_à_lieu",
+      "object": "Bouche",
+      "sentence": "e il tiroit hors la Bouche , fi bien que ien emportay une . Bonne piere q",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Bonne",
+      "predicate": "associé_à_lieu",
+      "object": "la langue",
+      "sentence": "ure ie le mozdiz en la langue , laquelle il tiroit hors la Bouche , fi bien que ien emportay une . Bonne piere que iauallaz",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Bonne",
+      "predicate": "associé_à_lieu",
+      "object": "Bouche",
+      "sentence": "e il tiroit hors la Bouche , fi bien que ien emportay une . Bonne piere que iauallaz",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Dz dict",
+      "predicate": "associé_à_lieu",
+      "object": "Bouche",
+      "sentence": "e il tiroit hors la Bouche , fi bien que ien emportay une . Bonne piere que iauallaz ; Dz dict le compte cela fut",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Dz",
+      "predicate": "associé_à_lieu",
+      "object": "Bouche",
+      "sentence": "e il tiroit hors la Bouche , fi bien que ien emportay une . Bonne piere que iauallaz ; Dz dict le compte cela",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Drays",
+      "predicate": "associé_à_lieu",
+      "object": "ay",
+      "sentence": "er , il nya rien fi Drays Jehane le Roulou . ay point encoses parte",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Drays Jehane le Roulou",
+      "predicate": "associé_à_lieu",
+      "object": "ay",
+      "sentence": "er , il nya rien fi Drays Jehane le Roulou . ay point encoses parte",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Jehane le Roulou",
+      "predicate": "associé_à_lieu",
+      "object": "ay",
+      "sentence": "l nya rien fi Drays Jehane le Roulou . ay point encoses parte",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Roustours",
+      "predicate": "associé_à_lieu",
+      "object": "gevent de la",
+      "sentence": "effoys fi est ou d' Roustours apres pour trouver les chiens qui in gevent de la langue Dasteon ferf",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Dasteon",
+      "predicate": "associé_à_lieu",
+      "object": "gevent de la",
+      "sentence": "r les chiens qui in gevent de la langue Dasteon ferf . Car le liuee",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Dasteon",
+      "predicate": "associé_à_lieu",
+      "object": "liuee D",
+      "sentence": "gevent de la langue Dasteon ferf . Car le liuee D .",
+      "confidence": 0.5
+    }
+  ],
+  "themes": [
+    "administratif",
+    "juridique"
+  ],
+  "metadata": {
+    "processed_at": "2026-06-19T04:17:09.568820",
+    "pipeline_version": "1.0.0",
+    "tools": {
+      "spacy": true,
+      "stanza": true,
+      "sklearn": true
+    }
+  }
+}

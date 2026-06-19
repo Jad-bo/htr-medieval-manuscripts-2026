@@ -1,0 +1,9 @@
+{
+  "cer": 0.3769363166953528,
+  "wer": 0.7427184466019418,
+  "accuracy": 0.6230636833046472,
+  "num_samples": 15,
+  "model": "magistermilitum/tridis_HTR",
+  "model_type": "tridis_pretrained",
+  "checkpoint": "N/A (mod\u00e8le pr\u00e9-entra\u00een\u00e9 HuggingFace)"
+}

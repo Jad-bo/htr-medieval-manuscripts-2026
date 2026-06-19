@@ -1,0 +1,341 @@
+{
+  "document_id": "ms_002",
+  "transcription": "a mane terra Sancti cadaveribus corporibusque jacentium verum etiam in ipsius domini corpore praedicati atque laudati sed quitta fecerunt . impleant hace homines erga suos officia posteris . et sui humani lenimenta meroris . Verum illa que ad vivant spiritus defunctorum oblationes erogationes multo pro eis observantius etabundantius impendant . qui suos carne non spiritu mostuos persolum carnaliter sed etia spiritaliter amant . R . Neperdideris me domine eum iniquitatibus meisque in finem iratus II preser , uel mala mea . Nulliserere metans misere mei . II , quoniam beate confidit anima mea . Neque equitur . Deinde nosquivimus qui relinquimur simul rapiemur cum illis innubibus obviam Christo inacra et sic semper cum domino erimus poterat enim hoc donare credentibus ut nec istius experirentur corporis mortem . Sed si hoc fecisset earni quedam felicitas adderatur minueretur autem fidei fortitudo sic episcopi homines mortem istam timent . Ut nonob aliud felices dicerent esse xpistianos nisi quod mori omnino non possent . . . S . Uberti . S",
+  "normalized_text": "a mane terra Sancti cadaveribus corporibusque jacentium verum etiam in ipsius domini corpore praedicati atque laudati sed quitta fecerunt . impleant hace homines erga suos officia posteris . et sui humani lenimenta meroris . Verum illa que ad vivant spiritus defunctorum oblationes erogationes multo pro eis observantius etabundantius impendant . qui suos carne non spiritu mostuos persolum carnaliter sed etia spiritaliter amant . R . Neperdideris me domine eum iniquitatibus meisque in finem iratus II preser , uel mala mea . Nulliserere metans misere mei . II , quoniam beate confidit anima mea . Neque equitur . Deinde nosquivimus qui relinquimur simul rapiemur cum illis innubibus obviam Christo inacra et sic semper cum domino erimus poterat enim hoc donare credentibus ut nec istius experirentur corporis mortem . Sed si hoc fecisset earni quedam felicitas adderatur minueretur autem fidei fortitudo sic episcopi homines mortem istam timent . Ut nonob aliud felices dicerent esse xpistianos nisi quod mori omnino non possent . . . S . Uberti . S",
+  "language": "latin",
+  "confidence": 0.731,
+  "entities": [
+    {
+      "text": "Sancti cadaveribus corporibusque jacentium verum etiam",
+      "type": "MISC",
+      "start": 13,
+      "end": 67,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "ipsius domini",
+      "type": "LOC",
+      "start": 71,
+      "end": 84,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "sed",
+      "type": "ORG",
+      "start": 118,
+      "end": 121,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "fecerunt",
+      "type": "PER",
+      "start": 129,
+      "end": 137,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "sui humani lenimenta meroris",
+      "type": "ORG",
+      "start": 194,
+      "end": 222,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Verum",
+      "type": "PER",
+      "start": 225,
+      "end": 230,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Verum illa",
+      "type": "PER",
+      "start": 225,
+      "end": 235,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "vivant spiritus",
+      "type": "LOC",
+      "start": 243,
+      "end": 258,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "observantius etabundantius impendant",
+      "type": "PER",
+      "start": 308,
+      "end": 344,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "mostuos persolum",
+      "type": "PER",
+      "start": 374,
+      "end": 390,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "carnaliter sed etia spiritaliter",
+      "type": "MISC",
+      "start": 391,
+      "end": 423,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "R",
+      "type": "MISC",
+      "start": 432,
+      "end": 433,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Neperdideris",
+      "type": "PER",
+      "start": 436,
+      "end": 448,
+      "source": "rule",
+      "confidence": 0.65
+    },
+    {
+      "text": "Neperdideris",
+      "type": "MISC",
+      "start": 436,
+      "end": 448,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "finem iratus",
+      "type": "LOC",
+      "start": 488,
+      "end": 500,
+      "source": "rule",
+      "confidence": 0.75
+    },
+    {
+      "text": "Nulliserere",
+      "type": "PER",
+      "start": 528,
+      "end": 539,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "II",
+      "type": "PER",
+      "start": 560,
+      "end": 562,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "beate confidit",
+      "type": "PER",
+      "start": 573,
+      "end": 587,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Neque",
+      "type": "PER",
+      "start": 600,
+      "end": 605,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Deinde",
+      "type": "PER",
+      "start": 616,
+      "end": 622,
+      "source": "rule",
+      "confidence": 0.65
+    },
+    {
+      "text": "Deinde nosquivimus",
+      "type": "PER",
+      "start": 616,
+      "end": 634,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "relinquimur",
+      "type": "PER",
+      "start": 639,
+      "end": 650,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "rapiemur",
+      "type": "PER",
+      "start": 657,
+      "end": 665,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "Christo inacra",
+      "type": "PER",
+      "start": 693,
+      "end": 707,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "erimus poterat enim hoc",
+      "type": "ORG",
+      "start": 733,
+      "end": 756,
+      "source": "spacy",
+      "confidence": 0.65
+    },
+    {
+      "text": "Sed",
+      "type": "MISC",
+      "start": 821,
+      "end": 824,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "fecisset earni",
+      "type": "PER",
+      "start": 832,
+      "end": 846,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "quedam felicitas",
+      "type": "PER",
+      "start": 847,
+      "end": 863,
+      "source": "spacy",
+      "confidence": 0.75
+    },
+    {
+      "text": "S",
+      "type": "PER",
+      "start": 1038,
+      "end": 1039,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "Uberti",
+      "type": "PER",
+      "start": 1042,
+      "end": 1048,
+      "source": "stanza",
+      "confidence": 0.8
+    },
+    {
+      "text": "S",
+      "type": "PER",
+      "start": 1051,
+      "end": 1052,
+      "source": "stanza",
+      "confidence": 0.8
+    }
+  ],
+  "relations": [
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "ipsius domini",
+      "sentence": "ibusque jacentium verum etiam in ipsius domini corpore praedicati atque laud",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "vivant spiritus",
+      "sentence": "enta meroris . Verum illa que ad vivant spiritus defunctorum oblationes erogat",
+      "confidence": 0.7
+    },
+    {
+      "subject": "document",
+      "predicate": "lieu_de",
+      "object": "finem iratus",
+      "sentence": "ine eum iniquitatibus meisque in finem iratus II preser , uel mala mea . Nu",
+      "confidence": 0.7
+    },
+    {
+      "subject": "fecerunt",
+      "predicate": "associé_à_lieu",
+      "object": "ipsius domini",
+      "sentence": "tium verum etiam in ipsius domini corpore praedicati atque laudati sed quitta fecerunt . impleant hace hom",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Verum",
+      "predicate": "associé_à_lieu",
+      "object": "vivant spiritus",
+      "sentence": "lenimenta meroris . Verum illa que ad vivant spiritus defunctorum oblatio",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Verum illa",
+      "predicate": "associé_à_lieu",
+      "object": "vivant spiritus",
+      "sentence": "lenimenta meroris . Verum illa que ad vivant spiritus defunctorum oblatio",
+      "confidence": 0.5
+    },
+    {
+      "subject": "observantius etabundantius impendant",
+      "predicate": "associé_à_lieu",
+      "object": "vivant spiritus",
+      "sentence": ". Verum illa que ad vivant spiritus defunctorum oblationes erogationes multo pro eis observantius etabundantius impendant . qui suos carne no",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Neperdideris",
+      "predicate": "associé_à_lieu",
+      "object": "finem iratus",
+      "sentence": "taliter amant . R . Neperdideris me domine eum iniquitatibus meisque in finem iratus II preser , uel mal",
+      "confidence": 0.5
+    },
+    {
+      "subject": "Nulliserere",
+      "predicate": "associé_à_lieu",
+      "object": "finem iratus",
+      "sentence": "itatibus meisque in finem iratus II preser , uel mala mea . Nulliserere metans misere mei .",
+      "confidence": 0.5
+    },
+    {
+      "subject": "II",
+      "predicate": "associé_à_lieu",
+      "object": "finem iratus",
+      "sentence": "itatibus meisque in finem iratus II preser , uel mala mea . Nulliserere metans misere mei . II , quoniam beate con",
+      "confidence": 0.5
+    }
+  ],
+  "themes": [
+    "religieux"
+  ],
+  "metadata": {
+    "processed_at": "2026-06-19T07:00:29.930303",
+    "pipeline_version": "1.0.0",
+    "tools": {
+      "spacy": true,
+      "stanza": true,
+      "sklearn": true
+    }
+  }
+}

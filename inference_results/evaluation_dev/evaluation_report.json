@@ -1,0 +1,8 @@
+{
+  "cer": 0.7435456110154905,
+  "wer": 1.0388349514563107,
+  "accuracy": 0.25645438898450945,
+  "num_samples": 15,
+  "model": "microsoft/trocr-large-handwritten",
+  "checkpoint": "./checkpoints_production/best_model"
+}

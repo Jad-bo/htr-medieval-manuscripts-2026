@@ -1,0 +1,114 @@
+================================================================================
+COMPARAISON GROUND TRUTH vs PRÉDICTION
+Document : ms_002
+================================================================================
+
+CER global : 46.86%
+WER global : 96.02%
+Lignes comparées : 19
+
+================================================================================
+
+--- ms_002_line_0020 ---
+PRED : a mane terra Sancti
+CONF : 0.90 (sans GT)
+
+--- ms_002_line_0000 ---
+GT   : corporib; q; acceptum. verum etiam inpius
+PRED : cadaveribus corporibusque jacentium verum etiam in ipsius
+CER  : 58.54% | WER : 83.33% | CONF : 0.35
+
+--- ms_002_line_0001 ---
+GT   : d̃ corpore pdicari acq; laudari. quita fecerint.
+PRED : domini corpore praedicati atque laudati sed quitta fecerunt .
+CER  : 41.67% | WER : 114.29% | CONF : 0.50
+
+--- ms_002_line_0002 ---
+GT   : Impleat hæc homines erga suos officia postem muneri;
+PRED : impleant hace homines erga suos officia posteris .
+CER  : 25.00% | WER : 50.00% | CONF : 0.65
+
+--- ms_002_line_0003 ---
+GT   : & si inhumani leniita meront. Verum illa que ad
+PRED : et sui humani lenimenta meroris . Verum illa que ad
+CER  : 25.53% | WER : 66.67% | CONF : 0.65
+
+--- ms_002_line_0004 ---
+GT   : inuata spiritus defunctorū oblationes & erogationes.
+PRED : vivant spiritus defunctorum oblationes erogationes
+CER  : 16.98% | WER : 66.67% | CONF : 0.75
+
+--- ms_002_line_0005 ---
+GT   : mutuō p̃sobseruarentur & abundarentur impendant.
+PRED : multo pro eis observantius etabundantius impendant .
+CER  : 42.86% | WER : 140.00% | CONF : 0.50
+
+--- ms_002_line_0006 ---
+GT   : qui suos carne non spũ mortuos. ñ solum carnaliter
+PRED : qui suos carne non spiritu mostuos persolum carnaliter
+CER  : 19.61% | WER : 44.44% | CONF : 0.75
+
+--- ms_002_line_0007 ---
+GT   : fed̃ etiā spiritualiter amant.
+PRED : sed etia spiritaliter amant .
+CER  : 16.13% | WER : 125.00% | CONF : 0.75
+
+--- ms_002_line_0008 ---
+GT   : R̃ Ne perdideris me domine cum iniquitatib; meis. neq; infinem iratus
+PRED : R . Neperdideris me domine eum iniquitatibus meisque in finem iratus II
+CER  : 21.74% | WER : 81.82% | CONF : 0.65
+
+--- ms_002_line_0009 ---
+GT   : reser̃ uel mala mea. Ṽ Miserere mei deus miserere mei
+PRED : preser , uel mala mea . Nulliserere metans misere mei . II
+CER  : 37.04% | WER : 100.00% | CONF : 0.50
+
+--- ms_002_line_0010 ---
+GT   : quoniam in te confidit anima mea. Neq; infinem. LECT:
+PRED : , quoniam beate confidit anima mea . Neque
+CER  : 39.62% | WER : 77.78% | CONF : 0.50
+
+--- ms_002_line_0011 ---
+GT   : Sequitur. Deinde nos quiuiuimus qui relinquimur
+PRED : equitur . Deinde nosquivimus qui relinquimur
+CER  : 12.77% | WER : 66.67% | CONF : 0.85
+
+--- ms_002_line_0012 ---
+GT   : simul rapiēmur cū illis in nubib; obuiā xp̄o in aera.
+PRED : simul rapiemur cum illis innubibus obviam Christo inacra
+CER  : 28.57% | WER : 80.00% | CONF : 0.65
+
+--- ms_002_line_0014 ---
+GT   : credentib; vt nec ipsius experirentur corporis
+PRED : et sic semper cum domino erimus poterat enim hoc donare
+CER  : 89.13% | WER : 166.67% | CONF : 0.20
+
+--- ms_002_line_0015 ---
+GT   : mortem. Sed si hoc fecisset. cum quedam felicitas
+PRED : credentibus ut nec istius experirentur corporis
+CER  : 79.59% | WER : 100.00% | CONF : 0.20
+
+--- ms_002_line_0016 ---
+GT   : aderr̃etur. minueretur su fidei fortitudo. Sic
+PRED : mortem . Sed si hoc fecisset earni quedam felicitas
+CER  : 86.96% | WER : 150.00% | CONF : 0.20
+
+--- ms_002_line_0017 ---
+GT   : eni homines morte istā timerent. ṽ nobilud felices
+PRED : adderatur minueretur autem fidei fortitudo sic
+CER  : 76.92% | WER : 100.00% | CONF : 0.20
+
+--- ms_002_line_0018 ---
+GT   : dicerent eē xp̄ianos nisi qd mort omnino ñ possent.
+PRED : episcopi homines mortem istam timent . Ut nonob aliud felices
+CER  : 94.23% | WER : 111.11% | CONF : 0.20
+
+--- ms_002_line_0019 ---
+PRED : dicerent esse xpistianos nisi quod mori omnino non possent .
+CONF : 0.90 (sans GT)
+
+--- ms_002_line_0013 ---
+GT   : & sic semp cū dno erimus. Poterit eni hoc donare
+PRED : . . S . Uberti . S
+CER  : 77.55% | WER : 100.00% | CONF : 0.20
+
