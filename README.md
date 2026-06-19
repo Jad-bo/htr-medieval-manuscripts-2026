@@ -395,9 +395,9 @@ Device : CPU
 | Rôle | Nom |
 |:---|:---|
 | Responsable technique | [Coulbaly Mohamed Abdulaziz] |
-| Responsable documentation | [ Françine ] |
-| Responsable expérimentation | [ Evans ] |
-| Responsable données | [ Jad ] |
+| Responsable documentation | [ NDONGMO KEMBOU Francine ] |
+| Responsable expérimentation | [DEGBE  Evans ] |
+| Responsable données | [ BOUSFIHA Jad ] |
 
 ---
 
