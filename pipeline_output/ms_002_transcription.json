@@ -3,52 +3,9 @@
     "system_coordinates": "origin_top_left",
     "lines": [
         {
-            "line_id": "ms_002_line_0020",
-            "transcription": "a mane terra Sancti",
-            "confidence": 0.9,
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        3757,
-                        615
-                    ],
-                    [
-                        3757,
-                        773
-                    ],
-                    [
-                        3757,
-                        813
-                    ],
-                    [
-                        3778,
-                        813
-                    ],
-                    [
-                        3778,
-                        773
-                    ],
-                    [
-                        3778,
-                        624
-                    ],
-                    [
-                        3757,
-                        615
-                    ]
-                ],
-                "unit": "pixels"
-            },
-            "needs_review": false,
-            "reading_order": 0,
-            "region_type": "main_text",
-            "model_version": "trocr-lora-v1"
-        },
-        {
             "line_id": "ms_002_line_0000",
             "transcription": "cadaveribus corporibusque jacentium verum etiam in ipsius",
-            "confidence": 0.35,
+            "confidence": 0.9,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -407,15 +364,15 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 1,
+            "needs_review": false,
+            "reading_order": 0,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0001",
-            "transcription": "domini corpore praedicati atque laudati sed quitta fecerunt .",
-            "confidence": 0.5,
+            "transcription": "domini corpore praedicati atque laudati sed quilta fecerunt.",
+            "confidence": 0.65,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -831,14 +788,14 @@
                 "unit": "pixels"
             },
             "needs_review": true,
-            "reading_order": 2,
+            "reading_order": 1,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0002",
-            "transcription": "impleant hace homines erga suos officia posteris .",
-            "confidence": 0.65,
+            "transcription": "impleant hace homines erga suos officia postem muneris.",
+            "confidence": 0.85,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -1225,15 +1182,15 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 3,
+            "needs_review": false,
+            "reading_order": 2,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0003",
-            "transcription": "et sui humani lenimenta meroris . Verum illa que ad",
-            "confidence": 0.65,
+            "transcription": "et sui humani lenimenta meroris. Verum illa que ad",
+            "confidence": 0.95,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -1536,14 +1493,14 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 4,
+            "needs_review": false,
+            "reading_order": 3,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0004",
-            "transcription": "vivant spiritus defunctorum oblationes erogationes",
+            "transcription": "vivant spiritus defunctorum oblationes. erogationes",
             "confidence": 0.75,
             "geometry": {
                 "type": "Polygon",
@@ -1836,14 +1793,14 @@
                 "unit": "pixels"
             },
             "needs_review": false,
-            "reading_order": 5,
+            "reading_order": 4,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0005",
-            "transcription": "multo pro eis observantius etabundantius impendant .",
-            "confidence": 0.5,
+            "transcription": "multo pro eis observantius etabundantius impendant.",
+            "confidence": 0.95,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -2138,14 +2095,14 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 6,
+            "needs_review": false,
+            "reading_order": 5,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0006",
-            "transcription": "qui suos carne non spiritu mostuos persolum carnaliter",
+            "transcription": "qui suos carne non spirituos non solum carnaliter",
             "confidence": 0.75,
             "geometry": {
                 "type": "Polygon",
@@ -2466,14 +2423,14 @@
                 "unit": "pixels"
             },
             "needs_review": false,
-            "reading_order": 7,
+            "reading_order": 6,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0007",
-            "transcription": "sed etia spiritaliter amant .",
-            "confidence": 0.75,
+            "transcription": "sed etia spiritaliter amant.",
+            "confidence": 0.95,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -2765,14 +2722,14 @@
                 "unit": "pixels"
             },
             "needs_review": false,
-            "reading_order": 8,
+            "reading_order": 7,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0008",
-            "transcription": "R . Neperdideris me domine eum iniquitatibus meisque in finem iratus II",
-            "confidence": 0.65,
+            "transcription": "R. Neperdideris me domine cum iniquitatibus meisque in finem iratus II",
+            "confidence": 0.75,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -3167,14 +3124,14 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 9,
+            "needs_review": false,
+            "reading_order": 8,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0009",
-            "transcription": "preser , uel mala mea . Nulliserere metans misere mei . II",
+            "transcription": ", uel mala mea. Nulliberere meo donum misere meo.",
             "confidence": 0.5,
             "geometry": {
                 "type": "Polygon",
@@ -3455,13 +3412,13 @@
                 "unit": "pixels"
             },
             "needs_review": true,
-            "reading_order": 10,
+            "reading_order": 9,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0010",
-            "transcription": ", quoniam beate confidit anima mea . Neque",
+            "transcription": ", quoniam beate confidit anima mea. Neque",
             "confidence": 0.5,
             "geometry": {
                 "type": "Polygon",
@@ -3790,13 +3747,13 @@
                 "unit": "pixels"
             },
             "needs_review": true,
-            "reading_order": 11,
+            "reading_order": 10,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0011",
-            "transcription": "equitur . Deinde nosquivimus qui relinquimur",
+            "transcription": "equitur. Deinde nosquivimus qui relinquimur",
             "confidence": 0.85,
             "geometry": {
                 "type": "Polygon",
@@ -4133,14 +4090,14 @@
                 "unit": "pixels"
             },
             "needs_review": false,
-            "reading_order": 12,
+            "reading_order": 11,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
             "line_id": "ms_002_line_0012",
             "transcription": "simul rapiemur cum illis innubibus obviam Christo inacra",
-            "confidence": 0.65,
+            "confidence": 0.5,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -4448,14 +4405,14 @@
                 "unit": "pixels"
             },
             "needs_review": true,
-            "reading_order": 13,
+            "reading_order": 12,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
-            "line_id": "ms_002_line_0014",
+            "line_id": "ms_002_line_0013",
             "transcription": "et sic semper cum domino erimus poterat enim hoc donare",
-            "confidence": 0.2,
+            "confidence": 0.65,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -4767,14 +4724,14 @@
                 "unit": "pixels"
             },
             "needs_review": true,
-            "reading_order": 14,
+            "reading_order": 13,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
-            "line_id": "ms_002_line_0015",
+            "line_id": "ms_002_line_0014",
             "transcription": "credentibus ut nec istius experirentur corporis",
-            "confidence": 0.2,
+            "confidence": 0.9,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -5089,15 +5046,15 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 15,
+            "needs_review": false,
+            "reading_order": 14,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
-            "line_id": "ms_002_line_0016",
-            "transcription": "mortem . Sed si hoc fecisset earni quedam felicitas",
-            "confidence": 0.2,
+            "line_id": "ms_002_line_0015",
+            "transcription": "mortem. Sed si hoc fecisset earni quedam felicitas",
+            "confidence": 0.85,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -5484,15 +5441,15 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 16,
+            "needs_review": false,
+            "reading_order": 15,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
-            "line_id": "ms_002_line_0017",
+            "line_id": "ms_002_line_0016",
             "transcription": "adderatur minueretur autem fidei fortitudo sic",
-            "confidence": 0.2,
+            "confidence": 0.9,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -5827,15 +5784,15 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 17,
+            "needs_review": false,
+            "reading_order": 16,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
-            "line_id": "ms_002_line_0018",
-            "transcription": "episcopi homines mortem istam timent . Ut nonob aliud felices",
-            "confidence": 0.2,
+            "line_id": "ms_002_line_0017",
+            "transcription": "enim homines mortem istam timent ut nonob aliud felices",
+            "confidence": 0.85,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -6182,15 +6139,15 @@
                 ],
                 "unit": "pixels"
             },
-            "needs_review": true,
-            "reading_order": 18,
+            "needs_review": false,
+            "reading_order": 17,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         },
         {
-            "line_id": "ms_002_line_0019",
-            "transcription": "dicerent esse xpistianos nisi quod mori omnino non possent .",
-            "confidence": 0.9,
+            "line_id": "ms_002_line_0018",
+            "transcription": "dicerent esse xpistianos nisi quod mori omnino non possent.",
+            "confidence": 0.75,
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -6566,50 +6523,7 @@
                 "unit": "pixels"
             },
             "needs_review": false,
-            "reading_order": 19,
-            "region_type": "main_text",
-            "model_version": "trocr-lora-v1"
-        },
-        {
-            "line_id": "ms_002_line_0013",
-            "transcription": ". . S . Uberti . S",
-            "confidence": 0.2,
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        618,
-                        4266
-                    ],
-                    [
-                        618,
-                        4281
-                    ],
-                    [
-                        655,
-                        4281
-                    ],
-                    [
-                        655,
-                        4263
-                    ],
-                    [
-                        639,
-                        4147
-                    ],
-                    [
-                        606,
-                        4150
-                    ],
-                    [
-                        618,
-                        4266
-                    ]
-                ],
-                "unit": "pixels"
-            },
-            "needs_review": true,
-            "reading_order": 20,
+            "reading_order": 18,
             "region_type": "main_text",
             "model_version": "trocr-lora-v1"
         }

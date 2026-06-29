@@ -2,7 +2,7 @@
   "document_id": "ms_002",
   "image_path": "./data/raw/page_test_002.png",
   "output_dir": "./pipeline_output",
-  "pipeline_version": "2.1.0",
+  "pipeline_version": "2.2.0",
   "pipeline_stages": {
     "preprocessing": {
       "skipped": false,
@@ -11,7 +11,10 @@
     "segmentation": {
       "skipped": false,
       "method": "kraken",
-      "num_lines_detected": 21,
+      "num_lines_detected": 19,
+      "num_marginalia": 0,
+      "num_discarded": 2,
+      "line_count_alert": false,
       "segmentation_json": "./pipeline_output\\segmentation\\ms_002_segmentation.json",
       "segmentation_pagexml": "./pipeline_output\\segmentation\\ms_002.page.xml",
       "visualization": "./pipeline_output\\segmentation\\ms_002_visualization.png",
@@ -19,20 +22,20 @@
     },
     "htr": {
       "model": "TRIDIS (magistermilitum/tridis_HTR)",
-      "num_lines_transcribed": 21,
-      "avg_confidence": 0.5261904761904762,
-      "needs_review_rate": 0.7142857142857143,
-      "needs_review_count": 15,
+      "num_lines_transcribed": 19,
+      "avg_confidence": 0.7763157894736842,
+      "needs_review_rate": 0.2631578947368421,
+      "needs_review_count": 5,
       "transcription_json": "./pipeline_output\\ms_002_transcription.json",
       "has_ground_truth": true,
-      "cer_global": 0.46864745898526544,
-      "wer_global": 0.9602301207564365,
+      "cer_global": 0.1566086957145408,
+      "wer_global": 0.4828681552365763,
       "cer_distribution": {
-        "excellent (<5%)": 0,
-        "bon (5-15%)": 1,
-        "moyen (15-30%)": 7,
-        "mauvais (30-50%)": 4,
-        "catastrophique (>50%)": 7
+        "excellent (<5%)": 3,
+        "bon (5-15%)": 7,
+        "moyen (15-30%)": 6,
+        "mauvais (30-50%)": 3,
+        "catastrophique (>50%)": 0
       },
       "comparison_txt": "./pipeline_output\\ms_002_comparison.txt",
       "comparison_json": "./pipeline_output\\ms_002_comparison.json"
@@ -41,30 +44,25 @@
       "skipped": false,
       "results": {
         "language": "latin",
-        "num_entities": 31,
-        "num_relations": 10,
+        "num_entities": 32,
+        "num_relations": 15,
         "themes": [
           "religieux"
         ],
-        "confidence": 0.731,
+        "confidence": 0.733,
         "entities": [
-          {
-            "text": "Sancti cadaveribus corporibusque jacentium verum etiam",
-            "type": "MISC",
-            "confidence": 0.65
-          },
           {
             "text": "ipsius domini",
             "type": "LOC",
             "confidence": 0.75
           },
           {
-            "text": "sed",
-            "type": "ORG",
+            "text": "sed quilta fecerunt",
+            "type": "MISC",
             "confidence": 0.65
           },
           {
-            "text": "fecerunt",
+            "text": "postem muneris",
             "type": "PER",
             "confidence": 0.75
           },
@@ -76,7 +74,7 @@
           {
             "text": "Verum",
             "type": "PER",
-            "confidence": 0.8
+            "confidence": 0.65
           },
           {
             "text": "Verum illa",
@@ -84,19 +82,24 @@
             "confidence": 0.75
           },
           {
+            "text": "Verum",
+            "type": "MISC",
+            "confidence": 0.8
+          },
+          {
             "text": "vivant spiritus",
             "type": "LOC",
             "confidence": 0.75
           },
           {
-            "text": "observantius etabundantius impendant",
+            "text": "defunctorum oblationes",
             "type": "PER",
             "confidence": 0.75
           },
           {
-            "text": "mostuos persolum",
-            "type": "PER",
-            "confidence": 0.75
+            "text": "erogationes multo pro eis observantius etabundantius impendant",
+            "type": "MISC",
+            "confidence": 0.65
           }
         ],
         "relations": [
@@ -116,9 +119,9 @@
             "object": "finem iratus"
           },
           {
-            "subject": "fecerunt",
+            "subject": "postem muneris",
             "predicate": "associé_à_lieu",
-            "object": "ipsius domini"
+            "object": "vivant spiritus"
           },
           {
             "subject": "Verum",
@@ -131,7 +134,7 @@
             "object": "vivant spiritus"
           },
           {
-            "subject": "observantius etabundantius impendant",
+            "subject": "defunctorum oblationes",
             "predicate": "associé_à_lieu",
             "object": "vivant spiritus"
           },
@@ -141,12 +144,12 @@
             "object": "finem iratus"
           },
           {
-            "subject": "Nulliserere",
+            "subject": "Nulliberere",
             "predicate": "associé_à_lieu",
             "object": "finem iratus"
           },
           {
-            "subject": "II",
+            "subject": "beate confidit",
             "predicate": "associé_à_lieu",
             "object": "finem iratus"
           }
@@ -154,56 +157,13 @@
       }
     }
   },
-  "full_text": "a mane terra Sancti cadaveribus corporibusque jacentium verum etiam in ipsius domini corpore praedicati atque laudati sed quitta fecerunt . impleant hace homines erga suos officia posteris . et sui humani lenimenta meroris . Verum illa que ad vivant spiritus defunctorum oblationes erogationes multo pro eis observantius etabundantius impendant . qui suos carne non spiritu mostuos persolum carnaliter sed etia spiritaliter amant . R . Neperdideris me domine eum iniquitatibus meisque in finem iratus II preser , uel mala mea . Nulliserere metans misere mei . II , quoniam beate confidit anima mea . Neque equitur . Deinde nosquivimus qui relinquimur simul rapiemur cum illis innubibus obviam Christo inacra et sic semper cum domino erimus poterat enim hoc donare credentibus ut nec istius experirentur corporis mortem . Sed si hoc fecisset earni quedam felicitas adderatur minueretur autem fidei fortitudo sic episcopi homines mortem istam timent . Ut nonob aliud felices dicerent esse xpistianos nisi quod mori omnino non possent . . . S . Uberti . S",
-  "ground_truth_text": "corporib; q; acceptum. verum etiam inpius d̃ corpore pdicari acq; laudari. quita fecerint. Impleat hæc homines erga suos officia postem muneri; & si inhumani leniita meront. Verum illa que ad inuata spiritus defunctorū oblationes & erogationes. mutuō p̃sobseruarentur & abundarentur impendant. qui suos carne non spũ mortuos. ñ solum carnaliter fed̃ etiā spiritualiter amant. R̃ Ne perdideris me domine cum iniquitatib; meis. neq; infinem iratus reser̃ uel mala mea. Ṽ Miserere mei deus miserere mei quoniam in te confidit anima mea. Neq; infinem. LECT: Sequitur. Deinde nos quiuiuimus qui relinquimur simul rapiēmur cū illis in nubib; obuiā xp̄o in aera. credentib; vt nec ipsius experirentur corporis mortem. Sed si hoc fecisset. cum quedam felicitas aderr̃etur. minueretur su fidei fortitudo. Sic eni homines morte istā timerent. ṽ nobilud felices dicerent eē xp̄ianos nisi qd mort omnino ñ possent. & sic semp cū dno erimus. Poterit eni hoc donare",
+  "full_text": "cadaveribus corporibusque jacentium verum etiam in ipsius domini corpore praedicati atque laudati sed quilta fecerunt. impleant hace homines erga suos officia postem muneris. et sui humani lenimenta meroris. Verum illa que ad vivant spiritus defunctorum oblationes. erogationes multo pro eis observantius etabundantius impendant. qui suos carne non spirituos non solum carnaliter sed etia spiritaliter amant. R. Neperdideris me domine cum iniquitatibus meisque in finem iratus II , uel mala mea. Nulliberere meo donum misere meo. , quoniam beate confidit anima mea. Neque equitur. Deinde nosquivimus qui relinquimur simul rapiemur cum illis innubibus obviam Christo inacra et sic semper cum domino erimus poterat enim hoc donare credentibus ut nec istius experirentur corporis mortem. Sed si hoc fecisset earni quedam felicitas adderatur minueretur autem fidei fortitudo sic enim homines mortem istam timent ut nonob aliud felices dicerent esse xpistianos nisi quod mori omnino non possent.",
+  "ground_truth_text": "cadaveribus corporibusque iacentium · verum etiam in ipsius d̃ni corpore p̃dicati atq; laudati · sed quia fecerint. impleant haec homines erga suos officia posteris muneri. et sui humani lenimenta meroris. Verum illa quæ ad iuuant spiritus defunctorū oblationes · erogationes· multo pro eis obseruantius et abundantius impendant. qui suos carne non spū mortuos. ñ solum carnaliter sed etiā spiritaliter amant. R̃ Ne perdideris me domine cum iniquitatib; meis. neq; infinem iratus reserues uel mala mea. Ṽ Miserere mei deus miserere mei quoniam in te confidit anima mea. Neq; infinem. LECT: Sequitur. Deinde nos qui uiuimus qui relinquimur simul rapiēmur cū illis in nubib; obuiā xp̄o in aera. et sic semp cū dno erimus. Poterit eni hoc donare credentib; vt nec istius experirentur corporis mortem. Sed si hoc fecisset. cum quedam felicitas adderatur. minueretur autem fidei fortitudo. Sic eni homines mortem istam timent. ṽ nob aliud felices dicerent esse xp̄ianos nisi qd mori omnino ñ possent.",
   "lines": [
-    {
-      "line_id": "ms_002_line_0020",
-      "transcription": "a mane terra Sancti",
-      "confidence": 0.9,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            3757,
-            615
-          ],
-          [
-            3757,
-            773
-          ],
-          [
-            3757,
-            813
-          ],
-          [
-            3778,
-            813
-          ],
-          [
-            3778,
-            773
-          ],
-          [
-            3778,
-            624
-          ],
-          [
-            3757,
-            615
-          ]
-        ],
-        "unit": "pixels"
-      },
-      "needs_review": false,
-      "reading_order": 0,
-      "region_type": "main_text",
-      "model_version": "trocr-lora-v1"
-    },
     {
       "line_id": "ms_002_line_0000",
       "transcription": "cadaveribus corporibusque jacentium verum etiam in ipsius",
-      "confidence": 0.35,
+      "confidence": 0.9,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -562,15 +522,15 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 1,
+      "needs_review": false,
+      "reading_order": 0,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0001",
-      "transcription": "domini corpore praedicati atque laudati sed quitta fecerunt .",
-      "confidence": 0.5,
+      "transcription": "domini corpore praedicati atque laudati sed quilta fecerunt.",
+      "confidence": 0.65,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -986,14 +946,14 @@
         "unit": "pixels"
       },
       "needs_review": true,
-      "reading_order": 2,
+      "reading_order": 1,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0002",
-      "transcription": "impleant hace homines erga suos officia posteris .",
-      "confidence": 0.65,
+      "transcription": "impleant hace homines erga suos officia postem muneris.",
+      "confidence": 0.85,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1380,15 +1340,15 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 3,
+      "needs_review": false,
+      "reading_order": 2,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0003",
-      "transcription": "et sui humani lenimenta meroris . Verum illa que ad",
-      "confidence": 0.65,
+      "transcription": "et sui humani lenimenta meroris. Verum illa que ad",
+      "confidence": 0.95,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -1691,14 +1651,14 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 4,
+      "needs_review": false,
+      "reading_order": 3,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0004",
-      "transcription": "vivant spiritus defunctorum oblationes erogationes",
+      "transcription": "vivant spiritus defunctorum oblationes. erogationes",
       "confidence": 0.75,
       "geometry": {
         "type": "Polygon",
@@ -1991,14 +1951,14 @@
         "unit": "pixels"
       },
       "needs_review": false,
-      "reading_order": 5,
+      "reading_order": 4,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0005",
-      "transcription": "multo pro eis observantius etabundantius impendant .",
-      "confidence": 0.5,
+      "transcription": "multo pro eis observantius etabundantius impendant.",
+      "confidence": 0.95,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -2293,14 +2253,14 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 6,
+      "needs_review": false,
+      "reading_order": 5,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0006",
-      "transcription": "qui suos carne non spiritu mostuos persolum carnaliter",
+      "transcription": "qui suos carne non spirituos non solum carnaliter",
       "confidence": 0.75,
       "geometry": {
         "type": "Polygon",
@@ -2621,14 +2581,14 @@
         "unit": "pixels"
       },
       "needs_review": false,
-      "reading_order": 7,
+      "reading_order": 6,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0007",
-      "transcription": "sed etia spiritaliter amant .",
-      "confidence": 0.75,
+      "transcription": "sed etia spiritaliter amant.",
+      "confidence": 0.95,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -2920,14 +2880,14 @@
         "unit": "pixels"
       },
       "needs_review": false,
-      "reading_order": 8,
+      "reading_order": 7,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0008",
-      "transcription": "R . Neperdideris me domine eum iniquitatibus meisque in finem iratus II",
-      "confidence": 0.65,
+      "transcription": "R. Neperdideris me domine cum iniquitatibus meisque in finem iratus II",
+      "confidence": 0.75,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -3322,14 +3282,14 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 9,
+      "needs_review": false,
+      "reading_order": 8,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0009",
-      "transcription": "preser , uel mala mea . Nulliserere metans misere mei . II",
+      "transcription": ", uel mala mea. Nulliberere meo donum misere meo.",
       "confidence": 0.5,
       "geometry": {
         "type": "Polygon",
@@ -3610,13 +3570,13 @@
         "unit": "pixels"
       },
       "needs_review": true,
-      "reading_order": 10,
+      "reading_order": 9,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0010",
-      "transcription": ", quoniam beate confidit anima mea . Neque",
+      "transcription": ", quoniam beate confidit anima mea. Neque",
       "confidence": 0.5,
       "geometry": {
         "type": "Polygon",
@@ -3945,13 +3905,13 @@
         "unit": "pixels"
       },
       "needs_review": true,
-      "reading_order": 11,
+      "reading_order": 10,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0011",
-      "transcription": "equitur . Deinde nosquivimus qui relinquimur",
+      "transcription": "equitur. Deinde nosquivimus qui relinquimur",
       "confidence": 0.85,
       "geometry": {
         "type": "Polygon",
@@ -4288,14 +4248,14 @@
         "unit": "pixels"
       },
       "needs_review": false,
-      "reading_order": 12,
+      "reading_order": 11,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
       "line_id": "ms_002_line_0012",
       "transcription": "simul rapiemur cum illis innubibus obviam Christo inacra",
-      "confidence": 0.65,
+      "confidence": 0.5,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4603,14 +4563,14 @@
         "unit": "pixels"
       },
       "needs_review": true,
-      "reading_order": 13,
+      "reading_order": 12,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
-      "line_id": "ms_002_line_0014",
+      "line_id": "ms_002_line_0013",
       "transcription": "et sic semper cum domino erimus poterat enim hoc donare",
-      "confidence": 0.2,
+      "confidence": 0.65,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -4922,14 +4882,14 @@
         "unit": "pixels"
       },
       "needs_review": true,
-      "reading_order": 14,
+      "reading_order": 13,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
-      "line_id": "ms_002_line_0015",
+      "line_id": "ms_002_line_0014",
       "transcription": "credentibus ut nec istius experirentur corporis",
-      "confidence": 0.2,
+      "confidence": 0.9,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5244,15 +5204,15 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 15,
+      "needs_review": false,
+      "reading_order": 14,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
-      "line_id": "ms_002_line_0016",
-      "transcription": "mortem . Sed si hoc fecisset earni quedam felicitas",
-      "confidence": 0.2,
+      "line_id": "ms_002_line_0015",
+      "transcription": "mortem. Sed si hoc fecisset earni quedam felicitas",
+      "confidence": 0.85,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5639,15 +5599,15 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 16,
+      "needs_review": false,
+      "reading_order": 15,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
-      "line_id": "ms_002_line_0017",
+      "line_id": "ms_002_line_0016",
       "transcription": "adderatur minueretur autem fidei fortitudo sic",
-      "confidence": 0.2,
+      "confidence": 0.9,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -5982,15 +5942,15 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 17,
+      "needs_review": false,
+      "reading_order": 16,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
-      "line_id": "ms_002_line_0018",
-      "transcription": "episcopi homines mortem istam timent . Ut nonob aliud felices",
-      "confidence": 0.2,
+      "line_id": "ms_002_line_0017",
+      "transcription": "enim homines mortem istam timent ut nonob aliud felices",
+      "confidence": 0.85,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6337,15 +6297,15 @@
         ],
         "unit": "pixels"
       },
-      "needs_review": true,
-      "reading_order": 18,
+      "needs_review": false,
+      "reading_order": 17,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     },
     {
-      "line_id": "ms_002_line_0019",
-      "transcription": "dicerent esse xpistianos nisi quod mori omnino non possent .",
-      "confidence": 0.9,
+      "line_id": "ms_002_line_0018",
+      "transcription": "dicerent esse xpistianos nisi quod mori omnino non possent.",
+      "confidence": 0.75,
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -6721,56 +6681,34 @@
         "unit": "pixels"
       },
       "needs_review": false,
-      "reading_order": 19,
-      "region_type": "main_text",
-      "model_version": "trocr-lora-v1"
-    },
-    {
-      "line_id": "ms_002_line_0013",
-      "transcription": ". . S . Uberti . S",
-      "confidence": 0.2,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            618,
-            4266
-          ],
-          [
-            618,
-            4281
-          ],
-          [
-            655,
-            4281
-          ],
-          [
-            655,
-            4263
-          ],
-          [
-            639,
-            4147
-          ],
-          [
-            606,
-            4150
-          ],
-          [
-            618,
-            4266
-          ]
-        ],
-        "unit": "pixels"
-      },
-      "needs_review": true,
-      "reading_order": 20,
+      "reading_order": 18,
       "region_type": "main_text",
       "model_version": "trocr-lora-v1"
     }
   ],
+  "marginalia": [],
+  "discarded_summary": [
+    {
+      "reason": "too_small",
+      "bbox": [
+        606,
+        4147,
+        655,
+        4281
+      ]
+    },
+    {
+      "reason": "too_small",
+      "bbox": [
+        3757,
+        615,
+        3778,
+        813
+      ]
+    }
+  ],
   "metadata": {
-    "processed_at": "2026-06-19T07:00:29.936354",
+    "processed_at": "2026-06-29T16:45:39.859185",
     "htr_available": true,
     "nlp_available": true,
     "jiwer_available": true,

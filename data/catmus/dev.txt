@@ -1,7 +1,20 @@
-dev_0000.png	⁊ de doña Maria gut̃rrez abbadessa del Monest̃io de Sc̃a Maria la Real de Burgos pusiemos en esta carta el seello de mi el Comẽdador ⁊ el seello del ospital en testimõio. Et yo doña Maria royz. ⁊ yo Ioh̃n gut̃rrez so ffiio /
-dev_0001.png	mendador ⁊ los ffreyres sobredichos. Et doña Maria royz por ssi. Et Pedro ferrandez g̃no de dieg royz por ssi ⁊ por su mug̃ doña Maria royz ⁊ por fferr̃ gutĩrez de haro. ⁊ por doña Marina royz su mug̃ fiia de dieg royz ⁊ Roy garçia por ssi
-dev_0002.png	⁊ miõ tutor ⁊ por los ffazer merçed touelo por bien. Et mãdo/ de ffiendo ffirme mientre q̃ nĩguno non
-dev_0003.png	adelãnt assi com̃o sila nõ ouiesse arrendada Et estos pͦ delas cob̃as ⁊ Sanch̃ ꝑez q̃ ffagã y fasta çinco dias o fasta q̃ pͦ uiçẽt mandase traeer çinco yntãs de buẽyes cõ
-dev_0004.png	res cõ los dich̃s pͦ delas cob̃as a Sanch̃ ꝑez ⁊ ꝓmetierõ delos nõ mouer pl̃yto nĩ los ffaz̃ demãda en esta rrazõ Et desto amaz: las ꝑtes mandarõ ffaz̃
-dev_0005.png	que forziam. Delas q̃mas.⁊ delos quemadores. Del dãno delas ar
-dev_0006.png	tos ⁊ con todas sus ꝑtenençias ⁊ con todos los pobladores ⁊ con todos los otros derechos. assi com̃o la tenia dõ
+dev_0000.png	El primer titulo es
+dev_0001.png	este amasias et Regno su fiio ozias
+dev_0002.png	la
+dev_0003.png	delos peritos. Delos mandadores que mandan alguna cosa. Delos
+dev_0004.png	pro guiralt et dela fiaduria et debdura que sobrerel fizieron que daqui adelante non ssean tenidos en esta rrazon nin como debdores nin como fiadors Et fizieron plito estos frey
+dev_0005.png	dat el iuizio paladina mientre. eguardad mansedumbre epiadat enlas cul
+dev_0006.png	la iusticia auntrdade consigo delo.
+dev_0007.png	por auer merced equi ayan cuidado der ganar conmesura et que ayam los co-
+dev_0008.png	elas cosas de sancta yglesia.
+dev_0009.png	mansedumbre. et conderecho: tanto mas ganan onda. poral regno.
+dev_0010.png	tiempo de estos quatro Reyes prosetizavan en iherusalem
+dev_0011.png	egno octozias un anno solo en iherusalem
+dev_0012.png	seer rey. anno que reciba el regno. deue fazer sacramento.que guarde esta ley: en
+dev_0013.png	eniudea cinquenta et dosannos ¶E este fue le
+dev_0014.png	Enel quinto libro
+dev_0015.png	es dicho: delos res. Eassi como el sacerdote es dicho de sacrificar: assi el rey
+dev_0016.png	sus apareios que como en guarda frey pro guiralt quando arrendo la casa o aquello en que fueron apreciadas et quelos den pera.x.bueyes mantenimiento de cevo et de paian por este anno
+dev_0017.png	dare el rey. elas cosas que ficaren por ordenar: deuen las auer sos successores elas
+dev_0018.png	por graueza: et por poderio.ca en otro tienpo las leys eran fechas: como
+dev_0019.png	mugeres uirgenes. et delas uiudas: Delos adulterios. Delos que casan con

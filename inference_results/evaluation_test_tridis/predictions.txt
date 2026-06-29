@@ -1,15 +1,20 @@
-test_0000.png	no celestial, e depues desta corona et desta purpura otro si auera la
-test_0001.png	car los de coita dos delas quebrantanzas, que daqui adelantre non ayan poder
-test_0002.png	por auer merced e que ayan cuidado dit ganar conmesura e qui ayan los co¬
-test_0003.png	sugas de le la casa de Torrolua que es otra . Eipso de nouvelo gente de exposa la qual que tenenda el rey dey el
-test_0004.png	. Capostolome . especial toda vos por . Et por tres las çibdades & dannos ayunos vezinos de Eyos dela dicha plecha & apodamiento que fue fecha fazer fazer aquiçiales fazer
-test_0005.png	delas donationes generales. delas donationesque son fechas a
-test_0006.png	tol delos malfechos, et delas to
-test_0007.png	& dese mismo especial toda casa de alhelmento por toda omnes sus omnes & que fueron fideles estos cosas delas dichos et coniugestros desi comunientos de otra publica del apudamento
-test_0008.png	a monesto todel conceys congruit devocion, que se membrasen de los decretos
-test_0009.png	quese tornam.
-test_0010.png	nos uimos ya que pues que furon fechos reys que fazien los pueblos pobles et ga
-test_0011.png	sea ostado delos casar carta en ninguna cosa nos dichos sea guardada en non bien e cunplido niene
-test_0012.png	blos, et de sobre si muy mas graue culpa sera enlos prelados dela egli
-test_0013.png	de parti mientos delos casados et delos desposados
-test_0014.png	nostre dit seigneur et de toutes fois assises non escripto . Et de cada assencia de causa e de vuestra . Alteza & de toda . e de todo sepa . de esta razon de donde . todo anno et desuso sextario publico por que se no sean quelos quel
+test_0000.png	delas donationes generales. delas donationesque son fechas a
+test_0001.png	a De l'eglise de Saint-Pereil de Lupos, à el Conocidour del dicho Esperel. Seduçion ne nos
+test_0002.png	A qui presentes esta aprouvignya. Capitulos dellos de nuestros de cunco escriuano. E poro si non otro dar los escriptas que son escriptos ynquis y esta dicha esta
+test_0003.png	hoc est iniquis et cetera quod ipsum ecclesiam publico solvendis quae quam quinque quibus aquis aquis erga videtur ae ecclesia
+test_0004.png	nauam pora si las cosas desos subiectos, et non les membraua qui diogles dien
+test_0005.png	fieles, qui por estas palauras, fusse tolida za qui adelantie toda mala copdicius.
+test_0006.png	En mas de le la casa de Torroluo que es otro dixamble gente de exposa la qual que tenenda el Rey sey dey el
+test_0007.png	quien non guarda misericordia. Doncas faziendo derecho el rey, dene a
+test_0008.png	para nientes por ti mesmo que si die
+test_0009.png	et mugio su madre et ovo nombre la rey
+test_0010.png	dudit uso. de toda miudad de dar toda & de manda y espero de todas vuestras asiessen e de orden y puedan dar en nombre mano de nuestra parte fazer esta aquiçion Et prenquisidor sua toda susodas
+test_0011.png	Gue muy buen rey derechurero
+test_0012.png	e santo ynquisidamiento de sennor dela y que sean en su magestad. una çibdad y enla dicha villa de la dicha
+test_0013.png	mientos delos orfanos et delos qua defenden: dela buena que
+test_0014.png	delos ordenamientos delas uodas
+test_0015.png	denamiento delas leyset del ordenamiente delas legas nacem las bue
+test_0016.png	Cvii
+test_0017.png	tos cartas años de mi como esta capostolica fecho en Burgos enla mano & enel mes et enla esta sobredicha
+test_0018.png	en la suplico o quisquiere los otras cosas en los dichos mis afiçio a mi saberon mando dar nin por parte dela que ala la pregunt segunt que se contiene si como seran assi dicho es suplo dicho sennor ynquisidores y fueron serui
+test_0019.png	adelantre los res deuem seer es leyudosenla cibdad de Roma, en aquel

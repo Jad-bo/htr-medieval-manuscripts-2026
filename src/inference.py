@@ -5,9 +5,9 @@ Charge le modèle TRIDIS (magistermilitum/tridis_HTR) déjà fine-tuné sur méd
 et transcrit les images de lignes.
 
 Usage :
-    python inference.py --mode infer --split dev
-    python inference.py --mode evaluate --split test
-    python inference.py --mode visualize --split dev --num_samples 10
+    python src/inference.py --mode infer --split dev --checkpoint ./checkpoints_production/best_model
+    python src/inference.py --mode evaluate --split dev --checkpoint ./checkpoints_production/best_model
+    python src/inference.py --mode evaluate --split test --checkpoint ./checkpoints_production/best_model
 """
 
 import os
@@ -22,6 +22,14 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
+
+# PEFT / LoRA — chargement de l'adaptateur fine-tuné
+try:
+    from peft import PeftModel
+    PEFT_AVAILABLE = True
+except ImportError:
+    PEFT_AVAILABLE = False
+    print("  PEFT non installé. Le chargement de LoRA sera désactivé.")
 
 # Import de la config pour les paramètres de génération
 try:
@@ -47,16 +55,18 @@ TRIDIS_MODEL = "magistermilitum/tridis_HTR"
 # ============================================================
 
 def load_htr_model(
-    checkpoint_path: str = None,  # Ignoré pour TRIDIS
+    checkpoint_path: str = None,
     model_base_name: str = TRIDIS_MODEL,
     device: str = None
 ) -> Tuple[VisionEncoderDecoderModel, TrOCRProcessor, Dict]:
     """
-    Charge le modèle TRIDIS déjà fine-tuné sur des manuscrits médiévaux.
+    Charge le modèle TRIDIS de base, et injecte l'adaptateur LoRA
+    si un checkpoint (répertoire best_model) est fourni.
 
     Args:
-        checkpoint_path: Ignoré (conservé pour compatibilité CLI)
-        model_base_name: Toujours TRIDIS_MODEL
+        checkpoint_path: Chemin vers le répertoire best_model (LoRA adapter)
+                         ou None pour utiliser TRIDIS brut.
+        model_base_name: Modèle de base HuggingFace (défaut: TRIDIS)
         device: "cuda" ou "cpu" (auto-détecté si None)
 
     Returns:
@@ -65,9 +75,45 @@ def load_htr_model(
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    print(f" Chargement du modèle TRIDIS : {model_base_name}")
-    processor = TrOCRProcessor.from_pretrained(model_base_name)
+    # ------------------------------------------------------------------
+    # 1. Charger le processor (depuis le checkpoint si dispo, sinon base)
+    # ------------------------------------------------------------------
+    if checkpoint_path and os.path.isdir(checkpoint_path):
+        processor_path = checkpoint_path
+        print(f"  Chargement du processor depuis : {processor_path}")
+    else:
+        processor_path = model_base_name
+        print(f"  Chargement du processor depuis : {processor_path}")
+
+    processor = TrOCRProcessor.from_pretrained(processor_path)
+
+    # ------------------------------------------------------------------
+    # 2. Charger le modèle de base (TRIDIS)
+    # ------------------------------------------------------------------
+    print(f"  Chargement du modèle de base : {model_base_name}")
     model = VisionEncoderDecoderModel.from_pretrained(model_base_name)
+
+    # ------------------------------------------------------------------
+    # 3. Injecter l'adaptateur LoRA si un checkpoint est fourni
+    # ------------------------------------------------------------------
+    lora_loaded = False
+    if checkpoint_path and os.path.isdir(checkpoint_path):
+        adapter_config = os.path.join(checkpoint_path, "adapter_config.json")
+        if os.path.exists(adapter_config):
+            if not PEFT_AVAILABLE:
+                raise RuntimeError(
+                    "PEFT n'est pas installé. Impossible de charger l'adaptateur LoRA.\n"
+                    "  pip install peft"
+                )
+            print(f"  Injection de l'adaptateur LoRA : {checkpoint_path}")
+            model = PeftModel.from_pretrained(model, checkpoint_path)
+            # Fusionner les poids pour l'inférence (plus rapide, pas de overhead LoRA)
+            model = model.merge_and_unload()
+            print(f"   Adaptateur LoRA fusionné avec succès")
+            lora_loaded = True
+        else:
+            print(f"   Avertissement : {checkpoint_path} ne contient pas d'adaptateur LoRA.")
+            print(f"    Fichier attendu : {adapter_config}")
 
     # Configuration génération
     model.config.decoder_start_token_id = processor.tokenizer.cls_token_id
@@ -81,13 +127,18 @@ def load_htr_model(
         torch.cuda.empty_cache()
 
     print(f"     Device : {device.upper()}")
-    print(f"     Modèle TRIDIS prêt (fine-tuné médiéval XIe-XVIe s.)")
+    if lora_loaded:
+        print(f"     Modèle TRIDIS + LoRA fine-tuné prêt")
+    else:
+        print(f"     Modèle TRIDIS brut (sans fine-tuning) prêt")
 
     config = {
         "model": "tridis_HTR",
-        "source": "magistermilitum/tridis_HTR",
+        "source": model_base_name,
         "description": "TrOCR fine-tuné sur manuscrits documentaires médiévaux",
-        "checkpoint_path": checkpoint_path if checkpoint_path else "N/A (modèle pré-entraîné)"
+        "checkpoint_path": checkpoint_path if checkpoint_path else "N/A (modèle pré-entraîné)",
+        "lora_loaded": lora_loaded,
+        "device": device
     }
 
     return model, processor, config
@@ -287,8 +338,9 @@ def run_evaluation(
         "accuracy": float(accuracy),
         "num_samples": len(results),
         "model": TRIDIS_MODEL,
-        "model_type": "tridis_pretrained",
-        "checkpoint": "N/A (modèle pré-entraîné HuggingFace)"
+        "model_type": "tridis_lora_finetuned" if (checkpoint_path and os.path.isdir(checkpoint_path) and os.path.exists(os.path.join(checkpoint_path, "adapter_config.json"))) else "tridis_pretrained",
+        "checkpoint": checkpoint_path if checkpoint_path else "N/A (modèle pré-entraîné HuggingFace)",
+        "lora_loaded": bool(checkpoint_path and os.path.isdir(checkpoint_path) and os.path.exists(os.path.join(checkpoint_path, "adapter_config.json")))
     }
     with open(os.path.join(output_dir, "evaluation_report.json"), "w") as f:
         json.dump(report, f, indent=2)
@@ -424,14 +476,14 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Exemples d'utilisation :
-  # Inférence sur le split dev
+  # Inférence avec TRIDIS brut (sans fine-tuning)
   python inference.py --mode infer --split dev
 
-  # Évaluation finale sur le split test (SACRÉ)
-  python inference.py --mode evaluate --split test
+  # Évaluation avec le modèle LoRA fine-tuné
+  python inference.py --mode evaluate --split test --checkpoint ./checkpoints_production/best_model
 
-  # Visualiser 15 prédictions aléatoires
-  python inference.py --mode visualize --split dev --num_samples 15
+  # Visualiser 15 prédictions avec le modèle fine-tuné
+  python inference.py --mode visualize --split dev --num_samples 15 --checkpoint ./checkpoints_production/best_model
         """
     )
 
@@ -444,7 +496,7 @@ Exemples d'utilisation :
     parser.add_argument("--data_dir", type=str, default="./data/catmus",
                        help="Répertoire contenant images/ et les fichiers .txt")
     parser.add_argument("--checkpoint", type=str, default=None,
-                       help="Ignoré pour TRIDIS (conservé pour compatibilité)")
+                       help="Chemin vers le répertoire best_model contenant l'adaptateur LoRA (ex: ./checkpoints_production/best_model)")
     parser.add_argument("--model_base", type=str, default=TRIDIS_MODEL,
                        help="Modèle HuggingFace (défaut: TRIDIS)")
     parser.add_argument("--output_dir", type=str, default="./inference_results",

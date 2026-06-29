@@ -1,38 +1,36 @@
 {
   "document_id": "ms_002",
-  "num_lines": 21,
-  "avg_confidence": 0.5261904761904762,
-  "needs_review_rate": 0.7142857142857143,
+  "num_lines": 19,
+  "num_marginalia": 0,
+  "num_discarded": 2,
+  "line_count_alert": false,
+  "avg_confidence": 0.7763157894736842,
+  "needs_review_rate": 0.2631578947368421,
   "has_ground_truth": true,
-  "cer_global": 0.46864745898526544,
-  "wer_global": 0.9602301207564365,
+  "cer_global": 0.1566086957145408,
+  "wer_global": 0.4828681552365763,
   "nlp_available": true,
   "nlp_results": {
     "language": "latin",
-    "num_entities": 31,
-    "num_relations": 10,
+    "num_entities": 32,
+    "num_relations": 15,
     "themes": [
       "religieux"
     ],
-    "confidence": 0.731,
+    "confidence": 0.733,
     "entities": [
-      {
-        "text": "Sancti cadaveribus corporibusque jacentium verum etiam",
-        "type": "MISC",
-        "confidence": 0.65
-      },
       {
         "text": "ipsius domini",
         "type": "LOC",
         "confidence": 0.75
       },
       {
-        "text": "sed",
-        "type": "ORG",
+        "text": "sed quilta fecerunt",
+        "type": "MISC",
         "confidence": 0.65
       },
       {
-        "text": "fecerunt",
+        "text": "postem muneris",
         "type": "PER",
         "confidence": 0.75
       },
@@ -44,7 +42,7 @@
       {
         "text": "Verum",
         "type": "PER",
-        "confidence": 0.8
+        "confidence": 0.65
       },
       {
         "text": "Verum illa",
@@ -52,19 +50,24 @@
         "confidence": 0.75
       },
       {
+        "text": "Verum",
+        "type": "MISC",
+        "confidence": 0.8
+      },
+      {
         "text": "vivant spiritus",
         "type": "LOC",
         "confidence": 0.75
       },
       {
-        "text": "observantius etabundantius impendant",
+        "text": "defunctorum oblationes",
         "type": "PER",
         "confidence": 0.75
       },
       {
-        "text": "mostuos persolum",
-        "type": "PER",
-        "confidence": 0.75
+        "text": "erogationes multo pro eis observantius etabundantius impendant",
+        "type": "MISC",
+        "confidence": 0.65
       }
     ],
     "relations": [
@@ -84,9 +87,9 @@
         "object": "finem iratus"
       },
       {
-        "subject": "fecerunt",
+        "subject": "postem muneris",
         "predicate": "associé_à_lieu",
-        "object": "ipsius domini"
+        "object": "vivant spiritus"
       },
       {
         "subject": "Verum",
@@ -99,7 +102,7 @@
         "object": "vivant spiritus"
       },
       {
-        "subject": "observantius etabundantius impendant",
+        "subject": "defunctorum oblationes",
         "predicate": "associé_à_lieu",
         "object": "vivant spiritus"
       },
@@ -109,12 +112,12 @@
         "object": "finem iratus"
       },
       {
-        "subject": "Nulliserere",
+        "subject": "Nulliberere",
         "predicate": "associé_à_lieu",
         "object": "finem iratus"
       },
       {
-        "subject": "II",
+        "subject": "beate confidit",
         "predicate": "associé_à_lieu",
         "object": "finem iratus"
       }

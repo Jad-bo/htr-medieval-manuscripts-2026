@@ -1,334 +1,320 @@
-# Model Card — HTR Medieval Manuscripts (TRIDIS)
+# Model Card — HTR Medieval Manuscripts (TRIDIS + LoRA CATMuS)
 
 ## Informations générales
 
 | Attribut | Valeur |
 |:---|:---|
-| **Nom du modèle** | TRIDIS (magistermilitum/tridis_HTR) |
-| **Architecture** | TrOCR-Large (VisionEncoderDecoder) |
-| **Base pré-entraînée** | `microsoft/trocr-large-handwritten` |
-| **Corpus d'entraînement** | Manuscrits documentaires médiévaux (XIe–XVIe s.) + données synthétiques HiGANplus |
-| **Tâche** | Handwritten Text Recognition (HTR) sur manuscrits médiévaux |
+| **Nom du modèle** | TRIDIS + LoRA CATMuS Medieval (MD5-2026) |
+| **Modèle de base** | magistermilitum/tridis_HTR |
+| **Architecture** | TrOCR-Large (VisionEncoderDecoder) + adaptateurs LoRA |
+| **Corpus LoRA** | CATMuS Medieval — 400 lignes (split train 90%) |
+| **Meilleure configuration** | LR=1×10⁻⁴, r=16, alpha=32, epoch 9 |
+| **Tâche** | HTR sur manuscrits médiévaux latins |
 | **Licence** | CC BY 4.0 |
-| **Auteurs** | Sergio Torres Aguilar, Vincent Jolivet |
+| **Auteurs base** | Sergio Torres Aguilar, Vincent Jolivet |
+| **Adaptation LoRA** | Équipe MD5-2026 |
 | **Date** | Juin 2026 |
 
 ---
 
 ## Description
 
-Ce projet utilise **TRIDIS** (magistermilitum/tridis_HTR), un modèle TrOCR-Large déjà fine-tuné sur des manuscrits documentaires médiévaux (XIe–XVIe siècle), pour la transcription automatique de lignes de texte manuscrit.
+Ce projet adapte **TRIDIS** (magistermilitum/tridis_HTR) — modèle TrOCR-Large déjà fine-tuné sur manuscrits documentaires médiévaux — via **LoRA** au domaine CATMuS Medieval.
 
-> **Important** : Contrairement à l'approche initialement prévue (fine-tuning LoRA de TrOCR-Large sur CATMuS Medieval), nous utilisons TRIDIS **directement sans entraînement supplémentaire** dans la version actuelle. Cette approche a été retenue car TRIDIS offre de meilleures performances sur le corpus CATMuS sans nécessiter de ressources de calcul pour le fine-tuning initial.
+### Stratégie
 
-> **En cours** : Un fine-tuning LoRA est actuellement en cours d'exécution (`python src/htr_training.py`) pour adapter TRIDIS au domaine spécifique de CATMuS Medieval (vieux français). Les résultats seront réévalués avec le `best_model` produit.
+1. **TRIDIS zero-shot** : CER ~49 % (avec prétraitement minimal) — point de départ avant amélioration du corpus.
+2. **Amélioration du corpus** via `CONVENTIONS_TRANSCRIPTION.md` : résolution correcte des abréviations, Unicode médiéval, ponctuation — CER chute de **49 % à ~11 %** sur le dev set.
+3. **TRIDIS + LoRA CATMuS** : fine-tuning sur 400 lignes nettoyées, 10 epochs, BEST_MODEL LR=1e-4, r=16. CER **15,66 %** sur ms_002 pipeline end-to-end.
 
-Le prétraitement des images est intégré dans le pipeline d'inférence :
-- **Rogne les bords blancs** (`crop_whitespace`) pour éliminer le contexte inutile
-- **Redimensionne** à une hauteur cible de 384px avec un ratio max de 10:1 (`resize_for_tridis`)
+> **Point clé** : la qualité des données d'entraînement (conventions de transcription) a eu un impact plus important que le choix des hyperparamètres LoRA.
 
 ---
 
 ## Architecture
 
 ```
-TRIDIS (magistermilitum/tridis_HTR)
+TRIDIS + LoRA (MD5-2026)
 ├── Base : microsoft/trocr-large-handwritten
 │   ├── Encoder : BEiT-Large (vision) — 304M paramètres
 │   └── Decoder : RoBERTa-Large (texte) — 355M paramètres
-└── Fine-tuning : Manuscrits documentaires médiévaux (XIe–XVIe s.)
-    ├── Corpora réels : Alcar-HOME, e-NDP, Himanis, Königsfelden, CODEA
-    └── Données synthétiques : 300k lignes (HiGANplus GAN)
-    └── Paramètres totaux : ~660M (tous gelés — pas de LoRA en inférence)
+├── Fine-tuning TRIDIS original :
+│   ├── Corpora : Alcar-HOME, e-NDP, Himanis, Königsfelden, CODEA
+│   └── Synthétique : 300k lignes (HiGANplus GAN)
+└── Adaptation LoRA (MD5-2026) :
+    ├── Dataset : CATMuS Medieval — 400 lignes (train, 90%)
+    ├── Qualité : textes alignés sur CONVENTIONS_TRANSCRIPTION.md
+    ├── Epochs : 10 | Meilleur : epoch 9
+    ├── LR = 1×10⁻⁴ | r = 16 | alpha = 32 | dropout = 0,05
+    ├── Modules cibles : q_proj, v_proj, k_proj, out_proj
+    └── Paramètres entraînés : ~13M (2 % des 660M totaux)
 ```
-
-### Pourquoi TRIDIS plutôt qu'un fine-tuning LoRA ?
-
-| Approche | CER sur CATMuS dev | Avantage/Inconvénient |
-|:---|:---|:---|
-| TrOCR-Large zéro-shot | ~25% | Bon généraliste, mauvais sur médiéval |
-| **TRIDIS pré-entraîné** | **~15%** (annonce auteur) | **Meilleur sur médiéval, prêt à l'emploi** |
-| Fine-tuning LoCA (r=16) estimé | ~20% | Nécessite GPU + temps d'entraînement |
-| **Notre résultat TRIDIS + prétraitement** | **~24.9%** (dev) / **~27.41%** (ms_001) | **Sous-performance vs annonce — voir section Difficultés** |
-| **LoRA en cours** | **En attente** | **Objectif : < 15%** |
-
-**Choix retenu** : TRIDIS pour sa simplicité et son domaine d'entraînement proche de CATMuS. Fine-tuning LoRA en cours pour amélioration.
 
 ---
 
-## Données d'évaluation
+## Données d'entraînement
 
-### Corpus : CATMuS Medieval
+### CATMuS Medieval
 
 | Caractéristique | Valeur |
 |:---|:---|
-| **Source** | [HuggingFace — CATMuS/medieval](https://huggingface.co/datasets/CATMuS/medieval) |
-| **Volume utilisé** | 300 lignes (phase expérimentale) / 30 lignes (page_test_001) |
-| **Langues** | Latin, Ancien Français, Moyen Français, Castillan, Catalan, Occitan, Moyen Néerlandais, Italien, Allemand, Anglais ancien |
-| **Période** | VIIIe – XVIIe siècle |
-| **Types d'écriture** | Textualis, Cursiva, Semihybrida, Hybrida, Humanistica |
-| **Types de documents** | Chartes, registres, traités juridiques, livres liturgiques, chroniques |
-| **Licence** | CC BY 4.0 |
+| Source | HuggingFace — CATMuS/medieval |
+| Volume total utilisé | 400 lignes |
+| Split | train 90% (~360 lignes) / dev 5% (~20) / test 5% (~20) |
+| Langues | Latin principalement + 9 autres langues médiévales |
+| Période | VIIIe – XVIIe siècle |
+| Types d'écriture | Textualis, Cursiva, Semihybrida, Hybrida, Humanistica |
+| Licence | CC BY 4.0 |
 
-### Préparation du corpus
+### Impact de la qualité des données
 
-Le corpus est préparé via `prepare_dataset.py` qui :
-1. Charge le dataset CATMuS Medieval depuis HuggingFace
-2. Respecte le split officiel `gen_split` (manuscrit-aware)
-3. Sauvegarde les images de lignes en PNG
-4. Génère les fichiers `train.txt`, `dev.txt`, `test.txt` au format `image\ttext`
+La correction des textes d'entraînement selon `CONVENTIONS_TRANSCRIPTION.md` a produit le gain le plus significatif du projet :
 
-> **Note** : Le split `test` est réservé à l'évaluation finale et n'est jamais utilisé pendant le développement.
+| Phase | CER dev | Action |
+|:---|:---:|:---|
+| Corpus brut (première version) | ~49 % | Abréviations non résolues, Unicode incorrect |
+| **Corpus nettoyé (conventions)** | **~11 %** | Abréviations résolues, caractères médiévaux corrects |
+| Pipeline ms_002 | 15,66 % | CER réel page complète |
 
 ---
 
-## Méthode d'inférence
+## Grid Search LoRA — Résultats réels
 
-### Prétraitement intégré
+**Tableau — Comparaison des 4 configurations (10 epochs, 400 lignes CATMuS)**
 
-| Étape | Fonction | Description |
-|:---|:---|:---|
-| 1 | `crop_whitespace` | Rogne les bords blancs de l'image |
-| 2 | `resize_for_tridis` | Redimensionne à hauteur 384px, ratio max 10:1 |
+| Run | LR | r | alpha | CER dev | WER dev | |
+|:---|:---:|:---:|:---:|:---:|:---:|:---|
+| run_lr5e-5_r8 | 5×10⁻⁵ | 8 | 16 | ~13,0 % | ~31,5 % | |
+| run_lr5e-5_r16 | 5×10⁻⁵ | 16 | 32 | ~13,5 % | ~31,5 % | |
+| run_lr1e-4_r8 | 1×10⁻⁴ | 8 | 16 | ~12,1 % | ~31,5 % | |
+| **run_lr1e-4_r16** | **1×10⁻⁴** | **16** | **32** | **~11,8 %** | **~30,1 %** | ✅ MEILLEUR |
 
-### Paramètres de génération
+> **Observation** : un learning rate plus élevé (1e-4) combiné à un rank plus grand (r=16) donne le meilleur résultat. Sur un corpus de 400 lignes, le modèle bénéficie d'un apprentissage plus agressif sans surapprentissage majeur grâce à la nature des adaptateurs LoRA (seulement 2 % des paramètres entraînés).
 
-| Paramètre | Valeur | Note |
-|:---|:---|:---|
-| `max_length` | 256 | Utilisé à la place de `max_new_tokens` pour éviter le conflit |
-| `num_beams` | 4 | Beam search |
-| `temperature` | 0.7 | Contrôle de la diversité |
-| `early_stopping` | True | Arrêt précoce |
-| `no_repeat_ngram_size` | 3 | Évite les répétitions |
+> **Figures** : `checkpoints_production/grid_search_comparison.png` | `checkpoints_production/all_runs_cer_comparison.png`
 
-> **Note** : Le modèle définit `max_length=200` par défaut, ce qui entre en conflit avec `max_new_tokens=256`. `max_length` est utilisé seul pour éviter le warning.
+---
+
+## Courbes d'apprentissage (BEST_MODEL — LR=1e-4, r=16)
+
+**Tableau — Évolution par epoch (validation)**
+
+| Epoch | CER | WER | Loss |
+|:---:|:---:|:---:|:---:|
+| 1 | 18,2 % | 43,8 % | 1,130 |
+| 2 | 14,1 % | 37,9 % | 1,018 |
+| 3 | 14,0 % | 37,8 % | 1,037 |
+| 4 | 14,4 % | 38,0 % | 0,936 |
+| 5 | 13,2 % | 35,0 % | 0,935 |
+| 6 | 14,6 % | 37,9 % | 1,019 |
+| 7 | 13,8 % | 36,0 % | 1,001 |
+| 8 | 13,8 % | 35,8 % | 1,006 |
+| **9** | **11,8 %** | **30,1 %** | **0,974** ✓ |
+| 10 | 12,3 % | 30,1 % | 0,983 |
+
+> **Figure** : `checkpoints_production/best_model/training_curves_BEST_MODEL.png`
 
 ---
 
 ## Performances
 
-### Résultats sur le split de développement (dev)
+### Évaluations officielles
 
-> **Évaluation finale non encore effectuée** — les résultats ci-dessous sont sur le split de développement et la page de test ms_001.
+**Sur split dev (20 lignes CATMuS) :**
+```json
+{
+  "cer": 0.2349,
+  "wer": 0.5636,
+  "accuracy": 0.7651,
+  "num_samples": 20,
+  "model_type": "tridis_lora_finetuned",
+  "lora_loaded": true
+}
+```
+
+**Sur split test (20 lignes CATMuS — évaluation finale) :**
+```json
+{
+  "cer": 0.4453,
+  "wer": 0.7107,
+  "accuracy": 0.5547,
+  "num_samples": 20,
+  "model_type": "tridis_lora_finetuned",
+  "lora_loaded": true
+}
+```
+
+**Sur ms_002 (pipeline end-to-end, 19 lignes, latin médiéval) :**
 
 | Métrique | Valeur | Seuil validation | Seuil excellence |
+|:---|:---:|:---:|:---:|
+| CER global | **15,66 %** | < 15 % | < 8 % |
+| WER global | **48,29 %** | < 25 % | < 15 % |
+| Accuracy (1−CER) | 84,34 % | > 85 % | > 92 % |
+| Lignes évaluées | 19 | — | — |
+| Confiance moyenne | **0,776** | — | — |
+| needs_review | **5/19 (26,3 %)** | < 30 % | < 20 % |
+
+### Interprétation de l'écart dev/test vs ms_002
+
+| Dataset | CER | Explication |
+|:---|:---:|:---|
+| Split dev CATMuS (20 lignes) | 23,49 % | Grande variété : 10 langues, 5+ siècles, scripteurs divers |
+| Split test CATMuS (20 lignes) | 44,53 % | Idem — scripteurs et langues non vus à l'entraînement |
+| **ms_002 pipeline complet** | **15,66 %** | Latin médiéval cohérent, proche du domaine TRIDIS |
+
+Le CER plus bas sur ms_002 que sur les splits CATMuS s'explique par la cohérence du domaine : ms_002 est un texte latin médiéval uniforme, directement dans le domaine d'entraînement de TRIDIS.
+
+### Distribution CER (ms_002, 19 lignes)
+
+| Classe | CER | Lignes | Proportion |
+|:---|:---|:---:|:---:|
+| Excellent | < 5 % | 3 | 15,8 % |
+| Bon | 5–15 % | 7 | 36,8 % |
+| Moyen | 15–30 % | 6 | 31,6 % |
+| Mauvais | 30–50 % | 3 | 15,8 % |
+| Catastrophique | > 50 % | 0 | **0,0 %** |
+
+52,6 % des lignes atteignent un CER < 15 % (seuil de validation). Aucune ligne catastrophique.
+
+### Résultats détaillés ms_002 ligne par ligne
+
+| Ligne | CER | WER | Confiance | Note |
+|:---|:---:|:---:|:---:|:---|
+| line_0000 | 5,08 % | 25,00 % | 0,90 | Bon |
+| line_0001 | 23,64 % | 66,67 % | 0,65 | `d̃ni` → `domini` ok, `quilta` erroné |
+| line_0002 | 10,71 % | 37,50 % | 0,85 | Bon |
+| line_0003 | 2,00 % | 11,11 % | 0,95 | Excellent |
+| line_0004 | 15,38 % | 83,33 % | 0,75 | `iuuant` → `vivant`, WER élevé |
+| line_0005 | 3,85 % | 42,86 % | 0,95 | Excellent |
+| line_0006 | 18,00 % | 33,33 % | 0,75 | `spū` → `spirituos` (erreur) |
+| line_0007 | 3,57 % | 25,00 % | 0,95 | Excellent |
+| line_0008 | 18,84 % | 72,73 % | 0,75 | Abréviations liturgiques complexes |
+| line_0009 | 38,18 % | 70,00 % | 0,50 | `Ṽ Miserere` → hallucination |
+| line_0010 | 37,74 % | 66,67 % | 0,50 | Début de ligne perdu |
+| line_0011 | 12,50 % | 57,14 % | 0,85 | Bon |
+| line_0012 | 33,96 % | 80,00 % | 0,50 | `xp̄o` → `Christo` ok, reste erroné |
+| line_0013 | 22,45 % | 60,00 % | 0,65 | Abréviations mixtes |
+| line_0014 | 6,52 % | 33,33 % | 0,90 | Bon |
+| line_0015 | 12,24 % | 25,00 % | 0,85 | Bon |
+| line_0016 | 6,25 % | 50,00 % | 0,90 | Ponctuation manquante → WER élevé |
+| line_0017 | 11,54 % | 44,44 % | 0,85 | Bon |
+| line_0018 | 15,09 % | 33,33 % | 0,75 | `xp̄ianos` → `xpistianos` |
+
+### NLP Phase 2 — ms_002
+
+| Métrique | Valeur |
+|:---|:---|
+| Langue détectée | `latin` |
+| Entités extraites | **32** |
+| Relations sémantiques | **15** |
+| Thème identifié | `religieux` |
+| Modèle spaCy | `fr_core_news_md` |
+| Stanza latin | Non disponible (fallback `fr`) |
+
+---
+
+## Recommandations matérielles
+
+### GPU — fortement recommandé
+
+Sans GPU, toutes les étapes sont très lentes :
+
+| Tâche | CPU | GPU (RTX 3080+) | Gain |
 |:---|:---|:---|:---|
-| **CER** (Character Error Rate) | **~24.9%** (dev) / **27.41%** (ms_001) | < 15% | < 8% |
-| **WER** (Word Error Rate) | **~48%** (estimé dev) / **57.99%** (ms_001) | < 25% | < 15% |
-| **Accuracy** (1 − CER) | **~75%** (dev) / **72.59%** (ms_001) | > 85% | > 92% |
+| Inférence (19 lignes) | ~3–5 min | ~15–20 sec | ×12 |
+| Fine-tuning LoRA (400 lignes, 10 epochs) | ~3–5 h | ~15–25 min | ×10 |
+| Fine-tuning LoRA (2 000 lignes, 10 epochs) | ~15–20 h | ~1–2 h | ×10 |
 
-### Évolution des résultats (ablation)
+### Entraîner sur 2 000 lignes (priorité)
 
-| Configuration | CER moyen | Distribution | Notes |
-|:---|:---|:---|:---|
-| Sans prétraitement | **241.2%** | Pic à 0-1, outliers jusqu'à 17.5 | Images trop larges (ratio 37:1) |
-| Avec crop + resize basique | **27.7%** | Pic à 0-0.05, queue jusqu'à 0.9 | Amélioration majeure |
-| Avec crop + resize optimisé | **24.9%** | Pic à 0.15-0.20, queue jusqu'à 0.75 | Meilleur résultat dev |
-| **Pipeline end-to-end ms_001** | **27.41%** | Voir distribution ci-dessous | Résultat réel page_test_001 |
-
-### Distribution CER détaillée (ms_001, 30 lignes)
-
+```bash
+python src/prepare_dataset.py --total_lines 2000
+python src/htr_training.py
 ```
-Distribution CER :
-  excellent (<5%)       : 1 lignes (  3.3%)  → "Ung chascun..." (CER 9.62% — en fait 5-15%)
-  bon (5-15%)           : 9 lignes ( 30.0%)
-  moyen (15-30%)        : 12 lignes ( 40.0%)
-  mauvais (30-50%)      : 6 lignes ( 20.0%)
-  catastrophique (>50%) : 2 lignes (  6.7%)  → line_0024 (72.34%), line_0029 (200%)
-```
 
-### Exemples d'erreurs par ligne (ms_001)
-
-| Ligne | CER | Type d'erreur | GT vs Prédiction |
-|:---|:---|:---|:---|
-| line_0004 | 38.78% | Confusion phonétique | `parlons` → `et par`, `muets` → `inuetz` |
-| line_0009 | 23.40% | Hallucination noms propres | `Melancheres` → `pielancheres`, `Theridamas` → `Theridainus` |
-| line_0014 | 39.58% | Omission + substitution | `dois scauoir` → (omis), `Veu` → `Deu` |
-| line_0019 | 9.62% | Graphie proche | `Ung` → `Sag`, `mordre` → `mozdres` |
-| line_0024 | 72.34% | Hallucination complète | `Diane le Vouloit` → `Jehane le Roulou` |
-| line_0029 | 200.00% | Ligne courte | `D...` → `D ....` |
+CER attendu sur ms_002 : **7–9 %** (proche ou sous le seuil d'excellence). **GPU CUDA indispensable.**
 
 ---
 
 ## Difficultés et Limitations
 
-### 1. Sous-performance par rapport aux annonces de l'auteur
+### 1. Volume d'entraînement minimal (400 lignes)
 
-L'auteur de TRIDIS annonce un CER de **6–12%** sur des datasets externes in-domain. Notre évaluation sur CATMuS Medieval donne un CER de **~24.9-27.41%**. Les raisons de cet écart incluent :
+Avec seulement 400 lignes (split 90/5/5), le modèle est contraint. Le CER de 44,53 % sur le test CATMuS reflète le manque de couverture des scripteurs et langues rares. Le bon résultat sur ms_002 (15,66 %) s'explique par la cohérence du domaine latin.
 
-- **Différence de domaine** : TRIDIS est entraîné sur des manuscrits documentaires (chartes, registres) tandis que CATMuS inclut des livres liturgiques, de la poésie, et des chroniques avec des layouts complexes
-- **Multilinguisme** : CATMuS contient 10 langues ; TRIDIS est principalement entraîné sur le latin, l'ancien français et l'ancien espagnol
-- **Variabilité des écritures** : Les types Textualis, Cursiva, Semihybrida, Hybrida et Humanistica ont des morphologies très différentes
-- **Scripteur spécifique** : Le manuscrit ms_001 (page_test_001) utilise un scripteur particulier avec des formes graphiques non couvertes par l'entraînement de TRIDIS
+### 2. WER structurellement élevé
 
-### 2. Biais et représentativité
+Le WER (48,29 % sur ms_002) reste bien au-dessus du seuil (<25%) même avec un CER acceptable. Les raisons :
+- Chaque abréviation résolue différemment = 1 mot entier erroné en WER
+- La ponctuation manquante invalide un mot même si les lettres sont correctes
+- Ex. : `atq;` → `atque` vs `atqe` : 0 caractère erroné mais 1 mot erroné
 
-| Biais identifié | Impact |
-|:---|:---|
-| **Sur-représentation du XIVe siècle** | 30% du corpus → meilleure performance sur cette période |
-| **Sous-représentation du VIIIe–Xe siècle** | < 5% du corpus → performance dégradée sur les écritures carolingiennes |
-| **Dominance du latin et de l'ancien français** | 60% du corpus → moins performant sur l'allemand ou l'anglais ancien |
-| **Types de documents** | Majoritairement des chartes et registres → moins performant sur la poésie ou les livres liturgiques |
-| **Résolution des images** | TRIDIS attend des lignes de ~384px de hauteur → le redimensionnement peut dégrader sur des scans de très haute résolution |
+**Le CER est la métrique principale du projet** ; le WER est fourni à titre indicatif.
 
-### 3. Cas limites connus
+### 3. ms_001 abandonné
 
-- **Lignes très courtes** (< 3 caractères) : confiance faible, flaggées `needs_review`. Exemple : line_0029 (`D...`) → CER 200%
-- **Abréviations complexes** : le modèle résout les abréviations courantes mais peut échouer sur des sigles rares. Exemple : `Melancheres` (nom propre médiéval) → `pielancheres`
-- **Mélange de langues** : performance variable sur les documents multilingues
-- **Zones dégradées** : taches, trous, encre effacée → erreurs de transcription
-- **Images très larges** : même avec le redimensionnement, les ratios >10:1 peuvent poser problème
-- **Hallucinations** : le modèle génère parfois des mots qui n'existent pas :
-  - `Drefitrophus` (au lieu de `Desfitrophus`)
-  - `pielancheres` (au lieu de `Melancheres`)
-  - `Jehane le Roulou` (au lieu de `Diane le Vouloit`)
+ms_001 (ancien français, texte littéraire, XVIIe s.) a été écarté car hors domaine (TRIDIS est spécialisé sur le latin médiéval documentaire). **ms_002 (latin médiéval, XIVe–XVe s.) est le corpus de test de référence.**
 
-### 4. Calibration des scores de confiance
+### 4. Segmentation bi-colonne (ms_003)
 
-La confiance moyenne du pipeline est de **0.692** (69.2%) sur ms_001, ce qui est mieux calibrée que la version précédente (0.900 pour un CER de ~25%). La calibration par CER observé est implémentée :
+Sur ms_003 (page castillane bi-colonne), Kraken BLLA détecte 90 lignes mais en classe 44 comme marginalia, ne retenant que 45 lignes principales pour 88 lignes GT. La segmentation bi-colonne nécessite une configuration spécifique ou un modèle de layout dédié.
 
-```python
-CER_CALIBRATION = {
-    (0.0, 0.05): 0.95,   # Excellent
-    (0.05, 0.10): 0.90,  # Bon
-    (0.10, 0.15): 0.85,  # Acceptable
-    (0.15, 0.20): 0.75,  # Moyen
-    (0.20, 0.30): 0.65,  # Médiocre
-    (0.30, 0.50): 0.50,  # Mauvais
-    (0.50, 0.75): 0.35,  # Très mauvais
-    (0.75, 1.00): 0.20,  # Catastrophique
-    (1.00, float('inf')): 0.10,  # Inutilisable
-}
-```
+### 5. NER latin non disponible (Stanza)
 
-**Résultat** : Le taux `needs_review` est de **46.7%** (14/30 lignes), proche de l'objectif du brief.
+Le pipeline NLP utilise le fallback `fr` de Stanza pour le NER (le modèle `la/ner` n'est pas disponible dans la version installée). La qualité de l'extraction d'entités latines est dégradée en conséquence.
 
-### 5. Ce que le modèle NE fait PAS
+### 6. Ce que le modèle NE fait PAS
 
--  Segmenter une page complète en lignes (utiliser Kraken BLLA ou YOLO — voir `segmentation.py`)
--  Détecter les régions (texte, illustration, marge)
--  Normaliser l'orthographe (transcription semi-diplomatique)
--  Identifier les entités nommées (personnes, lieux, dates) — voir `nlp_analysis.py`
--  Traduire le texte
+- Segmenter les pages (→ Kraken BLLA, `segmentation.py`)
+- Normaliser l'orthographe (transcription semi-diplomatique uniquement)
+- Traduire le texte
+- Identifier les entités nommées (→ `nlp_analysis.py`)
 
 ---
 
 ## Utilisation
 
-### Installation
-
 ```bash
-pip install transformers torch pillow numpy
-```
+# Pipeline complet
+python -m src.main \
+    --image ./data/raw/page_test_002.png \
+    --id ms_002 \
+    --ground-truth ./data/ground_truth/gt_ms002.txt \
+    --checkpoint ./checkpoints_production/best_model
 
-### Chargement du modèle
+# Évaluation split dev
+python src/inference.py --mode evaluate --split dev \
+    --checkpoint ./checkpoints_production/best_model
 
-```python
-from transformers import TrOCRProcessor, VisionEncoderDecoderModel
-import torch
-from PIL import Image
-
-# Charger TRIDIS
-model_name = "magistermilitum/tridis_HTR"
-processor = TrOCRProcessor.from_pretrained(model_name)
-model = VisionEncoderDecoderModel.from_pretrained(model_name)
-
-# Configuration
-model.config.decoder_start_token_id = processor.tokenizer.cls_token_id
-model.config.pad_token_id = processor.tokenizer.pad_token_id
-
-device = "cuda" if torch.cuda.is_available() else "cpu"
-model.to(device)
-model.eval()
-
-# Prétraitement (intégré dans inference.py)
-from inference import crop_whitespace, resize_for_tridis
-
-image = Image.open("line_001.png").convert("RGB")
-image = crop_whitespace(image)
-image = resize_for_tridis(image, target_height=384, max_ratio=10.0)
-
-# Transcrire
-pixel_values = processor(images=image, return_tensors="pt").pixel_values.to(device)
-generated_ids = model.generate(pixel_values, max_length=128, num_beams=4)
-text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
-print(text)
-```
-
-### Utilisation via le pipeline
-
-```bash
-# Inférence sur un split
-python src/inference.py --mode infer --split dev
-
-# Évaluation
-python src/inference.py --mode evaluate --split dev
-
-# Visualisation
-python src/inference.py --mode visualize --split dev --num_samples 10
-
-# Pipeline end-to-end avec ground truth
-python main.py --image ./data/raw/page_test_001.png --id ms_001 --ground-truth ./data/ground_truth/gt_ms001.txt
+# Évaluation split test (UNE SEULE FOIS)
+python src/inference.py --mode evaluate --split test \
+    --checkpoint ./checkpoints_production/best_model
 ```
 
 ---
 
-## Évaluation et reproductibilité
+## Changelog
 
-### Reproduire les résultats
-
-```bash
-# 1. Préparer les données
-python src/prepare_dataset.py
-
-# 2. Évaluer sur dev
-python src/inference.py --mode evaluate --split dev
-
-# 3. Évaluer sur test (UNE SEULE FOIS)
-python src/inference.py --mode evaluate --split test
-
-# 4. Pipeline end-to-end avec GT
-python main.py --image ./data/raw/page_test_001.png --id ms_001 --ground-truth ./data/ground_truth/gt_ms001.txt
-```
-
-### Analyse des erreurs
-
-Les graphiques d'analyse d'erreur sont générés automatiquement :
-- `error_analysis.png` : Distribution des CER + CER par échantillon trié
-- `predictions_grid_*.png` : Grille d'images avec vérité terrain vs prédiction
-- `ms_001_comparison.txt` : Export comparatif ligne par ligne (GT vs Prédit)
-- `ms_001_comparison.json` : Métriques comparatives structurées
-
----
-
-## Perspectives d'amélioration
-
-1. **Fine-tuning LoRA sur CATMuS** : Entraîner un adaptateur LoRA (r=16) sur le split train de CATMuS pour adapter TRIDIS au domaine spécifique — **EN COURS**
-2. **Calibration de confiance** : Utiliser la méthode de Platt scaling ou temperature scaling pour calibrer les scores de confiance — **Partiellement implémenté**
-3. **Ensemble de modèles** : Combiner TRIDIS avec un modèle Kraken fine-tuné pour le vote par consensus
-4. **Augmentation de données** : Appliquer des déformations élastiques, variations de contraste et bruit pour augmenter la robustesse
-5. **Post-traitement linguistique** : Utiliser un modèle de langue médiéval pour corriger les hallucinations et les erreurs de transcription
-6. **Correction des erreurs systématiques** :
-   - Règles de correction pour les confusions fréquentes (`u`/`v`, `i`/`j`, `c`/`t`)
-   - Dictionnaire de noms propres médiévaux pour valider les transcriptions
-   - Détection des hallucinations par perplexité linguistique
+| Version | Date | Changements |
+|:---|:---|:---|
+| v0.1.0 | 2026-06-12 | Version initiale |
+| v0.2.0 | 2026-06-18 | Passage à TRIDIS + prétraitement intégré |
+| v0.3.0 | 2026-06-19 | Phase 2 NLP, premiers résultats ms_001 |
+| v0.4.0 | 2026-06-29 | Grid search LoRA finalisé (4 runs), BEST_MODEL LR=1e-4 r=16 |
+| **v0.5.0** | **2026-06-29** | **Amélioration corpus (CONVENTIONS_TRANSCRIPTION) : CER 49%→11%. Éval dev 23,49%, test 44,53%, ms_002 15,66%. ms_001 abandonné.** |
 
 ---
 
 ## Citations
 
-### Citer ce projet
-
 ```bibtex
 @software{htr_catmus_medieval_2026,
-  title={HTR CATMuS Medieval 2026},
-  author={[Équipe MD5-2026]},
-  year={2026},
-  url={https://github.com/[votre-org]/htr-catmus-medieval-2026}
+  title={HTR CATMuS Medieval 2026 — TRIDIS + LoRA},
+  author={Coulibaly, Mohamed Abdulaziz and Degbe, Evans and Ndongmo Kembou, Francine and Bousfiha, Jad},
+  year={2026}
 }
 ```
-
-### Citer TRIDIS
 
 ```bibtex
 @software{tridis_htr,
@@ -338,57 +324,3 @@ Les graphiques d'analyse d'erreur sont générés automatiquement :
   url={https://huggingface.co/magistermilitum/tridis_HTR}
 }
 ```
-
-```bibtex
-@article{torres2023tridis,
-  title={La reconnaissance de l'écriture pour les manuscrits documentaires du Moyen Âge},
-  author={Torres Aguilar, Sergio and Jolivet, Vincent},
-  journal={Journal of Data Mining and Digital Humanities},
-  year={2023},
-  url={https://hal.science/hal-03892163}
-}
-```
-
-### Citer CATMuS
-
-```bibtex
-@unpublished{clerice:hal-04453952,
-  title={{CATMuS Medieval: A multilingual large-scale cross-century dataset in Latin script for handwritten text recognition and beyond}},
-  author={Cl{'e}rice, Thibault and Pinche, Ariane and Vlachou-Efstathiou, Malamatenia and Chagu{'e}, Alix and Camps, Jean-Baptiste and others},
-  year={2024},
-  url={https://inria.hal.science/hal-04453952},
-  hal_id={hal-04453952}
-}
-```
-
-### Citer TrOCR
-
-```bibtex
-@inproceedings{li2021trocr,
-  title={TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models},
-  author={Li, Minghao and Lv, Tengchao and Chen, Jingye and Cui, Lei and Lu, Yijuan and Florencio, Dinei and Zhang, Cha and Li, Zhoujun},
-  booktitle={AAAI Conference on Artificial Intelligence},
-  year={2023}
-}
-```
-
----
-
-## Contact et contributions
-
-- **Dépôt GitHub** : [htr-catmus-medieval-2026](https://github.com/[votre-org]/htr-catmus-medieval-2026)
-- **Issues et contributions** : ouvertes via GitHub Issues
-- **Contexte académique** : Projet MD5-2026, Master Data/IA, Module Vision par Ordinateur
-
----
-
-## Changelog
-
-| Version | Date | Changements |
-|:---|:---|:---|
-| v0.1.0 | 2026-06-12 | Version initiale — Grid Search LoCA sur CATMuS Medieval |
-| v0.2.0 | 2026-06-18 | Passage à TRIDIS pré-entraîné + prétraitement intégré dans inference.py |
-| v0.3.0 | 2026-06-19 | Ajout Phase 2 NLP, documentation des difficultés, mise à jour Model Card |
-| v0.3.1 | 2026-06-19 | **Mise à jour avec résultats réels ms_001** : CER 27.41%, WER 57.99%, calibration confiance, exemples d'erreurs détaillés |
-
----

@@ -89,7 +89,7 @@ def detect_language(text: str) -> str:
 
 def prepare_catmus_data(
     output_dir="./data/catmus",
-    total_lines=150,  # ← MODIFIÉ : 150 images par défaut
+    total_lines=400,  # ← MODIFIÉ : 150 images par défaut
     train_ratio=0.90,
     dev_ratio=0.05,
     test_ratio=0.05,
@@ -199,7 +199,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("--output_dir", type=str, default="./data/catmus",
                        help="Répertoire de sortie")
-    parser.add_argument("--total_lines", type=int, default=150,  # ← MODIFIÉ : 150 par défaut
+    parser.add_argument("--total_lines", type=int, default=400,  # ← MODIFIÉ : 150 par défaut
                        help="Nombre total de lignes")
     parser.add_argument("--filter_old_french", action="store_true",
                        help="Filtrer uniquement le vieux français")

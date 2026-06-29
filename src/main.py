@@ -35,9 +35,7 @@ NOUVEAUTÉS v0.3.0 :
 
 Conforme au brief MD5-2026 Volet 1/2.
 
-python -m src.main --image ./data/raw/page_test_001.png --id ms_001 --ground-truth ./data/gt_ms001.txt
-
-Après le htr_training et obtention du best_model: python -m src.main --image ./data/raw/page_test_001.png --id ms_001 --ground-truth ./data/ground_truth/gt_ms001.txt --checkpoint ./checkpoints_production/best_model
+Après le htr_training et obtention du best_model: python -m src.main --image ./data/raw/page_test_002.png --id ms_002 --ground-truth ./data/ground_truth/gt_ms002.txt --checkpoint ./checkpoints_production/best_model
 """
 
 import os
@@ -111,6 +109,9 @@ CER_CALIBRATION = {
     (0.75, 1.00): 0.20,
     (1.00, float('inf')): 0.10,
 }
+
+# Seuil d'alerte pour détection de décalage segmentation vs GT
+LINE_COUNT_MISMATCH_THRESHOLD = 0.15  # 15% de différence = alerte
 
 
 def set_seed(seed: int = 42):
@@ -275,6 +276,72 @@ def load_ground_truth_from_catmus(
     return gt if gt else None
 
 
+def align_ground_truth_with_lines(
+    ground_truth: Dict[str, str],
+    lines: List[Any],
+    document_id: str
+) -> Dict[int, str]:
+    """
+    Aligne le ground truth avec les lignes détectées par ordre de lecture.
+
+    Le GT utilise des line_id basés sur les noms de fichiers (ex: ms_002_line_0000)
+    tandis que la segmentation peut renuméroter. Cette fonction crée un mapping
+    par reading_order pour garantir l'alignement correct.
+
+    Args:
+        ground_truth: Dict {line_id: text}
+        lines: Liste des lignes détectées (LinePolygon ou dict)
+        document_id: ID du document
+
+    Returns:
+        Dict {reading_order: text_gt} aligné
+    """
+    if not ground_truth:
+        return {}
+
+    # Helper pour accéder aux attributs (objet ou dict)
+    def _get_attr(obj, attr, default=None):
+        if hasattr(obj, attr):
+            return getattr(obj, attr)
+        elif isinstance(obj, dict) and attr in obj:
+            return obj[attr]
+        return default
+
+    # Stratégie 1 : Essayer le matching exact par line_id
+    gt_by_order = {}
+
+    for line in lines:
+        line_id = _get_attr(line, 'line_id', '')
+        reading_order = _get_attr(line, 'reading_order', 0)
+
+        if line_id in ground_truth:
+            gt_by_order[reading_order] = ground_truth[line_id]
+        else:
+            # Essayer avec le préfixe du document
+            alt_id = f"{document_id}_{line_id}"
+            if alt_id in ground_truth:
+                gt_by_order[reading_order] = ground_truth[alt_id]
+            else:
+                # Essayer sans préfixe
+                if line_id.startswith(f"{document_id}_"):
+                    short_id = line_id[len(document_id)+1:]
+                    if short_id in ground_truth:
+                        gt_by_order[reading_order] = ground_truth[short_id]
+
+    # Stratégie 2 : Si peu de correspondances, aligner séquentiellement
+    if len(gt_by_order) < len(lines) * 0.5 and len(ground_truth) > 0:
+        gt_values = list(ground_truth.values())
+        # Trier les lignes par reading_order
+        sorted_lines = sorted(lines, key=lambda l: _get_attr(l, 'reading_order', 0))
+
+        for i, line in enumerate(sorted_lines):
+            ro = _get_attr(line, 'reading_order', i)
+            if i < len(gt_values) and ro not in gt_by_order:
+                gt_by_order[ro] = gt_values[i]
+
+    return gt_by_order
+
+
 # ============================================================
 # 3. PIPELINE PRINCIPAL (VOLET 1 + VOLET 2)
 # ============================================================
@@ -297,7 +364,10 @@ def run_pipeline(
     """
     Exécute le pipeline complet de traitement d'un manuscrit (Volet 1 + Volet 2).
 
-    NOUVEAUTÉS v0.3.0 :
+    NOUVEAUTÉS v0.4.0 :
+      - Alignement GT par reading_order avec gestion des renumérotations
+      - Intégration marginalia et discarded dans le Data Contract
+      - Détection d'alerte si décalage segmentation vs GT
       - CER/WER comparatif ligne par ligne avec ground truth
       - Calibration des scores de confiance basée sur le CER réel
       - Export comparatif TXT (GT vs Prédit)
@@ -371,6 +441,7 @@ def run_pipeline(
         if verbose:
             print(f"\n[2/7] Segmentation de la page...")
             print(f"      → Méthode : {segmentation_method.upper()}")
+            print(f"      → Filtrage marginalia, lettrines, artefacts")
 
         seg_output_dir = os.path.join(output_dir, "segmentation")
 
@@ -389,8 +460,23 @@ def run_pipeline(
         visualize_segmentation(segmentation, output_path=viz_path)
 
         if verbose:
-            print(f"       {len(segmentation.all_lines)} lignes détectées")
+            print(f"       {len(segmentation.all_lines)} lignes principales détectées")
+            print(f"       {len(segmentation.marginalia)} marginalia exclues")
+            print(f"       {len(segmentation.discarded)} lignes rejetées (artefacts)")
             print(f"       PAGE XML : {os.path.join(seg_output_dir, f'{document_id}.page.xml')}")
+
+        # ALERTE : Vérifier le nombre de lignes vs GT
+        if has_ground_truth:
+            gt_count = len(ground_truth)
+            pred_count = len(segmentation.all_lines)
+            diff_ratio = abs(gt_count - pred_count) / max(gt_count, 1)
+
+            if diff_ratio > LINE_COUNT_MISMATCH_THRESHOLD:
+                print(f"\n   ⚠️  ALERTE : Déséquilibre lignes détectées vs GT")
+                print(f"       GT : {gt_count} lignes | Détecté : {pred_count} lignes")
+                print(f"       Différence : {diff_ratio:.1%}")
+                print(f"       → Vérifiez les marginalia et les lignes rejetées")
+                print(f"       → Vérifiez que le GT correspond bien à cette page")
     else:
         seg_json = os.path.join(output_dir, "segmentation", f"{document_id}_segmentation.json")
         if os.path.exists(seg_json):
@@ -404,7 +490,22 @@ def run_pipeline(
             print(f"\n[2/7] Segmentation sautée")
 
     # ============================================================
-    # ÉTAPE 3 : HTR / TRANSCRIPTION
+    # ÉTAPE 3 : ALIGNEMENT GT AVEC LIGNES DÉTECTÉES
+    # ============================================================
+    if has_ground_truth and not skip_segmentation:
+        gt_aligned = align_ground_truth_with_lines(
+            ground_truth,
+            segmentation.all_lines,
+            document_id
+        )
+        if verbose:
+            print(f"\n[2.5/7] Alignement GT avec lignes détectées...")
+            print(f"       {len(gt_aligned)} lignes GT alignées par reading_order")
+    else:
+        gt_aligned = {}
+
+    # ============================================================
+    # ÉTAPE 4 : HTR / TRANSCRIPTION
     # ============================================================
     if verbose:
         print(f"\n[3/7] Transcription HTR (TRIDIS)...")
@@ -431,11 +532,11 @@ def run_pipeline(
             if os.path.exists(line_img_path):
                 pred_text = transcribe_image(model, processor, line_img_path, device)
 
-                # Calculer le CER/WER si ground truth disponible
+                # Récupérer le GT aligné par reading_order
                 cer, wer = 0.0, 0.0
                 gt_text = ""
-                if has_ground_truth and line.line_id in ground_truth:
-                    gt_text = ground_truth[line.line_id]
+                if gt_aligned and line.reading_order in gt_aligned:
+                    gt_text = gt_aligned[line.reading_order]
                     cer, wer = compute_cer_wer(gt_text, pred_text)
 
                     if verbose and (i + 1) % 5 == 0:
@@ -451,7 +552,7 @@ def run_pipeline(
                     confidence = _estimate_confidence(pred_text, line.confidence)
             else:
                 pred_text = "[IMAGE_MANQUANTE]"
-                gt_text = ground_truth.get(line.line_id, "") if has_ground_truth else ""
+                gt_text = gt_aligned.get(line.reading_order, "") if gt_aligned else ""
                 cer, wer = 1.0, 1.0
                 confidence = 0.10
 
@@ -562,11 +663,14 @@ def run_pipeline(
         if has_ground_truth:
             f.write(f"CER global : {global_cer:.2%}\n")
             f.write(f"WER global : {global_wer:.2%}\n")
-            f.write(f"Lignes comparées : {len([t for t in transcriptions if t.get('ground_truth')])}\n")
+            f.write(f"Lignes transcrites : {len(transcriptions)}\n")
+            f.write(f"Lignes GT alignées : {len([t for t in transcriptions if t.get('ground_truth')])}\n")
+            f.write(f"Marginalia détectées : {len(segmentation.marginalia)}\n")
+            f.write(f"Lignes rejetées : {len(segmentation.discarded)}\n")
             f.write(f"\n{'='*80}\n\n")
 
         for trans in transcriptions:
-            f.write(f"--- {trans['line_id']} ---\n")
+            f.write(f"--- {trans['line_id']} (ro={trans['reading_order']}) ---\n")
             if trans.get("ground_truth"):
                 f.write(f"GT   : {trans['ground_truth']}\n")
                 f.write(f"PRED : {trans['text']}\n")
@@ -576,11 +680,35 @@ def run_pipeline(
                 f.write(f"CONF : {trans['confidence']:.2f} (sans GT)\n")
             f.write(f"\n")
 
+        # Section marginalia
+        if segmentation.marginalia:
+            f.write(f"\n{'='*80}\n")
+            f.write(f"MARGINALIA DÉTECTÉES (exclues du HTR)\n")
+            f.write(f"{'='*80}\n\n")
+            for marg in segmentation.marginalia:
+                f.write(f"--- {marg.line_id} ---\n")
+                f.write(f"BBOX : {marg.bbox}\n")
+                f.write(f"CONF : {marg.confidence:.2f}\n\n")
+
+        # Section discarded
+        if segmentation.discarded:
+            f.write(f"\n{'='*80}\n")
+            f.write(f"LIGNES REJETÉES (artefacts, trop petites)\n")
+            f.write(f"{'='*80}\n\n")
+            for disc in segmentation.discarded:
+                f.write(f"Raison : {disc.get('reason', 'unknown')} | BBOX : {disc.get('bbox', 'N/A')}\n")
+
     # Export JSON comparatif détaillé
     comparison_json_path = os.path.join(output_dir, f"{document_id}_comparison.json")
     comparison_data = {
         "document_id": document_id,
         "has_ground_truth": has_ground_truth,
+        "segmentation_info": {
+            "num_lines_detected": len(segmentation.all_lines) if segmentation else 0,
+            "num_marginalia": len(segmentation.marginalia) if segmentation else 0,
+            "num_discarded": len(segmentation.discarded) if segmentation else 0,
+            "line_count_alert": has_ground_truth and segmentation and abs(len(ground_truth) - len(segmentation.all_lines)) / max(len(ground_truth), 1) > LINE_COUNT_MISMATCH_THRESHOLD if segmentation else False
+        },
         "metrics": {
             "cer_global": global_cer,
             "wer_global": global_wer,
@@ -591,14 +719,35 @@ def run_pipeline(
         "lines": [
             {
                 "line_id": t["line_id"],
+                "reading_order": t["reading_order"],
                 "ground_truth": t.get("ground_truth", ""),
                 "prediction": t["text"],
                 "cer": t.get("cer", 0.0),
                 "wer": t.get("wer", 0.0),
                 "confidence": t["confidence"],
-                "needs_review": any(e["needs_review"] for e in lines_entries if e["line_id"] == t["line_id"])
+                "needs_review": any(e["needs_review"] for e in lines_entries if e["line_id"] == t["line_id"]),
+                "region_type": t.get("region_type", "main_text")
             }
             for t in transcriptions
+        ],
+        "marginalia": [
+            {
+                "line_id": m.line_id,
+                "bbox": m.bbox,
+                "confidence": m.confidence,
+                "polygon": m.polygon
+            }
+            for m in (segmentation.marginalia if segmentation else [])
+        ],
+        "discarded": [
+            {
+                "reason": d.get("reason", "unknown"),
+                "bbox": d.get("bbox", None),
+                "height": d.get("height", None),
+                "width": d.get("width", None),
+                "kraken_type": d.get("kraken_type", None)
+            }
+            for d in (segmentation.discarded if segmentation else [])
         ]
     }
     with open(comparison_json_path, "w", encoding="utf-8") as f:
@@ -663,7 +812,7 @@ def run_pipeline(
         "document_id": document_id,
         "image_path": image_path,
         "output_dir": output_dir,
-        "pipeline_version": "2.1.0",
+        "pipeline_version": "2.2.0",
         "pipeline_stages": {
             "preprocessing": {
                 "skipped": skip_preprocessing,
@@ -673,6 +822,9 @@ def run_pipeline(
                 "skipped": skip_segmentation,
                 "method": segmentation_method,
                 "num_lines_detected": len(segmentation.all_lines) if segmentation else 0,
+                "num_marginalia": len(segmentation.marginalia) if segmentation else 0,
+                "num_discarded": len(segmentation.discarded) if segmentation else 0,
+                "line_count_alert": has_ground_truth and segmentation and abs(len(ground_truth) - len(segmentation.all_lines)) / max(len(ground_truth), 1) > LINE_COUNT_MISMATCH_THRESHOLD,
                 "segmentation_json": os.path.join(output_dir, "segmentation", f"{document_id}_segmentation.json"),
                 "segmentation_pagexml": os.path.join(output_dir, "segmentation", f"{document_id}.page.xml"),
                 "visualization": os.path.join(output_dir, "segmentation", f"{document_id}_visualization.png"),
@@ -700,6 +852,22 @@ def run_pipeline(
         "full_text": full_text,
         "ground_truth_text": full_ground_truth if has_ground_truth else None,
         "lines": lines_entries,
+        "marginalia": [
+            {
+                "line_id": m.line_id,
+                "bbox": m.bbox,
+                "confidence": m.confidence,
+                "polygon": m.polygon
+            }
+            for m in (segmentation.marginalia if segmentation else [])
+        ],
+        "discarded_summary": [
+            {
+                "reason": d.get("reason", "unknown"),
+                "bbox": d.get("bbox", None)
+            }
+            for d in (segmentation.discarded if segmentation else [])
+        ],
         "metadata": {
             "processed_at": __import__("datetime").datetime.now().isoformat(),
             "htr_available": HTR_AVAILABLE,
@@ -718,6 +886,9 @@ def run_pipeline(
         json.dump({
             "document_id": document_id,
             "num_lines": len(transcriptions),
+            "num_marginalia": len(segmentation.marginalia) if segmentation else 0,
+            "num_discarded": len(segmentation.discarded) if segmentation else 0,
+            "line_count_alert": has_ground_truth and segmentation and abs(len(ground_truth) - len(segmentation.all_lines)) / max(len(ground_truth), 1) > LINE_COUNT_MISMATCH_THRESHOLD,
             "avg_confidence": avg_confidence,
             "needs_review_rate": review_rate,
             "has_ground_truth": has_ground_truth,
@@ -742,6 +913,8 @@ def run_pipeline(
         print(f"     Volet 1 (HTR) : {len(transcriptions)} lignes transcrites")
         if has_ground_truth:
             print(f"     CER global : {global_cer:.2%} | WER global : {global_wer:.2%}")
+        if segmentation:
+            print(f"     Marginalia : {len(segmentation.marginalia)} | Rejetées : {len(segmentation.discarded)}")
         if nlp_results:
             print(f"     Volet 2 (NLP) : {nlp_results['num_entities']} entités, {nlp_results['num_relations']} relations")
         print(f"{'='*70}")
@@ -778,13 +951,14 @@ def _mock_transcription(segmentation, lines_dir: str) -> List[Dict]:
 
         transcriptions.append({
             "line_id": line.line_id,
+            "reading_order": line.reading_order,
             "text": text,
             "ground_truth": "",
             "cer": 0.0,
             "wer": 0.0,
             "confidence": confidence,
             "polygon": line.polygon,
-            "reading_order": line.reading_order
+            "region_type": line.region_type
         })
 
     return transcriptions
@@ -818,7 +992,10 @@ def main():
 ═══════════════════════════════════════════════════════════════════════════════
   PIPELINE END-TO-END : Page → Segmentation → HTR → NLP
 
-  NOUVEAUTÉS v2.1 :
+  NOUVEAUTÉS v2.2 :
+    → Alignement GT par reading_order (gère renumérotation segmentation)
+    → Détection d'alerte si décalage segmentation vs GT
+    → Intégration marginalia et discarded dans le Data Contract
     → CER/WER comparatif avec --ground_truth
     → Calibration des confiances sur le CER réel
     → Export comparatif TXT (GT vs Prédit)

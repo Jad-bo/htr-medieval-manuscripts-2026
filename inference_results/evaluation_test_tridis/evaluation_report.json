@@ -1,9 +1,10 @@
 {
-  "cer": 0.3700787401574803,
-  "wer": 0.7154150197628458,
-  "accuracy": 0.6299212598425197,
-  "num_samples": 15,
+  "cer": 0.4452773613193403,
+  "wer": 0.7106741573033708,
+  "accuracy": 0.5547226386806596,
+  "num_samples": 20,
   "model": "magistermilitum/tridis_HTR",
-  "model_type": "tridis_pretrained",
-  "checkpoint": "N/A (mod\u00e8le pr\u00e9-entra\u00een\u00e9 HuggingFace)"
+  "model_type": "tridis_lora_finetuned",
+  "checkpoint": "./checkpoints_production/best_model",
+  "lora_loaded": true
 }

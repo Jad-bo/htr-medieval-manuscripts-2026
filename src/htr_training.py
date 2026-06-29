@@ -137,8 +137,7 @@ class MedievalHTRDataset(torch.utils.data.Dataset):
             sample["text"],
             padding=False,
             max_length=self.max_length,
-            truncation=True,
-            return_dict=False
+            truncation=True
         )["input_ids"]
 
         labels = [label if label != self.processor.tokenizer.pad_token_id else -100 for label in labels]
@@ -367,7 +366,7 @@ def plot_final_summary(all_histories: Dict[str, Dict], output_dir: str):
     plot_path = os.path.join(output_dir, "all_runs_cer_comparison.png")
     plt.savefig(plot_path, dpi=150, bbox_inches='tight')
     plt.close()
-    print(f"  📊 Graphe comparatif global sauvegardé : {plot_path}")
+    print(f"   Graphe comparatif global sauvegardé : {plot_path}")
 
 
 # ============================================================
@@ -505,7 +504,7 @@ def run_single_training(
 
     # Vérification des fichiers
     if not os.path.exists(train_labels) or not os.path.exists(dev_labels):
-        print("❌ Fichiers de données non trouvés !")
+        print(" Fichiers de données non trouvés !")
         print(f"   Train : {train_labels}")
         print(f"   Dev   : {dev_labels}")
         return {}
@@ -517,10 +516,10 @@ def run_single_training(
     eval_dataset = MedievalHTRDataset(image_dir, dev_labels, processor, max_length=max_length)
 
     if len(train_dataset) == 0:
-        print("❌ Dataset d'entraînement vide !")
+        print(" Dataset d'entraînement vide !")
         return {}
 
-    print(f"📊 Dataset : {len(train_dataset)} train | {len(eval_dataset)} dev")
+    print(f" Dataset : {len(train_dataset)} train | {len(eval_dataset)} dev")
 
     metrics_callback = MetricsHistoryCallback()
 
@@ -533,7 +532,7 @@ def run_single_training(
         learning_rate=learning_rate,
         num_train_epochs=epochs,
         logging_steps=10,
-        eval_strategy="epoch",
+        evaluation_strategy="epoch",
         save_strategy="epoch",
         save_total_limit=2,
         load_best_model_at_end=True,
@@ -551,7 +550,7 @@ def run_single_training(
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
         data_collator=custom_data_collator,
-        processing_class=processor,
+        tokenizer=processor,
         compute_metrics=build_compute_metrics(processor),
         callbacks=[
             metrics_callback,
@@ -560,7 +559,7 @@ def run_single_training(
         ]
     )
 
-    print("\n🚀 Début de l'entraînement...")
+    print("\n Début de l'entraînement...")
     trainer.train()
 
     eval_results = trainer.evaluate()
@@ -593,7 +592,7 @@ def run_single_training(
         with open(os.path.join(final_dest, "best_config.json"), "w") as f:
             json.dump(config, f, indent=2)
 
-        print(f"\n💾 Modèle sauvegardé dans : {final_dest}")
+        print(f"\n Modèle sauvegardé dans : {final_dest}")
 
     # Graphes
     plot_training_curves(metrics_callback.history, output_dir, "fine_tuning")
@@ -699,7 +698,7 @@ def run_grid_search(
                 learning_rate=lr,
                 num_train_epochs=epochs,
                 logging_steps=10,
-                eval_strategy="epoch",
+                evaluation_strategy="epoch",
                 save_strategy="epoch",
                 save_total_limit=2,
                 load_best_model_at_end=True,
@@ -717,7 +716,7 @@ def run_grid_search(
                 train_dataset=train_dataset,
                 eval_dataset=eval_dataset,
                 data_collator=custom_data_collator,
-                processing_class=processor,
+                tokenizer=processor,
                 compute_metrics=build_compute_metrics(processor),
                 callbacks=[
                     metrics_callback,
